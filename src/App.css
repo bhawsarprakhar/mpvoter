@@ -1,5 +1,5 @@
 /* / poll form css / */
-h1,h2,h3,h4,h5,h6,p,label,body{
+h1,h2,h3,h4,h5,h6,p,label,body,input{
 
   color: #3f0c01;
 
@@ -15,20 +15,28 @@ h1,h2,h3,h4,h5,h6,p,label,body{
   padding: 39px;
   border-radius: 20px;
   box-shadow: 0px 0px 2px 2px #0000001a;
+ 
 }
-
-.poll-form select {
-  border-bottom: 1px solid #8080803d !IMPORTANT;
+.poll-form input::placeholder {
+  color: #c1c1c1;
+}
+.poll-form select,.poll-form input:not(input[type="radio"]){
+  border-bottom: 1px solid #C1C1C1 !IMPORTANT;
   padding: 9px 9px;
   border: none;
   cursor: pointer;
+  border-radius:0 ;
 }
-.poll-form select:focus-visible {
-outline: none;  
+.poll-form select:focus-visible ,.poll-form input:focus-visible ,.poll-form input:focus{
+outline: none; 
+box-shadow: none; 
+}
+.poll-form input{
+  cursor: auto !important;  
 }
 .poll-form button[type=submit]{
 width: 100%;
-background: #186f65;
+background: #35CCED;
 border: none;
 }
 
@@ -47,6 +55,7 @@ border: none;
   height: 100vh;
   display: flex;
   align-items: center;
+  flex-direction: column;
 }
 
 @media(max-width:600px){
@@ -55,5 +64,8 @@ border: none;
 }
   .poll-form h2 {
     font-size: 22px;
+}
+.poll-form form {
+  padding: 39px 20px;
 }
 }

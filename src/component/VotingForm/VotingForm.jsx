@@ -145,7 +145,7 @@ const Drop = () => {
           Other
           <label class="form-check-label" for="radio1"></label>
         </div>
-        <button type="submit" class="btn btn-primary mt-4">
+        <button type="submit" class="btn btn-primary btn-lg mt-4">
           Submit
         </button>
       </form>
