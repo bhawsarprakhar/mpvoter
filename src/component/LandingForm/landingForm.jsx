@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import OtpInput from "react-otp-input";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
-const LandingForm = () => {
+const Signup = () => {
   const [formValue, setFormValue] = useState({
     name: "",
     email: "",
-    // password: "",
-    // repassword: "",
+    phone:"",
+    password: "",
+    repassword: "",
   });
   const [passwordError, setPasswordError] = useState();
   const [otp, setOtp] = useState(false);
@@ -51,29 +52,29 @@ const LandingForm = () => {
 
   const signIn = async (e) => {
     e.preventDefault();
-
+    navigate("/voting-form");
     console.log(formValue);
 
-    if (formValue.password !== formValue.repassword) {
-      setPasswordError(true);
-    } else {
-      setPasswordError(false);
-      const result = await axios.post(
-        `${process.env.REACT_APP_BASE_URL}/api/auth/register`,
-        formValue,
-        {
-          validateStatus: () => true,
-        }
-      );
-      if (result && result.status === 200) {
-        // Update user isVerified
-        setOtp(true);
-      } else if (result && result.status === 400) {
-        alert("Invalid Input");
-      } else if (result && result.status === 409) {
-        alert("Email already use");
-      }
-    }
+    // if (formValue.password !== formValue.repassword) {
+    //   setPasswordError(true);
+    // } else {
+    //   setPasswordError(false);
+      // const result = await axios.post(
+      //   `${process.env.REACT_APP_BASE_URL}/api/auth/register`,
+      //   formValue,
+      //   {
+      //     validateStatus: () => true,
+      //   }
+      // );
+      // if (result && result.status === 200) {
+      //   // Update user isVerified
+      //   setOtp(true);
+      // } else if (result && result.status === 400) {
+      //   alert("Invalid Input");
+      // } else if (result && result.status === 409) {
+      //   alert("Email already use");
+      // }
+    // }
   };
 
   const reSendotp = async (e) => {
@@ -104,7 +105,7 @@ const LandingForm = () => {
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-lg-12 col-xl-11">
-              <div className="card text-black">
+              <div className="card text-black mt-4">
                 <div className="card-body p-md-5">
                   <div className="row justify-content-center">
                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
@@ -150,7 +151,7 @@ const LandingForm = () => {
                             className="mx-1 mx-md-4"
                             onSubmit={(e) => signIn(e)}
                           >
-                            <div className="d-flex flex-row align-items-center mb-4">
+                            {/* <div className="d-flex flex-row align-items-center mb-4">
                               <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                               <div className="form-outline flex-fill mb-0">
                                 <input
@@ -168,17 +169,36 @@ const LandingForm = () => {
                                   Your Name
                                 </label>
                               </div>
-                            </div>
+                            </div> */}
 
                             <div className="d-flex flex-row align-items-center mb-4">
-                              <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                              <i class="fas fa-solid fa-phone fa-lg me-3 fa-fw"></i>
+                              <div className="form-outline flex-fill mb-0">
+                                <input
+                                  type="text"
+                                  id="form3Example3c"
+                                  className="form-control"
+                                  required
+                                  name="email"
+                                  onChange={handleChange}
+                                />
+                                <label
+                                  className="form-label"
+                                  for="form3Example3c"
+                                >
+                                  Your number
+                                </label>
+                              </div>
+                            </div>
+                            <div className="d-flex flex-row align-items-center mb-4">
+                            <i class="fa-solid fa-envelope fas fa-lg me-3 fa-fw"></i>
                               <div className="form-outline flex-fill mb-0">
                                 <input
                                   type="email"
                                   id="form3Example3c"
                                   className="form-control"
                                   required
-                                  name="email"
+                                  name="phone"
                                   onChange={handleChange}
                                 />
                                 <label
@@ -190,7 +210,7 @@ const LandingForm = () => {
                               </div>
                             </div>
 
-                            {/* <div className="d-flex flex-row align-items-center mb-4">
+                            <div className="d-flex flex-row align-items-center mb-4">
                               <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                               <div className="form-outline flex-fill mb-0">
                                 <input
@@ -208,7 +228,7 @@ const LandingForm = () => {
                                   Password
                                 </label>
                               </div>
-                            </div> */}
+                            </div>
 
                             {/* <div className="d-flex flex-row align-items-center mb-4">
                               <i className="fas fa-key fa-lg me-3 fa-fw"></i>
@@ -238,7 +258,7 @@ const LandingForm = () => {
                               </div>
                             </div> */}
 
-                            {/* <div className="form-check d-flex justify-content-center mb-5">
+                            <div className="form-check d-flex justify-content-center mb-5">
                               <input
                                 className="form-check-input me-2"
                                 type="checkbox"
@@ -256,7 +276,7 @@ const LandingForm = () => {
                                 I agree all statements in{" "}
                                 <a href="#!">Terms of service</a>
                               </label>
-                            </div> */}
+                            </div>
 
                             <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                               <button
@@ -267,22 +287,30 @@ const LandingForm = () => {
                               </button>
                             </div>
                           </form>
-                          {/* <div>
+                          <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                            <button
+                              type="submit"
+                              className="btn border border-solid btn-lg"
+                            >
+                              SignUp With Gmail
+                            </button>
+                          </div>
+                          <div>
                             <p className="have-acc">
                               Already have an account ?{" "}
                               <Link to="/login">Log In</Link>
                             </p>
-                          </div> */}
+                          </div>
                         </>
                       )}
                     </div>
-                    {/* <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                    <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
                       <img
                         src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
                         className="img-fluid"
                         alt="Sample image"
                       />
-                    </div> */}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -293,4 +321,4 @@ const LandingForm = () => {
     </div>
   );
 };
-export default LandingForm;
+export default Signup;
