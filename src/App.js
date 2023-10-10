@@ -5,6 +5,7 @@ import LandingForm from './component/LandingForm/landingForm';
 // import SignUp from '../src/screens/SignUp';
 import Login from './component/SignInForm.jsx';
 import VotingForm from './component/VotingForm/VotingForm';
+import BrandExample from './component/Header/Header';
 // import Dashboard from '../src/screens/Dashboard';
 // import Form from '../src/screens/Form';
 // import UpdateForm from '../src/screens/UpdateForm';
@@ -12,6 +13,7 @@ import VotingForm from './component/VotingForm/VotingForm';
 function App() {
   return (
     <div>
+      <BrandExample />
       <Router>
         <Routes>
           <Route path='/' element={<LandingForm />}></Route>

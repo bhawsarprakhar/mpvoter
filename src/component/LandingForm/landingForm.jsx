@@ -172,11 +172,11 @@ const Signup = () => {
                             </div> */}
 
                             <div className="d-flex flex-row align-items-center mb-4">
-                              <i class="fas fa-solid fa-phone fa-lg me-3 fa-fw"></i>
+                              <i className="fas fa-solid fa-phone fa-lg me-3 fa-fw"></i>
                               <div className="form-outline flex-fill mb-0">
                                 <input
                                   type="text"
-                                  id="form3Example3c"
+                                  id="form3Example2c"
                                   className="form-control"
                                   required
                                   name="email"
@@ -184,14 +184,14 @@ const Signup = () => {
                                 />
                                 <label
                                   className="form-label"
-                                  for="form3Example3c"
+                                  htmlFor="form3Example2c"
                                 >
                                   Your number
                                 </label>
                               </div>
                             </div>
                             <div className="d-flex flex-row align-items-center mb-4">
-                            <i class="fa-solid fa-envelope fas fa-lg me-3 fa-fw"></i>
+                            <i className="fa-solid fa-envelope fas fa-lg me-3 fa-fw"></i>
                               <div className="form-outline flex-fill mb-0">
                                 <input
                                   type="email"
@@ -203,7 +203,7 @@ const Signup = () => {
                                 />
                                 <label
                                   className="form-label"
-                                  for="form3Example3c"
+                                  htmlFor="form3Example3c"
                                 >
                                   Your Email
                                 </label>
@@ -223,7 +223,7 @@ const Signup = () => {
                                 />
                                 <label
                                   className="form-label"
-                                  for="form3Example4c"
+                                  htmlFor="form3Example4c"
                                 >
                                   Password
                                 </label>
@@ -263,14 +263,14 @@ const Signup = () => {
                                 className="form-check-input me-2"
                                 type="checkbox"
                                 value=""
-                                id="form2Example3c"
+                                id="form2Example5c"
                                 required
                                 name="terms"
                                 onChange={handleChange}
                               />
                               <label
                                 className="form-check-label"
-                                for="form2Example3"
+                                htmlFor="form2Example3c"
                                 required
                               >
                                 I agree all statements in{" "}
