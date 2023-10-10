@@ -81,7 +81,7 @@ const Drop = () => {
         <h2 className="mb-4">Welcome To MP Voter</h2>
 
         <div className="select">
-          <label className="h5">Select Your District(ज़िला):</label>
+          <label className="h5">Select Your District/ज़िला:</label>
           <select value={selectedCategory} onChange={handleCategoryChange}>
             <option value="">Select...</option>
             {districts.map((category) => (
@@ -94,7 +94,7 @@ const Drop = () => {
 
         {selectedCategory && (
           <div className="select">
-            <label className="h5">Select Your Assembly(विधानसभा):</label>
+            <label className="h5">Select Your Assembly/विधानसभा:</label>
             <select
               value={selectedSubcategory}
               onChange={(e) => setSelectedSubcategory(e.target.value)}
@@ -112,40 +112,40 @@ const Drop = () => {
             </select>
           </div>
         )}
-        <div className="form-check">
+        <div class="form-check">
           <input
             type="radio"
-            className="form-check-input"
+            class="form-check-input"
             id="radio1"
             name="optradio"
             value="option1"
           />
           BJP
-          <label className="form-check-label" for="radio1"></label>
+          <label class="form-check-label" for="radio1"></label>
         </div>
-        <div className="form-check">
+        <div class="form-check">
           <input
             type="radio"
-            className="form-check-input"
+            class="form-check-input"
             id="radio1"
             name="optradio"
             value="option1"
           />
           Congress
-          <label className="form-check-label" for="radio1"></label>
+          <label class="form-check-label" for="radio1"></label>
         </div>
-        <div className="form-check">
+        <div class="form-check">
           <input
             type="radio"
-            className="form-check-input"
+            class="form-check-input"
             id="radio1"
             name="optradio"
             value="option1"
           />
           Other
-          <label className="form-check-label" for="radio1"></label>
+          <label class="form-check-label" for="radio1"></label>
         </div>
-        <button type="submit" className="btn btn-primary mt-4">
+        <button type="submit" class="btn btn-primary mt-4">
           Submit
         </button>
       </form>

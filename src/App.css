@@ -1,4 +1,9 @@
 /* / poll form css / */
+h1,h2,h3,h4,h5,h6,p,label,body{
+
+  color: #3f0c01;
+
+}
 .poll-form .select {
   display: flex;
   flex-direction: column;
@@ -16,13 +21,17 @@
   border-bottom: 1px solid #8080803d !IMPORTANT;
   padding: 9px 9px;
   border: none;
+  cursor: pointer;
 }
 .poll-form select:focus-visible {
 outline: none;  
 }
-.poll-form button{
+.poll-form button[type=submit]{
 width: 100%;
+background: #186f65;
+border: none;
 }
+
 
 .form-check-input {
   cursor: pointer;
