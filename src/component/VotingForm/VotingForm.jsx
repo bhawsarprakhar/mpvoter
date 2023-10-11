@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 
 const Drop = () => {
-  // Define state variables for the selected values in each dropdown
+  const [formValue, setFormValue] = useState({
+    district: "",
+    assembly: "",
+    politicsParty: "",
+    description:"",
+  });
+
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedSubcategory, setSelectedSubcategory] = useState("");
 
-  // Define your data for categories and subcategories
   const districts = [
     { id: "1", name: "Agar Malwa" },
     { id: "2", name: "Alirajpur" },
@@ -61,64 +66,91 @@ const Drop = () => {
   ];
 
   const subcategories = [
-    { id: "a", name: "Indore A", category: "1" },
-    { id: "b", name: "Indore B", category: "1" },
-    { id: "c", name: "Bhopal C", category: "2" },
+    { id: "a", name: "Indore A", category: "Agar Malwa" },
+    { id: "b", name: "Indore B", category: "Agar Malwa" },
+    { id: "c", name: "Bhopal C", category: "Agar Malwa" },
     { id: "d", name: "Bhopal D", category: "2" },
     { id: "e", name: "Riva E", category: "3" },
   ];
 
+  const submitData = async (e) => {
+    e.preventDefault();
+    console.log(formValue);
+
+    // navigate("/dashboard", { state: myData });
+  };
   // Function to handle the category selection
   const handleCategoryChange = (e) => {
     const selectedValue = e.target.value;
+    setFormValue({ ...formValue, [e.target.name]: e.target.value });
     setSelectedCategory(selectedValue);
     setSelectedSubcategory(""); // Reset subcategory selection
+  };
+  const selectAssembly = (e) => {
+    setFormValue({ ...formValue, [e.target.name]: e.target.value });
+  };
+  const selectPolitics = (e) => {
+    setFormValue({ ...formValue, [e.target.name]: e.target.value });
+  };
+  const selectDescription = (e) => {
+    setFormValue({ ...formValue, [e.target.name]: e.target.value });
   };
 
   return (
     <div className="container poll-form">
-      <form className="col-12 m-auto col-lg-6">
-        <h2 className="mb-4">Welcome To MP Voter</h2>
+      <form className="col-12 m-auto col-lg-6" onSubmit={(e) => submitData(e)}>
+        <h2 className="mb-4">Welcome {"Name"} To MP Voter</h2>
 
         <div className="select">
           <label className="h5">Select Your District/ज़िला:</label>
-          <select value={selectedCategory} onChange={handleCategoryChange}>
+          <select
+            required
+            name="district"
+            //value={selectedCategory}
+            //value={selectedCategory}
+            onChange={handleCategoryChange}
+          >
             <option value="">Select...</option>
             {districts.map((category) => (
-              <option key={category.id} value={category.id}>
+              <option key={category.id} value={category.name}>
                 {category.name}
               </option>
             ))}
           </select>
         </div>
 
-        {selectedCategory && (
-          <div className="select">
-            <label className="h5">Select Your Assembly/विधानसभा:</label>
-            <select
-              value={selectedSubcategory}
-              onChange={(e) => setSelectedSubcategory(e.target.value)}
-            >
-              <option value="">Select...</option>
-              {subcategories
-                .filter(
-                  (subcategory) => subcategory.category === selectedCategory
-                )
-                .map((subcategory) => (
-                  <option key={subcategory.id} value={subcategory.id}>
-                    {subcategory.name}
-                  </option>
-                ))}
-            </select>
-          </div>
-        )}
+        {/* {selectedCategory && ( */}
+        <div className="select">
+          <label className="h5">Select Your Assembly/विधानसभा:</label>
+          <select
+            required
+            name="assembly"
+            //value={selectedSubcategory}
+            // onChange={(e) => setSelectedSubcategory(e.target.value)}
+            onChange={selectAssembly}
+          >
+            <option value="">Select...</option>
+            {subcategories
+              .filter(
+                (subcategory) => subcategory.category === selectedCategory
+              )
+              .map((subcategory) => (
+                <option key={subcategory.id} value={subcategory.name}>
+                  {subcategory.name}
+                </option>
+              ))}
+          </select>
+        </div>
+        {/* )} */}
         <div class="form-check">
           <input
             type="radio"
             class="form-check-input"
             id="radio1"
-            name="optradio"
-            value="option1"
+            name="politicsParty"
+            // value="option1"
+            onChange={selectPolitics}
+            required
           />
           BJP
           <label class="form-check-label" for="radio1"></label>
@@ -128,8 +160,10 @@ const Drop = () => {
             type="radio"
             class="form-check-input"
             id="radio1"
-            name="optradio"
-            value="option1"
+            name="politicsParty"
+            onChange={selectPolitics}
+            required
+            // value="option1"
           />
           Congress
           <label class="form-check-label" for="radio1"></label>
@@ -139,14 +173,16 @@ const Drop = () => {
             type="radio"
             class="form-check-input"
             id="radio1"
-            name="optradio"
-            value="option1"
+            name="politicsParty"
+            onChange={selectPolitics}
+            required
+            // value="option1"
           />
           Other
           <label class="form-check-label" for="radio1"></label>
         </div>
-        <textarea class="form-control mt-4 " id="exampleFormControlTextarea1" rows="3" placeholder="Comment"></textarea>
-        <button type="submit" class="btn btn-primary btn-lg mt-4">
+        <textarea onChange={selectDescription} class="form-control mt-4" id="exampleFormControlTextarea1" name="description" rows="3" placeholder="Comment"></textarea>
+        <button type="submit" class="btn btn-primary mt-4">
           Submit
         </button>
 
