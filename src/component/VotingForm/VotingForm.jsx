@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Subcategories } from "./AssemblyName";
 
 const Drop = () => {
+  const subcategories = Subcategories.name
   const navigate = useNavigate();
   const [formValue, setFormValue] = useState({
     district: "",
@@ -67,13 +69,9 @@ const Drop = () => {
     { id: "51", name: "Vidisha" },
   ];
 
-  const subcategories = [
-    { id: "a", name: "Indore A", category: "Agar Malwa" },
-    { id: "b", name: "Indore B", category: "Agar Malwa" },
-    { id: "c", name: "Bhopal C", category: "Agar Malwa" },
-    { id: "d", name: "Bhopal D", category: "2" },
-    { id: "e", name: "Riva E", category: "3" },
-  ];
+  // const subcategories = [
+  //   { id: "1", name: "Indore A", district: "Agar Malwa" }, 
+  // ];
 
   const submitData = async (e) => {
     e.preventDefault();
@@ -134,11 +132,11 @@ const Drop = () => {
             <option value="">Select...</option>
             {subcategories
               .filter(
-                (subcategory) => subcategory.category === selectedCategory
+                (subcategory) => subcategory.District === selectedCategory
               )
               .map((subcategory) => (
-                <option key={subcategory.id} value={subcategory.name}>
-                  {subcategory.name}
+                <option key={subcategory.id} value={subcategory.Name}>
+                  {subcategory.Name}
                 </option>
               ))}
           </select>
