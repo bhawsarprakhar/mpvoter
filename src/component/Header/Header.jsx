@@ -10,8 +10,8 @@ function BrandExample() {
           <Navbar.Brand href="#home">
             <img
               src={logo}
-              width="30"
-              height="30"
+              width="80"
+              height="80"
               className="d-inline-block align-top"
               alt="React Bootstrap logo"
             />

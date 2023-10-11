@@ -40,21 +40,14 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <section className="vh-100">
-        <div className="container h-100">
-          <div className="row d-flex justify-content-center align-items-center h-100">
-            <div className="col-lg-12 col-xl-11">
-              <div className="card text-black">
-                <div className="card-body p-md-5">
-                  <div className="row justify-content-center">
-                    <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                      <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
-                        Login
-                      </p>
-                      <form className="mx-1 mx-md-4" onSubmit={(e) => LogIn(e)}>
+    
+     
+        <div className="container poll-form">
+
+                
+                      <form className="col-12 m-auto col-lg-6" onSubmit={(e) => LogIn(e)}>
+                      <h2 class="mb-4 text-center">Login</h2>
                         <div className="d-flex flex-row align-items-center mb-4">
-                          <i class="fas fa-solid fa-phone fa-lg me-3 fa-fw"></i>
                           <div className="form-outline flex-fill mb-0">
                             <input
                               type="text"
@@ -62,16 +55,13 @@ const Login = () => {
                               className="form-control"
                               required
                               name="email"
+                              placeholder=" Your number"
                               onChange={handleChange}
                             />
-                            <label className="form-label" for="form3Example3c">
-                              Your number
-                            </label>
                           </div>
                         </div>
 
                         <div className="d-flex flex-row align-items-center mb-4">
-                          <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                           <div className="form-outline flex-fill mb-0">
                             <input
                               type="password"
@@ -79,44 +69,30 @@ const Login = () => {
                               className="form-control"
                               required
                               name="password"
+                              placeholder="Password"
                               onChange={(e) => handleChange(e)}
                             />
-                            <label className="form-label" for="form3Example4c">
-                              Password
-                            </label>
                           </div>
                         </div>
 
-                        <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                        
                           <button
                             type="submit"
-                            className="btn btn-primary btn-lg"
+                            className="btn btn-primary btn-lg mb-4"
                           >
                             LOGIN
                           </button>
-                        </div>
-                      </form>
-                      <div>
+                        <div>
                         <p className="have-acc">
                           Not have an account ? <Link to="/">Sign Up</Link>
                         </p>
                       </div>
-                    </div>
-                    <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                      <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                        className="img-fluid"
-                        alt="Sample image"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+                      </form>
+                     
     </div>
+                  
+      
+       
   );
 };
 export default Login;

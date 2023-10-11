@@ -160,7 +160,7 @@ const Signup = () => {
                                 </label>
                               </div>
                             </div> */}
-<h2 class="mb-4 text-center">Sign up</h2>
+<h2 class="mb-4 text-center">Create Account</h2>
                             <div className="d-flex flex-row align-items-center mb-4">
                               <div className="form-outline flex-fill mb-0">
                                 <input

@@ -145,9 +145,11 @@ const Drop = () => {
           Other
           <label class="form-check-label" for="radio1"></label>
         </div>
+        <textarea class="form-control mt-4 " id="exampleFormControlTextarea1" rows="3" placeholder="Comment"></textarea>
         <button type="submit" class="btn btn-primary btn-lg mt-4">
           Submit
         </button>
+
       </form>
     </div>
   );
