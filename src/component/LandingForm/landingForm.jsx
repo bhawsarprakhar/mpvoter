@@ -7,9 +7,8 @@ const Signup = () => {
   const [formValue, setFormValue] = useState({
     name: "",
     email: "",
-    phone:"",
+    phone: "",
     password: "",
-    repassword: "",
   });
   const [passwordError, setPasswordError] = useState();
   const [otp, setOtp] = useState(false);
@@ -52,28 +51,25 @@ const Signup = () => {
 
   const signIn = async (e) => {
     e.preventDefault();
+
     navigate("/voting-form");
     console.log(formValue);
 
-    // if (formValue.password !== formValue.repassword) {
-    //   setPasswordError(true);
-    // } else {
-    //   setPasswordError(false);
-      // const result = await axios.post(
-      //   `${process.env.REACT_APP_BASE_URL}/api/auth/register`,
-      //   formValue,
-      //   {
-      //     validateStatus: () => true,
-      //   }
-      // );
-      // if (result && result.status === 200) {
-      //   // Update user isVerified
-      //   setOtp(true);
-      // } else if (result && result.status === 400) {
-      //   alert("Invalid Input");
-      // } else if (result && result.status === 409) {
-      //   alert("Email already use");
-      // }
+    // const result = await axios.post(
+    //   `${process.env.REACT_APP_BASE_URL}/api/auth/register`,
+    //   formValue,
+    //   {
+    //     validateStatus: () => true,
+    //   }
+    // );
+    // console.log(result)
+    // if (result && result.status === 200) {
+    //   // Update user isVerified
+    //   setOtp(true);
+    // } else if (result && result.status === 400) {
+    //   alert("Invalid Input");
+    // } else if (result && result.status === 409) {
+    //   alert("Email already use");
     // }
   };
 
@@ -101,166 +97,110 @@ const Signup = () => {
   };
   return (
     <div className="container poll-form">
+      {otp === true ? (
+        <div>
+        {" "}
+        <h1>Enter OTP</h1>
+        <OtpInput
+          value={code}
+          onChange={handleOtpChange}
+          numInputs={6}
+          separator={<span style={{ width: "8px" }}></span>}
+          isInputNum={true}
+          shouldAutoFocus={true}
+          inputStyle={{
+            border: "1px solid transparent",
+            borderRadius: "8px",
+            width: "54px",
+            height: "54px",
+            fontSize: "12px",
+            color: "#000",
+            fontWeight: "400",
+            caretColor: "blue",
+          }}
+          focusStyle={{
+            border: "1px solid #CFD3DB",
+            outline: "none",
+          }}
+        />
+        <p className="mb-0 ">Resend Verification <button onClick={reSendotp}> code</button></p>
+        <button onClick={OtpSubmit}>Submit OTP</button>
+      </div>
+      ) : (
+        <>
+          <form className="col-12 m-auto col-lg-6" onSubmit={(e) => signIn(e)}>
+            <h2 class="mb-4 text-center">Create Account</h2>
+            <div className="d-flex flex-row align-items-center mb-4">
+              <div className="form-outline flex-fill mb-0">
+                <input
+                  type="text"
+                  id="form3Example1c"
+                  className="form-control"
+                  required
+                  name="name"
+                  placeholder="Your name"
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <div className="d-flex flex-row align-items-center mb-4">
+              <div className="form-outline flex-fill mb-0">
+                <input
+                  type="email"
+                  id="form3Example2c"
+                  className="form-control"
+                  required
+                  name="email"
+                  placeholder="Your Email"
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <div className="d-flex flex-row align-items-center mb-4">
+              <div className="form-outline flex-fill mb-0">
+                <input
+                  type="text"
+                  id="form3Example3c"
+                  className="form-control"
+                  required
+                  name="phone"
+                  placeholder="Your Phone"
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
 
-                      
-                      {otp === true ? (
-                        <div>
-                          {" "}
-                          <h1>Enter OTP</h1>
-                          <OtpInput
-                            value={code}
-                            onChange={handleOtpChange}
-                            numInputs={6}
-                            separator={<span style={{ width: "8px" }}></span>}
-                            isInputNum={true}
-                            shouldAutoFocus={true}
-                            inputStyle={{
-                              border: "1px solid transparent",
-                              borderRadius: "8px",
-                              width: "54px",
-                              height: "54px",
-                              fontSize: "12px",
-                              color: "#000",
-                              fontWeight: "400",
-                              caretColor: "blue",
-                            }}
-                            focusStyle={{
-                              border: "1px solid #CFD3DB",
-                              outline: "none",
-                            }}
-                          />
-                          <p className="mb-0 ">
-                            Resend Verification{" "}
-                            <button onClick={reSendotp}> code</button>
-                          </p>
-                          <button onClick={OtpSubmit}>Submit OTP</button>
-                        </div>
-                      ) : (
-                        <>
-                          <form
-                            className="col-12 m-auto col-lg-6"
-                            onSubmit={(e) => signIn(e)}
-                          >
-                            {/* <div className="d-flex flex-row align-items-center mb-4">
-                              <i className="fas fa-user fa-lg me-3 fa-fw"></i>
-                              <div className="form-outline flex-fill mb-0">
-                                <input
-                                  type="text"
-                                  id="form3Example1c"
-                                  className="form-control"
-                                  required
-                                  name="name"
-                                  onChange={handleChange}
-                                />
-                                <label
-                                  className="form-label"
-                                  for="form3Example1c"
-                                >
-                                  Your Name
-                                </label>
-                              </div>
-                            </div> */}
-<h2 class="mb-4 text-center">Create Account</h2>
-                            <div className="d-flex flex-row align-items-center mb-4">
-                              <div className="form-outline flex-fill mb-0">
-                                <input
-                                  type="text"
-                                  id="form3Example2c"
-                                  className="form-control"
-                                  required
-                                  name="email"
-                                  placeholder="Your number"
-                                  onChange={handleChange}
-                                />
-                           
-                              </div>
-                            </div>
-                            <div className="d-flex flex-row align-items-center mb-4">
-                              <div className="form-outline flex-fill mb-0">
-                                <input
-                                  type="email"
-                                  id="form3Example3c"
-                                  className="form-control"
-                                  required
-                                  name="phone"
-                                  placeholder="Your Email"
-                                  onChange={handleChange}
-                                />
-                              </div>
-                            </div>
+            <div className="d-flex flex-row align-items-center mb-4">
+              <div className="form-outline flex-fill mb-0">
+                <input
+                  type="password"
+                  id="form3Example4c"
+                  className="form-control"
+                  required
+                  name="password"
+                  placeholder="Password"
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
 
-                            <div className="d-flex flex-row align-items-center mb-4">
-                              <div className="form-outline flex-fill mb-0">
-                                <input
-                                  type="password"
-                                  id="form3Example4c"
-                                  className="form-control"
-                                  required
-                                  name="password"
-                                  placeholder="Password"
-                                  onChange={handleChange}
-                                />
-                              </div>
-                            </div>
+            <button type="submit" className="btn btn-primary btn-lg mb-3">
+              Register
+            </button>
 
-                            {/* <div className="d-flex flex-row align-items-center mb-4">
-                              <i className="fas fa-key fa-lg me-3 fa-fw"></i>
-                              <div className="form-outline flex-fill mb-0">
-                                <input
-                                  type="password"
-                                  id="form3Example4cd"
-                                  className="form-control"
-                                  required
-                                  name="repassword"
-                                  onChange={handleChange}
-                                />
-                                {passwordError === true ? (
-                                  <p className="text-danger">
-                                    Password did not match!
-                                  </p>
-                                ) : (
-                                  ""
-                                )}
+            <button type="submit" className="btn btn-primary btn-lg mb-4">
+              SignUp With Gmail
+            </button>
 
-                                <label
-                                  className="form-label"
-                                  for="form3Example4cd"
-                                >
-                                  Repeat your password
-                                </label>
-                              </div>
-                            </div> */}
-
-
-                              <button
-                                type="submit"
-                                className="btn btn-primary btn-lg mb-3"
-                              >
-                                Register
-                              </button>
-                            
-                            <button
-                              type="submit"
-                              className="btn btn-primary btn-lg mb-4"
-                            >
-                              SignUp With Gmail
-                            </button>
-                        
-                          <div>
-                            <p className="have-acc">
-                              Already have an account ?{" "}
-                              <Link to="/login">Log In</Link>
-                            </p>
-                          </div>
-                          </form>
-  
-                        </>
-                      )}
-                    </div>
-
-               
-              
-    
+            <div>
+              <p className="have-acc">
+                Already have an account ? <Link to="/login">Log In</Link>
+              </p>
+            </div>
+          </form>
+        </>
+      )}
+    </div>
   );
 };
 export default Signup;
