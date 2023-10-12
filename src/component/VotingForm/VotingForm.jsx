@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Subcategories } from "./AssemblyName";
 import bjp from "../../assests/images/BJP.png";
@@ -16,7 +16,14 @@ const Drop = () => {
     assembly: "",
     politicsParty: "",
     description: "",
+    username: "",
   });
+
+  useEffect(() => {
+    if (!localStorage.getItem("user")) {
+      navigate("/");
+    }
+  }, []);
 
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedSubcategory, setSelectedSubcategory] = useState("");
@@ -25,7 +32,7 @@ const Drop = () => {
     { id: "1", name: "Agar Malwa" },
     { id: "2", name: "Alirajpur" },
     { id: "3", name: "Anuppur" },
-    { id: "4", name: "Ashoknagar" },
+    { id: "4", name: "Ashok Nagar" },
     { id: "5", name: "Balaghat" },
     { id: "6", name: "Barwani" },
     { id: "7", name: "Betul" },
@@ -81,6 +88,7 @@ const Drop = () => {
 
   const submitData = async (e) => {
     e.preventDefault();
+
     console.log(formValue);
 
     navigate("/thank-you");
@@ -149,7 +157,7 @@ const Drop = () => {
         </div>
         {/* )} */}
         <div className="form-check">
-        <img src={bjp} alt="BJP" />
+          <img src={bjp} alt="BJP" />
           <input
             type="radio"
             className="form-check-input"
@@ -159,11 +167,11 @@ const Drop = () => {
             onChange={selectPolitics}
             required
           />
-           Bharatiya Janata Party (BJP)
+          Bharatiya Janata Party (BJP)
           <label className="form-check-label" for="radio1"></label>
         </div>
         <div className="form-check">
-        <img src={sp} alt="SP" />
+          <img src={sp} alt="SP" />
           <input
             type="radio"
             className="form-check-input"
@@ -177,7 +185,7 @@ const Drop = () => {
           <label className="form-check-label" for="radio1"></label>
         </div>
         <div className="form-check">
-        <img src={bsp} alt="BSP" />
+          <img src={bsp} alt="BSP" />
           <input
             type="radio"
             className="form-check-input"
@@ -191,7 +199,7 @@ const Drop = () => {
           <label className="form-check-label" for="radio1"></label>
         </div>
         <div className="form-check">
-        <img src={aap} alt="AAP" />
+          <img src={aap} alt="AAP" />
           <input
             type="radio"
             className="form-check-input"
@@ -205,9 +213,8 @@ const Drop = () => {
           <label className="form-check-label" for="radio1"></label>
         </div>
         <div className="form-check">
-        <img src={congress} alt="congress" />
+          <img src={congress} alt="congress" />
           <input
-          
             type="radio"
             className="form-check-input"
             id="radio1"
@@ -217,11 +224,11 @@ const Drop = () => {
             required
             // value="option1"
           />
-           Indian National Congress 
+          Indian National Congress
           <label className="form-check-label" for="radio1"></label>
         </div>
         <div className="form-check">
-        <img src={other} alt="other" />
+          <img src={other} alt="other" />
           <input
             type="radio"
             className="form-check-input"
