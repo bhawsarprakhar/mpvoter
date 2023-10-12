@@ -15,6 +15,7 @@ h1,h2,h3,h4,h5,h6,p,label,body,input{
   padding: 39px;
   border-radius: 20px;
   box-shadow: 0px 0px 2px 2px #0000001a;
+  position: relative;
  
 }
 .poll-form input::placeholder {
@@ -42,7 +43,26 @@ box-shadow: none;
 .poll-form button[type=submit]{
 width: 100%;
 background: #35CCED;
-border: none;
+border: 1px solid #35cced;
+
+}
+.poll-form button[type=submit]:hover {
+  background: transparent;
+  color: #3f0c01;
+}
+.poll-form form:before {
+  content: "";
+  background-image: url(http://localhost:3000/static/media/Mp-LOGO.59fe4e745199feae262b.png);
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+  position:absolute;
+  top: -6%;
+  left: -36px;
+  background-repeat: no-repeat;
+}
+.navbar-expand img {
+  opacity: 0;
 }
 
 
@@ -68,6 +88,7 @@ body{
   padding-bottom: 30px;
   /* height: 100vh; */
   background-repeat: no-repeat;
+  overflow-x: hidden;
 }
 p.click-pas:before {
   content: "\f06e";
@@ -129,6 +150,76 @@ button.btn.btn-primary.btn-lg.mb-4.google-login:before {
 .hs-ps {
   position: relative;
 }
+.voting-form .form-check {
+  position: relative;
+  padding-left: 0;
+  margin-bottom: 11px;
+}
+
+.voting-form .form-check input {
+  position: absolute;
+  right: 0;
+  width: 51px;
+  height: 18px;
+  border-radius: 0 !IMPORTANT;
+  cursor: pointer !IMPORTANT;
+  margin-top: 8px;
+}
+
+.voting-form .form-check img {
+  margin-right: 8px;
+}
+
+.voting-form .form-check-input:checked {
+  border: 9px solid #35cced;
+}
+
+
+/* animation on forms */
+.register-form {
+  animation: circle 0.6s linear;
+
+}
+@keyframes circle {
+  0% {
+    opacity: 0;
+    transform: translate3d(50%,0,0);
+}
+100% {
+    opacity: 1;
+    transform: none;
+}
+}
+  
+.login-from {
+  animation: circles 0.6s linear;
+}
+
+@keyframes circles {
+  0% {
+    opacity: 0;
+    transform: translate3d(-51%,0,0);
+}
+100% {
+    opacity: 1;
+    transform: none;
+}
+}
+.voting-form {
+  animation: circless 0.6s linear;
+}
+
+@keyframes circless {
+  0% {
+    opacity: 0;
+    transform: translate3d(0%,-50%,0);
+}
+100% {
+    opacity: 1;
+    transform: none;
+}
+}
+
 @media(max-width:600px){
   .poll-form h2 {
     font-size: 22px;
@@ -138,6 +229,20 @@ button.btn.btn-primary.btn-lg.mb-4.google-login:before {
 }
 .poll-form form {
   padding: 39px 20px;
+
+}
+.voting-form .form-check input {
+  width: 37px;
+  font-size: 14px !IMPORTANT;
+  margin-top: 10px;
+}
+
+.voting-form .form-check {
+  font-size: 14px;
+}
+.poll-form form:before{
+  left: -8px;
+  top: -68px;
 }
 }
 

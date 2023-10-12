@@ -19,11 +19,11 @@ const Drop = () => {
     username: "",
   });
 
-  useEffect(() => {
-    if (!localStorage.getItem("user")) {
-      navigate("/");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!localStorage.getItem("user")) {
+  //     navigate("/");
+  //   }
+  // }, []);
 
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedSubcategory, setSelectedSubcategory] = useState("");
@@ -112,7 +112,7 @@ const Drop = () => {
 
   return (
     <div className="container poll-form">
-      <form className="col-12 m-auto col-lg-6" onSubmit={(e) => submitData(e)}>
+      <form className="col-12 m-auto col-lg-6 voting-form" onSubmit={(e) => submitData(e)}>
         <h2 className="mb-4">Welcome {"Name"} To MP Voter</h2>
 
         <div className="select">

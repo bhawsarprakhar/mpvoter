@@ -52,7 +52,7 @@ const Login = () => {
     }
   return (
     <div className="container poll-form">
-      <form className="col-12 m-auto col-lg-6" onSubmit={(e) => LogIn(e)}>
+      <form className="col-12 m-auto col-lg-6 login-from" onSubmit={(e) => LogIn(e)}>
         <h2 className="mb-4 text-center">Login</h2>
         <div className="d-flex flex-row align-items-center mb-4">
           <div className="form-outline flex-fill mb-0">

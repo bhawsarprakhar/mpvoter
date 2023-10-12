@@ -52,25 +52,27 @@ const Signup = () => {
   //http://mpvoter.com/api/voter_registration
 
   const signIn = async (e) => {
+   
     e.preventDefault();
+    navigate("/voting-form");
 
-    await axios
-      .post("http://mpvoter.com/api/voter_registration", formValue, {
-        headers: { "content-type": "application/json" },
-      })
-      .then((response) => {
-        if (response) {
-          const user = {
-            username: response.data.us_name,
-            useremail: response.data.us_email,
-            userphone: response.data.us_phone,
-          };
-          localStorage.setItem("user", JSON.stringify(user));
-          navigate("/voting-form");
-        } else {
-          alert("Something went wrong");
-        }
-      });
+    // await axios
+    //   .post("http://mpvoter.com/api/voter_registration", formValue, {
+    //     headers: { "content-type": "application/json" },
+    //   })
+    //   .then((response) => {
+    //     if (response) {
+    //       const user = {
+    //         username: response.data.us_name,
+    //         useremail: response.data.us_email,
+    //         userphone: response.data.us_phone,
+    //       };
+    //       localStorage.setItem("user", JSON.stringify(user));
+    //       navigate("/voting-form");
+    //     } else {
+    //       alert("Something went wrong");
+    //     }
+    //   });
 
 
 
@@ -179,7 +181,7 @@ const Signup = () => {
         </div>
       ) : (
         <>
-          <form className="col-12 m-auto col-lg-6" onSubmit={(e) => signIn(e)}>
+          <form className="col-12 m-auto col-lg-6 register-form" onSubmit={(e) => signIn(e)}>
             <h2 className="mb-4 text-center">Create Account</h2>
             <button type="submit" className="btn btn-primary btn-lg mb-4 google-login">
               SignUp With Google
