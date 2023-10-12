@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Subcategories } from "./AssemblyName";
 import bjp from "../../assests/images/BJP.png";
@@ -19,6 +19,12 @@ const Drop = () => {
     username: "",
   });
 
+  useEffect(() => {
+    if (!localStorage.getItem("user")) {
+      navigate("/");
+    }
+  }, []);
+
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedSubcategory, setSelectedSubcategory] = useState("");
 
@@ -26,7 +32,7 @@ const Drop = () => {
     { id: "1", name: "Agar Malwa" },
     { id: "2", name: "Alirajpur" },
     { id: "3", name: "Anuppur" },
-    { id: "4", name: "Ashoknagar" },
+    { id: "4", name: "Ashok Nagar" },
     { id: "5", name: "Balaghat" },
     { id: "6", name: "Barwani" },
     { id: "7", name: "Betul" },
