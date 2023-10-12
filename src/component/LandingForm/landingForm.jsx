@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import OtpInput from "react-otp-input";
+// import OtpInput from "react-otp-input";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -10,7 +10,7 @@ const Signup = () => {
     phone: "",
     password: "",
   });
-  const [passwordError, setPasswordError] = useState();
+
   const [otp, setOtp] = useState(false);
   const [code, setCode] = useState("");
   const [inValidCode, setInvalidCode] = useState();
@@ -99,9 +99,9 @@ const Signup = () => {
     <div className="container poll-form">
       {otp === true ? (
         <div>
-        {" "}
-        <h1>Enter OTP</h1>
-        <OtpInput
+          {" "}
+          <h1>Enter OTP</h1>
+          {/* <OtpInput
           value={code}
           onChange={handleOtpChange}
           numInputs={6}
@@ -122,14 +122,16 @@ const Signup = () => {
             border: "1px solid #CFD3DB",
             outline: "none",
           }}
-        />
-        <p className="mb-0 ">Resend Verification <button onClick={reSendotp}> code</button></p>
-        <button onClick={OtpSubmit}>Submit OTP</button>
-      </div>
+        /> */}
+          <p className="mb-0 ">
+            Resend Verification <button onClick={reSendotp}> code</button>
+          </p>
+          <button onClick={OtpSubmit}>Submit OTP</button>
+        </div>
       ) : (
         <>
           <form className="col-12 m-auto col-lg-6" onSubmit={(e) => signIn(e)}>
-            <h2 class="mb-4 text-center">Create Account</h2>
+            <h2 className="mb-4 text-center">Create Account</h2>
             <div className="d-flex flex-row align-items-center mb-4">
               <div className="form-outline flex-fill mb-0">
                 <input
