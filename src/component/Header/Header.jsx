@@ -7,7 +7,7 @@ function BrandExample() {
     <>
       <Navbar className="bg-body-tertiary">
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="/">
             <img
               src={logo}
               width="80"

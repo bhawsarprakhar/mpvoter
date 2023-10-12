@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Subcategories } from "./AssemblyName";
 
 const Drop = () => {
+  const subcategories = Subcategories.name
+  const navigate = useNavigate();
   const [formValue, setFormValue] = useState({
     district: "",
     assembly: "",
     politicsParty: "",
-    description:"",
+    description: "",
   });
 
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -65,19 +69,15 @@ const Drop = () => {
     { id: "51", name: "Vidisha" },
   ];
 
-  const subcategories = [
-    { id: "a", name: "Indore A", category: "Agar Malwa" },
-    { id: "b", name: "Indore B", category: "Agar Malwa" },
-    { id: "c", name: "Bhopal C", category: "Agar Malwa" },
-    { id: "d", name: "Bhopal D", category: "2" },
-    { id: "e", name: "Riva E", category: "3" },
-  ];
+  // const subcategories = [
+  //   { id: "1", name: "Indore A", district: "Agar Malwa" }, 
+  // ];
 
   const submitData = async (e) => {
     e.preventDefault();
     console.log(formValue);
 
-    // navigate("/dashboard", { state: myData });
+    navigate("/thank-you");
   };
   // Function to handle the category selection
   const handleCategoryChange = (e) => {
@@ -132,11 +132,11 @@ const Drop = () => {
             <option value="">Select...</option>
             {subcategories
               .filter(
-                (subcategory) => subcategory.category === selectedCategory
+                (subcategory) => subcategory.District === selectedCategory
               )
               .map((subcategory) => (
-                <option key={subcategory.id} value={subcategory.name}>
-                  {subcategory.name}
+                <option key={subcategory.id} value={subcategory.Name}>
+                  {subcategory.Name}
                 </option>
               ))}
           </select>
@@ -148,7 +148,7 @@ const Drop = () => {
             class="form-check-input"
             id="radio1"
             name="politicsParty"
-            // value="option1"
+            value="BJP"
             onChange={selectPolitics}
             required
           />
@@ -160,6 +160,7 @@ const Drop = () => {
             type="radio"
             class="form-check-input"
             id="radio1"
+            value="congress"
             name="politicsParty"
             onChange={selectPolitics}
             required
@@ -173,6 +174,7 @@ const Drop = () => {
             type="radio"
             class="form-check-input"
             id="radio1"
+            value="other"
             name="politicsParty"
             onChange={selectPolitics}
             required
@@ -181,11 +183,17 @@ const Drop = () => {
           Other
           <label class="form-check-label" for="radio1"></label>
         </div>
-        <textarea onChange={selectDescription} class="form-control mt-4" id="exampleFormControlTextarea1" name="description" rows="3" placeholder="Comment"></textarea>
+        <textarea
+          onChange={selectDescription}
+          class="form-control mt-4"
+          id="exampleFormControlTextarea1"
+          name="description"
+          rows="3"
+          placeholder="Comment"
+        ></textarea>
         <button type="submit" class="btn btn-primary mt-4">
           Submit
         </button>
-
       </form>
     </div>
   );
