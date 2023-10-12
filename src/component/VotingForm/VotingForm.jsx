@@ -26,12 +26,12 @@ const Drop = () => {
     const user = JSON.parse(localStorage.getItem("user"));
     setUser(user?.username);
   };
-  useEffect(() => {
-    getLoggedUser();
-    if (!localStorage.getItem("user")) {
-      navigate("/");
-    }
-  }, []);
+  // useEffect(() => {
+  //   getLoggedUser();
+  //   if (!localStorage.getItem("user")) {
+  //     navigate("/");
+  //   }
+  // }, []);
 
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedSubcategory, setSelectedSubcategory] = useState("");
