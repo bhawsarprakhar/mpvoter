@@ -14,6 +14,8 @@ const Signup = () => {
   const [otp, setOtp] = useState(false);
   const [code, setCode] = useState("");
   const [inValidCode, setInvalidCode] = useState();
+  const [isValid, setIsValid] = useState(true);
+  const [isnumber, setNumber] = useState(true);
 
   const handleOtpChange = (code) => setCode(code);
 
@@ -52,62 +54,30 @@ const Signup = () => {
   //http://mpvoter.com/api/voter_registration
 
   const signIn = async (e) => {
-   
+    debugger
     e.preventDefault();
     navigate("/voting-form");
 
-    // await axios
-    //   .post("http://mpvoter.com/api/voter_registration", formValue, {
-    //     headers: { "content-type": "application/json" },
-    //   })
-    //   .then((response) => {
-    //     if (response) {
-    //       const user = {
-    //         username: response.data.us_name,
-    //         useremail: response.data.us_email,
-    //         userphone: response.data.us_phone,
-    //       };
-    //       localStorage.setItem("user", JSON.stringify(user));
-    //       navigate("/voting-form");
-    //     } else {
-    //       alert("Something went wrong");
-    //     }
-    //   });
-
-
-
-    // if (result && result.status === 200) {
-    //   // Update user isVerified
-    //   const user = {
-    //     username: result.data.user.name,
-    //     email: result.data.user.email,
-    //   };
-    //   const token = result.data.token;
-    //   localStorage.setItem("user", JSON.stringify(user));
-    //   localStorage.setItem("jwt", token);
-    //   navigate("/dashboard");
-    // } else if (result && result.status === 404) {
-    //   alert("User Not Found");
-    // } else if (result && result.status === 400) {
-    //   alert("Wrong Password");
-    // }
-
-    // const result = await axios.post(
-    //   `${process.env.REACT_APP_BASE_URL}/api/auth/register`,
-    //   formValue,
-    //   {
-    //     validateStatus: () => true,
-    //   }
-    // );
-    // console.log(result)
-    // if (result && result.status === 200) {
-    //   // Update user isVerified
-    //   setOtp(true);
-    // } else if (result && result.status === 400) {
-    //   alert("Invalid Input");
-    // } else if (result && result.status === 409) {
-    //   alert("Email already use");
-    // }
+      await axios
+        .post("https://backlaravel.mpvoter.com/voter_registration", formValue, {
+          headers: { "content-type": "application/json" },
+        })
+        .then((response) => {
+          if (response) {
+            const user = {
+              username: response.data.us_name,
+              useremail: response.data.us_email,
+              userphone: response.data.us_phone,
+            };
+            localStorage.setItem("user", JSON.stringify(user));
+            navigate("/voting-form");
+          } else {
+            alert("Something went wrong");
+          }
+          console.log(response);
+        });
+      console.log(formValue);
+    
   };
 
   const reSendotp = async (e) => {
@@ -127,25 +97,47 @@ const Signup = () => {
       console.log(err);
     }
   };
-  //const submitOTP = () => {};
+  const [error, setError] = useState("");
+  const isAlphabetic = (value) => {
+    return /^[A-Za-z]+$/.test(value);
+  };
 
   const handleChange = (e) => {
+    //setFormValue({ ...formValue, [e.target.name]: e.target.value });
+    const newValue = e.target.value;
+    if (isAlphabetic(newValue) || newValue === "") {
+      setFormValue({ ...formValue, [e.target.name]: e.target.value });
+      setIsValid(false)
+    } else {
+      setError("Name should contain only alphabetic characters");
+      setIsValid(true)
+    }
+  };
+  const handleEmail = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
   };
 
+  const handlePhone = (e) => {
+    const newValue = e.target.value;
+    if (!isNaN(newValue) || newValue.length == 10) {
+      setNumber(false)
+      setFormValue({ ...formValue, [e.target.name]: e.target.value });
+    } else {
+      setError("Phone number should be number");
+      setNumber(true)
+    }
+  };
 
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
- 
 
-  
-    const [isActive, setIsActive] = useState(false);
-  
-    const toggleClass = () => {
-      setIsActive(!isActive);
-    }
+  const [isActive, setIsActive] = useState(false);
+
+  const toggleClass = () => {
+    setIsActive(!isActive);
+  };
   return (
     <div className="container poll-form">
       {otp === true ? (
@@ -183,7 +175,10 @@ const Signup = () => {
         <>
           <form className="col-12 m-auto col-lg-6 register-form" onSubmit={(e) => signIn(e)}>
             <h2 className="mb-4 text-center">Create Account</h2>
-            <button type="submit" className="btn btn-primary btn-lg mb-4 google-login">
+            <button
+              type="submit"
+              className="btn btn-primary btn-lg mb-4 google-login"
+            >
               SignUp With Google
             </button>
             <p className="text-center">-OR-</p>
@@ -209,7 +204,7 @@ const Signup = () => {
                   required
                   name="us_email"
                   placeholder="Your Email"
-                  onChange={handleChange}
+                  onChange={handleEmail}
                 />
               </div>
             </div>
@@ -222,7 +217,7 @@ const Signup = () => {
                   required
                   name="us_phone"
                   placeholder="Your Phone"
-                  onChange={handleChange}
+                  onChange={handlePhone}
                 />
               </div>
             </div>
@@ -230,27 +225,28 @@ const Signup = () => {
             <div className="d-flex flex-row align-items-center mb-4 hs-ps">
               <div className="form-outline flex-fill mb-0">
                 <input
-                  type={showPassword ? 'text' : 'password'}
+                  type={showPassword ? "text" : "password"}
                   id="form3Example4c"
                   className="form-control"
                   required
                   name="us_password"
                   placeholder="Password"
-                  onChange={handleChange}
+                  onChange={handleEmail}
                 />
               </div>
-              <div className={`custom-button ${isActive ? 'active' : 'inactive'}`}
-        onClick={toggleClass}>
-          <p className="click-pas" onClick={togglePasswordVisibility}>
-        {showPassword ? 'Hide' : 'Show'} 
-      </p></div>
+              <div
+                className={`custom-button ${isActive ? "active" : "inactive"}`}
+                onClick={toggleClass}
+              >
+                <p className="click-pas" onClick={togglePasswordVisibility}>
+                  {showPassword ? "Hide" : "Show"}
+                </p>
+              </div>
             </div>
-
+            {error && <div className="text-danger">{error}</div>}
             <button type="submit" className="btn btn-primary btn-lg mb-3">
-            Create Account
+              Create Account
             </button>
-
-
 
             <div>
               <p className="have-acc">

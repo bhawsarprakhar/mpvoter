@@ -1,1154 +1,1154 @@
 export const Subcategories = {
-name :[
+  name: [
     {
       "id.": 1,
-      "Name": "Sheopur",
-      "District": "Sheopur"
+      Name: "Sheopur/श्योपुर",
+      District: "Sheopur/श्योपुर",
     },
     {
       "id.": 2,
-      "Name": "Vijaypur",
-      "District": "Sheopur"
+      Name: "Vijaypur/विजयपुर",
+      District: "Sheopur/श्योपुर",
     },
     {
       "id.": 3,
-      "Name": "Sabalgarh",
-      "District": "Morena"
+      Name: "Sabalgarh/सबलगढ़	",
+      District: "Morena/मुरैना/मुरैना",
     },
     {
       "id.": 4,
-      "Name": "Joura",
-      "District": "Morena"
+      Name: "Joura/जौरा",
+      District: "Morena/मुरैना",
     },
     {
       "id.": 5,
-      "Name": "Sumawali",
-      "District": "Morena"
+      Name: "Sumawali/सुमावली",
+      District: "Morena/मुरैना",
     },
     {
       "id.": 6,
-      "Name": "Morena",
-      "District": "Morena"
+      Name: "Morena/मुरैना",
+      District: "Morena/मुरैना",
     },
     {
       "id.": 7,
-      "Name": "Dimani",
-      "District": "Morena"
+      Name: "Dimani/डिमनी",
+      District: "Morena/मुरैना",
     },
     {
       "id.": 8,
-      "Name": "Ambah",
-      "District": "Morena"
+      Name: "Ambah/अम्बाह ",
+      District: "Morena/मुरैना",
     },
     {
       "id.": 9,
-      "Name": "Ater",
-      "District": "Bhind"
+      Name: "Ater/अटेर",
+      District: "Bhind/भिंड",
     },
     {
       "id.": 10,
-      "Name": "Bhind",
-      "District": "Bhind"
+      Name: "Bhind/भिंड",
+      District: "Bhind/भिंड",
     },
     {
       "id.": 11,
-      "Name": "Lahar",
-      "District": "Bhind"
+      Name: "Lahar/लहार ",
+      District: "Bhind/भिंड",
     },
     {
       "id.": 12,
-      "Name": "Mehgaon",
-      "District": "Bhind"
+      Name: "Mehgaon/मेहगांव",
+      District: "Bhind/भिंड",
     },
     {
       "id.": 13,
-      "Name": "Gohad",
-      "District": "Bhind"
+      Name: "Gohad/गोहद",
+      District: "Bhind/भिंड",
     },
     {
       "id.": 14,
-      "Name": "Gwalior Rural",
-      "District": "Gwalior"
+      Name: "Gwalior Rural/ग्वालियर ग्रामीण",
+      District: "Gwalior/ग्वालियर",
     },
     {
       "id.": 15,
-      "Name": "Gwalior",
-      "District": "Gwalior"
+      Name: "Gwalior/ग्वालियर",
+      District: "Gwalior/ग्वालियर",
     },
     {
       "id.": 16,
-      "Name": "Gwalior East",
-      "District": "Gwalior"
+      Name: "Gwalior East/ग्वालियर पूर्व ",
+      District: "Gwalior/ग्वालियर",
     },
     {
       "id.": 17,
-      "Name": "Gwalior South",
-      "District": "Gwalior"
+      Name: "Gwalior South/ग्वालियर दक्षिण",
+      District: "Gwalior/ग्वालियर",
     },
     {
       "id.": 18,
-      "Name": "Bhitarwar",
-      "District": "Gwalior"
+      Name: "Bhitarwar/भितरवाड़",
+      District: "Gwalior/ग्वालियर",
     },
     {
       "id.": 19,
-      "Name": "Dabra",
-      "District": "Gwalior"
+      Name: "Dabra/डबरा",
+      District: "Gwalior/ग्वालियर",
     },
     {
       "id.": 20,
-      "Name": "Sewda",
-      "District": "Datia"
+      Name: "Sewda/सेवड़ा",
+      District: "Datia/दतिया",
     },
     {
       "id.": 21,
-      "Name": "Bhander",
-      "District": "Datia"
+      Name: "Bhander/भण्डेर",
+      District: "Datia/दतिया",
     },
     {
       "id.": 22,
-      "Name": "Datia",
-      "District": "Datia"
+      Name: "Datia/दतिया",
+      District: "Datia/दतिया",
     },
     {
       "id.": 23,
-      "Name": "Karera",
-      "District": "Shivpuri"
+      Name: "Karera/करेरा",
+      District: "Shivpuri/शिवपुरी",
     },
     {
       "id.": 24,
-      "Name": "Pohari",
-      "District": "Shivpuri"
+      Name: "Pohari/पोहरी",
+      District: "Shivpuri/शिवपुरी",
     },
     {
       "id.": 25,
-      "Name": "Shivpuri",
-      "District": "Shivpuri"
+      Name: "Shivpuri/शिवपुरी",
+      District: "Shivpuri/शिवपुरी",
     },
     {
       "id.": 26,
-      "Name": "Pichhore",
-      "District": "Shivpuri"
+      Name: "Pichhore/पिछोर",
+      District: "Shivpuri/शिवपुरी",
     },
     {
       "id.": 27,
-      "Name": "Kolaras",
-      "District": "Shivpuri"
+      Name: "Kolaras/कोलारस",
+      District: "Shivpuri/शिवपुरी",
     },
     {
       "id.": 28,
-      "Name": "Bamori",
-      "District": "Guna"
+      Name: "Bamori/बामोरी",
+      District: "Guna/गुना",
     },
     {
       "id.": 29,
-      "Name": "Guna",
-      "District": "Guna"
+      Name: "Guna/गुना",
+      District: "Guna/गुना",
     },
     {
       "id.": 30,
-      "Name": "Chachoura",
-      "District": "Guna"
+      Name: "Chachoura/चचौरा",
+      District: "Guna/गुना",
     },
     {
       "id.": 31,
-      "Name": "Raghogarh",
-      "District": "Guna"
+      Name: "Raghogarh/राघोगढ़",
+      District: "Guna/गुना",
     },
     {
       "id.": 32,
-      "Name": "Ashok Nagar",
-      "District": "Ashok Nagar"
+      Name: "Ashok Nagar/अशोकनगर",
+      District: "Ashok Nagar/अशोकनगर",
     },
     {
       "id.": 33,
-      "Name": "Chanderi",
-      "District": "Ashok Nagar"
+      Name: "Chanderi/चंदेरी",
+      District: "Ashok Nagar/अशोकनगर",
     },
     {
       "id.": 34,
-      "Name": "Mungaoli",
-      "District": "Ashok Nagar"
+      Name: "Mungaoli/मुंगावली",
+      District: "Ashok Nagar/अशोकनगर",
     },
     {
       "id.": 35,
-      "Name": "Bina",
-      "District": "Sagar"
+      Name: "Bina/बीना",
+      District: "Sagar/सागर ",
     },
     {
       "id.": 36,
-      "Name": "Khurai",
-      "District": "Sagar"
+      Name: "Khurai/खुरै",
+      District: "Sagar/सागर ",
     },
     {
       "id.": 37,
-      "Name": "Surkhi",
-      "District": "Sagar"
+      Name: "Surkhi/सुरखी",
+      District: "Sagar/सागर ",
     },
     {
       "id.": 38,
-      "Name": "Deori",
-      "District": "Sagar"
+      Name: "Deori/देवरी",
+      District: "Sagar/सागर ",
     },
     {
       "id.": 39,
-      "Name": "Rehli",
-      "District": "Sagar"
+      Name: "Rehli/रेहली",
+      District: "Sagar/सागर ",
     },
     {
       "id.": 40,
-      "Name": "Naryoli",
-      "District": "Sagar"
+      Name: "Naryoli/नर्योली",
+      District: "Sagar/सागर ",
     },
     {
       "id.": 41,
-      "Name": "Sagar",
-      "District": "Sagar"
+      Name: "Sagar/सागर ",
+      District: "Sagar/सागर ",
     },
     {
       "id.": 42,
-      "Name": "Banda",
-      "District": "Sagar"
+      Name: "Banda/बांदा",
+      District: "Sagar/सागर ",
     },
     {
       "id.": 43,
-      "Name": "Tikamgarh",
-      "District": "Tikamgarh"
+      Name: "Tikamgarh/टीकमगढ़",
+      District: "Tikamgarh/टीकमगढ़",
     },
     {
       "id.": 44,
-      "Name": "Jatara",
-      "District": "Tikamgarh"
+      Name: "Jatara/जटारा",
+      District: "Tikamgarh/टीकमगढ़",
     },
     {
       "id.": 45,
-      "Name": "Prithvipur",
-      "District": "Niwari"
+      Name: "Prithvipur/पृथ्वीपुर",
+      District: "Niwari/निवाड़ी",
     },
     {
       "id.": 46,
-      "Name": "Niwari",
-      "District": "Niwari"
+      Name: "Niwari/निवाड़ी",
+      District: "Niwari/निवाड़ी",
     },
     {
       "id.": 47,
-      "Name": "Khargapur",
-      "District": "Tikamgarh"
+      Name: "Khargapur/खरगापुर",
+      District: "Tikamgarh/टीकमगढ़",
     },
     {
       "id.": 48,
-      "Name": "Maharajpur",
-      "District": "Chhatarpur"
+      Name: "Maharajpur/महाराजपुर",
+      District: "Chhatarpur/छतरपुर",
     },
     {
       "id.": 49,
-      "Name": "Chandla",
-      "District": "Chhatarpur"
+      Name: "Chandla/चंदला",
+      District: "Chhatarpur/छतरपुर",
     },
     {
       "id.": 50,
-      "Name": "Rajnagar",
-      "District": "Chhatarpur"
+      Name: "Rajnagar/राजनगर",
+      District: "Chhatarpur/छतरपुर",
     },
     {
       "id.": 51,
-      "Name": "Chhatarpur",
-      "District": "Chhatarpur"
+      Name: "Chhatarpur/छतरपुर",
+      District: "Chhatarpur/छतरपुर",
     },
     {
       "id.": 52,
-      "Name": "Bijawar",
-      "District": "Chhatarpur"
+      Name: "Bijawar/बिजावर",
+      District: "Chhatarpur/छतरपुर",
     },
     {
       "id.": 53,
-      "Name": "Malhara",
-      "District": "Chhatarpur"
+      Name: "Malhara/मालहरा",
+      District: "Chhatarpur/छतरपुर",
     },
     {
       "id.": 54,
-      "Name": "Pathariya",
-      "District": "Damoh"
+      Name: "Pathariya/पथरिया",
+      District: "Damoh/दमोह",
     },
     {
       "id.": 55,
-      "Name": "Damoh",
-      "District": "Damoh"
+      Name: "Damoh/दमोह",
+      District: "Damoh/दमोह",
     },
     {
       "id.": 56,
-      "Name": "Jabera",
-      "District": "Damoh"
+      Name: "Jabera/जबेरा",
+      District: "Damoh/दमोह",
     },
     {
       "id.": 57,
-      "Name": "Hatta",
-      "District": "Damoh"
+      Name: "Hatta/हट्टा",
+      District: "Damoh/दमोह",
     },
     {
       "id.": 58,
-      "Name": "Pawai",
-      "District": "Panna"
+      Name: "Pawai/पवई",
+      District: "Panna/पन्ना",
     },
     {
       "id.": 59,
-      "Name": "Gunnaor",
-      "District": "Panna"
+      Name: "Gunnaor/गुन्नाओर",
+      District: "Panna/पन्ना",
     },
     {
       "id.": 60,
-      "Name": "Panna",
-      "District": "Panna"
+      Name: "Panna/पन्ना",
+      District: "Panna/पन्ना",
     },
     {
       "id.": 61,
-      "Name": "Chitrakoot",
-      "District": "Satna"
+      Name: "Chitrakoot/चित्रकूट",
+      District: "Satna/सतना",
     },
     {
       "id.": 62,
-      "Name": "Raigaon",
-      "District": "Satna"
+      Name: "Raigaon/रायगाँव",
+      District: "Satna/सतना",
     },
     {
       "id.": 63,
-      "Name": "Satna",
-      "District": "Satna"
+      Name: "Satna/सतना",
+      District: "Satna/सतना",
     },
     {
       "id.": 64,
-      "Name": "Nagod",
-      "District": "Satna"
+      Name: "Nagod/नागोद",
+      District: "Satna/सतना",
     },
     {
       "id.": 65,
-      "Name": "Maihar",
-      "District": "Satna"
+      Name: "Maihar/मैहर",
+      District: "Satna/सतना",
     },
     {
       "id.": 66,
-      "Name": "Amarpatan",
-      "District": "Satna"
+      Name: "Amarpatan/अमरपट्टन",
+      District: "Satna/सतना",
     },
     {
       "id.": 67,
-      "Name": "Rampur-Baghelan",
-      "District": "Satna"
+      Name: "Rampur-Baghelan/रामपुर-बाघेलां",
+      District: "Satna/सतना",
     },
     {
       "id.": 68,
-      "Name": "Sirmour",
-      "District": "Rewa"
+      Name: "Sirmour/सिरमौर",
+      District: "Rewa/रीवा",
     },
     {
       "id.": 69,
-      "Name": "Semariya",
-      "District": "Rewa"
+      Name: "Semariya/सेमरिया",
+      District: "Rewa/रीवा",
     },
     {
       "id.": 70,
-      "Name": "Teonthar",
-      "District": "Rewa"
+      Name: "Teonthar/तीओंथर",
+      District: "Rewa/रीवा",
     },
     {
       "id.": 71,
-      "Name": "Mauganj",
-      "District": "Rewa"
+      Name: "Mauganj/मौगंज",
+      District: "Rewa/रीवा",
     },
     {
       "id.": 72,
-      "Name": "Deotalab",
-      "District": "Rewa"
+      Name: "Deotalab/देवतालाब",
+      District: "Rewa/रीवा",
     },
     {
       "id.": 73,
-      "Name": "Mangawan",
-      "District": "Rewa"
+      Name: "Mangawan/मंगवां",
+      District: "Rewa/रीवा",
     },
     {
       "id.": 74,
-      "Name": "Rewa",
-      "District": "Rewa"
+      Name: "Rewa/रीवा",
+      District: "Rewa/रीवा",
     },
     {
       "id.": 75,
-      "Name": "Gurh",
-      "District": "Rewa"
+      Name: "Gurh/गुढ़",
+      District: "Rewa/रीवा",
     },
     {
       "id.": 76,
-      "Name": "Churhat",
-      "District": "Sidhi"
+      Name: "Churhat/चुरहट",
+      District: "Sidhi/सीधी",
     },
     {
       "id.": 77,
-      "Name": "Sidhi",
-      "District": "Sidhi"
+      Name: "Sidhi/सीधी",
+      District: "Sidhi/सीधी",
     },
     {
       "id.": 78,
-      "Name": "Sihawal",
-      "District": "Sidhi"
+      Name: "Sihawal/सिहावल",
+      District: "Sidhi/सीधी",
     },
     {
       "id.": 79,
-      "Name": "Chitrangi",
-      "District": "Singrauli"
+      Name: "Chitrangi/चित्रांगी",
+      District: "Singrauli/सिंगरौली",
     },
     {
       "id.": 80,
-      "Name": "Singrauli",
-      "District": "Singrauli"
+      Name: "Singrauli/सिंगरौली",
+      District: "Singrauli/सिंगरौली",
     },
     {
       "id.": 81,
-      "Name": "Devsar",
-      "District": "Singrauli"
+      Name: "Devsar/देवसर",
+      District: "Singrauli/सिंगरौली",
     },
     {
       "id.": 82,
-      "Name": "Dhauhani",
-      "District": "Sidhi"
+      Name: "Dhauhani/धौहानी",
+      District: "Sidhi/सीधी",
     },
     {
       "id.": 83,
-      "Name": "Beohari",
-      "District": "Shahdol"
+      Name: "Beohari/बिओहरी",
+      District: "Shahdol/शहडोल",
     },
     {
       "id.": 84,
-      "Name": "Jaisingnagar",
-      "District": "Shahdol"
+      Name: "Jaisingnagar/जयसिंहनगर",
+      District: "Shahdol/शहडोल",
     },
     {
       "id.": 85,
-      "Name": "Jaitpur",
-      "District": "Shahdol"
+      Name: "Jaitpur/जैतपुर",
+      District: "Shahdol/शहडोल",
     },
     {
       "id.": 86,
-      "Name": "Kotma",
-      "District": "Anuppur"
+      Name: "Kotma/कोतमा",
+      District: "Anuppur/अनूपपुर",
     },
     {
       "id.": 87,
-      "Name": "Anuppur",
-      "District": "Anuppur"
+      Name: "Anuppur/अनूपपुर",
+      District: "Anuppur/अनूपपुर",
     },
     {
       "id.": 88,
-      "Name": "Pushprajgarh",
-      "District": "Anuppur"
+      Name: "PushpRajgarh/राजगढ़/पुष्पराजगढ़",
+      District: "Anuppur/अनूपपुर",
     },
     {
       "id.": 89,
-      "Name": "Bandhavgarh",
-      "District": "Umaria"
+      Name: "Bandhavgarh/बंधवगढ़",
+      District: "Umaria/उमरिया",
     },
     {
       "id.": 90,
-      "Name": "Manpur",
-      "District": "Umaria"
+      Name: "Manpur/मनपुर",
+      District: "Umaria/उमरिया",
     },
     {
       "id.": 91,
-      "Name": "Barwara",
-      "District": "Katni"
+      Name: "Barwara/बरवाड़ा",
+      District: "Katni/कटनी",
     },
     {
       "id.": 92,
-      "Name": "Vijayraghavgarh",
-      "District": "Katni"
+      Name: "Vijayraghavgarh/विजयराघवगढ़",
+      District: "Katni/कटनी",
     },
     {
       "id.": 93,
-      "Name": "Murwara",
-      "District": "Katni"
+      Name: "Murwara/मुरवारा",
+      District: "Katni/कटनी",
     },
     {
       "id.": 94,
-      "Name": "Bahoriband",
-      "District": "Katni"
+      Name: "Bahoriband/बहोरीबंद",
+      District: "Katni/कटनी",
     },
     {
       "id.": 95,
-      "Name": "Patan",
-      "District": "Jabalpur"
+      Name: "Patan/पाटन",
+      District: "Jabalpur/जबलपुर",
     },
     {
       "id.": 96,
-      "Name": "Bargi",
-      "District": "Jabalpur"
+      Name: "Bargi/बरगी",
+      District: "Jabalpur/जबलपुर",
     },
     {
       "id.": 97,
-      "Name": "Jabalpur East",
-      "District": "Jabalpur"
+      Name: "Jabalpur East/जबलपुर पूर्व",
+      District: "Jabalpur/जबलपुर",
     },
     {
       "id.": 98,
-      "Name": "Jabalpur North",
-      "District": "Jabalpur"
+      Name: "Jabalpur North/जबलपुर उत्तर",
+      District: "Jabalpur/जबलपुर",
     },
     {
       "id.": 99,
-      "Name": "Jabalpur Cantonment",
-      "District": "Jabalpur"
+      Name: "Jabalpur Cantonment/जबलपुर कैंटोनमेंट",
+      District: "Jabalpur/जबलपुर",
     },
     {
       "id.": 100,
-      "Name": "Jabalpur West",
-      "District": "Jabalpur"
+      Name: "Jabalpur West/जबलपुर पश्चिम",
+      District: "Jabalpur/जबलपुर",
     },
     {
       "id.": 101,
-      "Name": "Panagar",
-      "District": "Jabalpur"
+      Name: "Panagar/पानगढ़",
+      District: "Jabalpur/जबलपुर",
     },
     {
       "id.": 102,
-      "Name": "Sihora",
-      "District": "Jabalpur"
+      Name: "Sihora/सिहोरा",
+      District: "Jabalpur/जबलपुर",
     },
     {
       "id.": 103,
-      "Name": "Shahpura",
-      "District": "Dindori"
+      Name: "Shahpura/शाहपुरा",
+      District: "Dindori/डिंडोरी",
     },
     {
       "id.": 104,
-      "Name": "Dindori",
-      "District": "Dindori"
+      Name: "Dindori/डिंडोरी",
+      District: "Dindori/डिंडोरी",
     },
     {
       "id.": 105,
-      "Name": "Bichhiya",
-      "District": "Mandla"
+      Name: "Bichhiya/बिछिया",
+      District: "Mandla/मंडला",
     },
     {
       "id.": 106,
-      "Name": "Niwas",
-      "District": "Mandla"
+      Name: "Niwas/निवास",
+      District: "Mandla/मंडला",
     },
     {
       "id.": 107,
-      "Name": "Mandla",
-      "District": "Mandla"
+      Name: "Mandla/मंडला",
+      District: "Mandla/मंडला",
     },
     {
       "id.": 108,
-      "Name": "Baihar",
-      "District": "Balaghat"
+      Name: "Baihar/बैहर",
+      District: "Balaghat/बालाघाट",
     },
     {
       "id.": 109,
-      "Name": "Lanji",
-      "District": "Balaghat"
+      Name: "Lanji/लांजी",
+      District: "Balaghat/बालाघाट",
     },
     {
       "id.": 110,
-      "Name": "Paraswada",
-      "District": "Balaghat"
+      Name: "Paraswada/परसवाड़ा",
+      District: "Balaghat/बालाघाट",
     },
     {
       "id.": 111,
-      "Name": "Balaghat",
-      "District": "Balaghat"
+      Name: "Balaghat/बालाघाट",
+      District: "Balaghat/बालाघाट",
     },
     {
       "id.": 112,
-      "Name": "Waraseoni",
-      "District": "Balaghat"
+      Name: "WaraSeoni/सिवनी/वारासिवनी",
+      District: "Balaghat/बालाघाट",
     },
     {
       "id.": 113,
-      "Name": "Katangi",
-      "District": "Balaghat"
+      Name: "Katangi/कटंगी",
+      District: "Balaghat/बालाघाट",
     },
     {
       "id.": 114,
-      "Name": "Barghat",
-      "District": "Seoni"
+      Name: "Barghat/बरघाट",
+      District: "Seoni/सिवनी",
     },
     {
       "id.": 115,
-      "Name": "Seoni",
-      "District": "Seoni"
+      Name: "Seoni/सिवनी",
+      District: "Seoni/सिवनी",
     },
     {
       "id.": 116,
-      "Name": "Keolari",
-      "District": "Seoni"
+      Name: "Keolari/केवलारी",
+      District: "Seoni/सिवनी",
     },
     {
       "id.": 117,
-      "Name": "Lakhnadon",
-      "District": "Seoni"
+      Name: "Lakhnadon/लाखनादौं",
+      District: "Seoni/सिवनी",
     },
     {
       "id.": 118,
-      "Name": "Gotegaon",
-      "District": "Narsinghpur"
+      Name: "Gotegaon/गोटेगांव",
+      District: "Narsinghpur/नरसिंहपुर",
     },
     {
       "id.": 119,
-      "Name": "Narsingpur",
-      "District": "Narsinghpur"
+      Name: "Narsinghpur/नरसिंहपुर",
+      District: "Narsinghpur/नरसिंहपुर",
     },
     {
       "id.": 120,
-      "Name": "Tendukheda",
-      "District": "Narsinghpur"
+      Name: "Tendukheda/टेंडूखेड़ा",
+      District: "Narsinghpur/नरसिंहपुर",
     },
     {
       "id.": 121,
-      "Name": "Gadarwara",
-      "District": "Narsinghpur"
+      Name: "Gadarwara/गदरवाड़ा",
+      District: "Narsinghpur/नरसिंहपुर",
     },
     {
       "id.": 122,
-      "Name": "Junnardeo",
-      "District": "Chhindwara"
+      Name: "Junnardeo/जुन्नारदेव",
+      District: "Chhindwara/छिंदवाड़ा",
     },
     {
       "id.": 123,
-      "Name": "Amarwara",
-      "District": "Chhindwara"
+      Name: "Amarwara/अमरवाड़ा",
+      District: "Chhindwara/छिंदवाड़ा",
     },
     {
       "id.": 124,
-      "Name": "Chourai",
-      "District": "Chhindwara"
+      Name: "Chourai/चौराई",
+      District: "Chhindwara/छिंदवाड़ा",
     },
     {
       "id.": 125,
-      "Name": "Saunsar",
-      "District": "Chhindwara"
+      Name: "Saunsar/सौंसर",
+      District: "Chhindwara/छिंदवाड़ा",
     },
     {
       "id.": 126,
-      "Name": "Chhindwara",
-      "District": "Chhindwara"
+      Name: "Chhindwara/छिंदवाड़ा",
+      District: "Chhindwara/छिंदवाड़ा",
     },
     {
       "id.": 127,
-      "Name": "Parasia",
-      "District": "Chhindwara"
+      Name: "Parasia/परासिया",
+      District: "Chhindwara/छिंदवाड़ा",
     },
     {
       "id.": 128,
-      "Name": "Pandhurna",
-      "District": "Chhindwara"
+      Name: "Pandhurna/पांधूरणा",
+      District: "Chhindwara/छिंदवाड़ा",
     },
     {
       "id.": 129,
-      "Name": "Multai",
-      "District": "Betul"
+      Name: "Multai/मुलताई",
+      District: "Betul/बैतूल",
     },
     {
       "id.": 130,
-      "Name": "Amla",
-      "District": "Betul"
+      Name: "Amla/अमला",
+      District: "Betul/बैतूल",
     },
     {
       "id.": 131,
-      "Name": "Betul",
-      "District": "Betul"
+      Name: "Betul/बैतूल",
+      District: "Betul/बैतूल",
     },
     {
       "id.": 132,
-      "Name": "Ghoradongri",
-      "District": "Betul"
+      Name: "Ghoradongri/घोड़ाडोंगरी",
+      District: "Betul/बैतूल",
     },
     {
       "id.": 133,
-      "Name": "Bhainsdehi",
-      "District": "Betul"
+      Name: "Bhainsdehi/भैंसदेही",
+      District: "Betul/बैतूल",
     },
     {
       "id.": 134,
-      "Name": "Timarni",
-      "District": "Harda"
+      Name: "Timarni/तिमरनी",
+      District: "Harda/हरदा/हरदा",
     },
     {
       "id.": 135,
-      "Name": "Harda",
-      "District": "Harda"
+      Name: "Harda/हरदा",
+      District: "Harda/हरदा",
     },
     {
       "id.": 136,
-      "Name": "Seoni-Malwa",
-      "District": "Narmadapuram"
+      Name: "Seoni/सिवनी-Malwa",
+      District: "Narmadapuram/नर्मदापुरम",
     },
     {
       "id.": 137,
-      "Name": "Narmadapuram",
-      "District": "Narmadapuram"
+      Name: "Narmadapuram/नर्मदापुरम",
+      District: "Narmadapuram/नर्मदापुरम",
     },
     {
       "id.": 138,
-      "Name": "Sohagpur",
-      "District": "Narmadapuram"
+      Name: "Sohagpur/सोहागपुर",
+      District: "Narmadapuram/नर्मदापुरम",
     },
     {
       "id.": 139,
-      "Name": "Pipariya",
-      "District": "Narmadapuram"
+      Name: "Pipariya/पिपरिया ",
+      District: "Narmadapuram/नर्मदापुरम",
     },
     {
       "id.": 140,
-      "Name": "Udaipura",
-      "District": "Raisen"
+      Name: "Udaipura/उदयपुरा",
+      District: "Raisen/रायसेन",
     },
     {
       "id.": 141,
-      "Name": "Bhojpur",
-      "District": "Raisen"
+      Name: "Bhojpur/भोजपुर",
+      District: "Raisen/रायसेन",
     },
     {
       "id.": 142,
-      "Name": "Sanchi",
-      "District": "Raisen"
+      Name: "Sanchi/सांची",
+      District: "Raisen/रायसेन",
     },
     {
       "id.": 143,
-      "Name": "Silwani",
-      "District": "Raisen"
+      Name: "Silwani/सिलवानी",
+      District: "Raisen/रायसेन",
     },
     {
       "id.": 144,
-      "Name": "Vidisha",
-      "District": "Vidisha"
+      Name: "Vidisha/विदिशा",
+      District: "Vidisha/विदिशा",
     },
     {
       "id.": 145,
-      "Name": "Basoda",
-      "District": "Vidisha"
+      Name: "Basoda/बासोदा",
+      District: "Vidisha/विदिशा",
     },
     {
       "id.": 146,
-      "Name": "Kurwai",
-      "District": "Vidisha"
+      Name: "Kurwai/कुरवाई",
+      District: "Vidisha/विदिशा",
     },
     {
       "id.": 147,
-      "Name": "Sironj",
-      "District": "Vidisha"
+      Name: "Sironj/सिरोंज",
+      District: "Vidisha/विदिशा",
     },
     {
       "id.": 148,
-      "Name": "Shamshabad",
-      "District": "Vidisha"
+      Name: "Shamshabad/शामशाबाद",
+      District: "Vidisha/विदिशा",
     },
     {
       "id.": 149,
-      "Name": "Berasia",
-      "District": "Bhopal"
+      Name: "Berasia/बेरासिया",
+      District: "Bhopal/भोपाल",
     },
     {
       "id.": 150,
-      "Name": "Bhopal Uttar",
-      "District": "Bhopal"
+      Name: "Bhopal Uttar/भोपाल उत्तर",
+      District: "Bhopal/भोपाल",
     },
     {
       "id.": 151,
-      "Name": "Narela",
-      "District": "Bhopal"
+      Name: "Narela/नरेला",
+      District: "Bhopal/भोपाल",
     },
     {
       "id.": 152,
-      "Name": "Bhopal Dakshin-Paschim",
-      "District": "Bhopal"
+      Name: "Bhopal Dakshin-Paschim/भोपाल दक्षिण-पश्चिम",
+      District: "Bhopal/भोपाल",
     },
     {
       "id.": 153,
-      "Name": "Bhopal Madhya",
-      "District": "Bhopal"
+      Name: "Bhopal/भोपाल Madhya",
+      District: "Bhopal/भोपाल",
     },
     {
       "id.": 154,
-      "Name": "Govindpura",
-      "District": "Bhopal"
+      Name: "Govindpura/गोविंदपुरा",
+      District: "Bhopal/भोपाल",
     },
     {
       "id.": 155,
-      "Name": "Huzur",
-      "District": "Bhopal"
+      Name: "Huzur/हुजूर",
+      District: "Bhopal/भोपाल",
     },
     {
       "id.": 156,
-      "Name": "Budhni",
-      "District": "Sehore"
+      Name: "Budhni/बुदनी",
+      District: "Sehore/सीहोर",
     },
     {
       "id.": 157,
-      "Name": "Ashta",
-      "District": "Sehore"
+      Name: "Ashta/आष्टा",
+      District: "Sehore/सीहोर",
     },
     {
       "id.": 158,
-      "Name": "Ichhawar",
-      "District": "Sehore"
+      Name: "Ichhawar/इच्छावर",
+      District: "Sehore/सीहोर",
     },
     {
       "id.": 159,
-      "Name": "Sehore",
-      "District": "Sehore"
+      Name: "Sehore/सीहोर",
+      District: "Sehore/सीहोर",
     },
     {
       "id.": 160,
-      "Name": "Narsinghgarh",
-      "District": "Rajgarh"
+      Name: "Narsinghgarh/नरसिंहगढ़",
+      District: "Rajgarh/राजगढ़",
     },
     {
       "id.": 161,
-      "Name": "Biaora",
-      "District": "Rajgarh"
+      Name: "Biaora/ब्यावरा",
+      District: "Rajgarh/राजगढ़",
     },
     {
       "id.": 162,
-      "Name": "Rajgarh",
-      "District": "Rajgarh"
+      Name: "Rajgarh/राजगढ़",
+      District: "Rajgarh/राजगढ़",
     },
     {
       "id.": 163,
-      "Name": "Khilchipur",
-      "District": "Rajgarh"
+      Name: "Khilchipur/खिलचिपुर",
+      District: "Rajgarh/राजगढ़",
     },
     {
       "id.": 164,
-      "Name": "Sarangpur",
-      "District": "Rajgarh"
+      Name: "Sarangpur/सरंगपुर",
+      District: "Rajgarh/राजगढ़",
     },
     {
       "id.": 165,
-      "Name": "Susner",
-      "District": "Agar Malwa"
+      Name: "Susner/सुसनेर",
+      District: "Agar Malwa/आगर मालवा",
     },
     {
       "id.": 166,
-      "Name": "Agar",
-      "District": "Agar Malwa"
+      Name: "Agar/आगर",
+      District: "Agar Malwa/आगर मालवा",
     },
     {
       "id.": 167,
-      "Name": "Shajapur",
-      "District": "Shajapur"
+      Name: "Shajapur/शाजापुर",
+      District: "Shajapur/शाजापुर",
     },
     {
       "id.": 168,
-      "Name": "Shujalpur",
-      "District": "Shajapur"
+      Name: "Shujalpur/शुजालपुर",
+      District: "Shajapur/शाजापुर",
     },
     {
       "id.": 169,
-      "Name": "Kalapipal",
-      "District": "Shajapur"
+      Name: "Kalapipal/कालापीपल",
+      District: "Shajapur/शाजापुर",
     },
     {
       "id.": 170,
-      "Name": "Sonkatch",
-      "District": "Dewas"
+      Name: "Sonkatch/सोंकट्च",
+      District: "Dewas/देवास",
     },
     {
       "id.": 171,
-      "Name": "Dewas",
-      "District": "Dewas"
+      Name: "Dewas/देवास",
+      District: "Dewas/देवास",
     },
     {
       "id.": 172,
-      "Name": "Hatpipliya",
-      "District": "Dewas"
+      Name: "Hatpipliya/हाटपिपलिया",
+      District: "Dewas/देवास",
     },
     {
       "id.": 173,
-      "Name": "Khategaon",
-      "District": "Dewas"
+      Name: "Khategaon/खटेगांव",
+      District: "Dewas/देवास",
     },
     {
       "id.": 174,
-      "Name": "Bagli",
-      "District": "Dewas"
+      Name: "Bagli/बगली",
+      District: "Dewas/देवास",
     },
     {
       "id.": 175,
-      "Name": "Mandhata",
-      "District": "Khandwa"
+      Name: "Mandhata/मंधाता",
+      District: "Khandwa/खंडवा",
     },
     {
       "id.": 176,
-      "Name": "Harsud",
-      "District": "Khandwa"
+      Name: "Harsud/हरसुद",
+      District: "Khandwa/खंडवा",
     },
     {
       "id.": 177,
-      "Name": "Khandwa",
-      "District": "Khandwa"
+      Name: "Khandwa/खंडवा",
+      District: "Khandwa/खंडवा",
     },
     {
       "id.": 178,
-      "Name": "Pandhana",
-      "District": "Khandwa"
+      Name: "Pandhana/पंधाना ",
+      District: "Khandwa/खंडवा",
     },
     {
       "id.": 179,
-      "Name": "Nepanagar",
-      "District": "Khandwa"
+      Name: "NePanagar/पानगढ़",
+      District: "Khandwa/खंडवा",
     },
     {
       "id.": 180,
-      "Name": "Burhanpur",
-      "District": "Khandwa"
+      Name: "Burhanpur/बुरहानपुर",
+      District: "Khandwa/खंडवा",
     },
     {
       "id.": 181,
-      "Name": "Bhikangaon",
-      "District": "Khargone"
+      Name: "Bhikangaon/भीकंगांव",
+      District: "Khargone/खरगोन",
     },
     {
       "id.": 182,
-      "Name": "Badwaha",
-      "District": "Khargone"
+      Name: "Badwaha/बदवाहा",
+      District: "Khargone/खरगोन",
     },
     {
       "id.": 183,
-      "Name": "Maheshwar",
-      "District": "Khargone"
+      Name: "Maheshwar/महेश्वर",
+      District: "Khargone/खरगोन",
     },
     {
       "id.": 184,
-      "Name": "Kasrawad",
-      "District": "Khargone"
+      Name: "Kasrawad/कासरावाड़",
+      District: "Khargone/खरगोन",
     },
     {
       "id.": 185,
-      "Name": "Khargone",
-      "District": "Khargone"
+      Name: "Khargone/खरगोन",
+      District: "Khargone/खरगोन",
     },
     {
       "id.": 186,
-      "Name": "Bhagwanpura",
-      "District": "Khargone"
+      Name: "Bhagwanpura/भगवानपुरा",
+      District: "Khargone/खरगोन",
     },
     {
       "id.": 187,
-      "Name": "Sendhawa",
-      "District": "Barwani"
+      Name: "Sendhawa/सेंधवा",
+      District: "Barwani/बड़वानी",
     },
     {
       "id.": 188,
-      "Name": "Rajpur",
-      "District": "Barwani"
+      Name: "Rajpur/ राजपुर",
+      District: "Barwani/बड़वानी",
     },
     {
       "id.": 189,
-      "Name": "Pansemal",
-      "District": "Barwani"
+      Name: "Pansemal/पानसेमल",
+      District: "Barwani/बड़वानी",
     },
     {
       "id.": 190,
-      "Name": "Barwani",
-      "District": "Barwani"
+      Name: "Barwani/बड़वानी",
+      District: "Barwani/बड़वानी",
     },
     {
       "id.": 191,
-      "Name": "Alirajpur",
-      "District": "Alirajpur"
+      Name: "Alirajpur/अलीराजपुर",
+      District: "Alirajpur/अलीराजपुर",
     },
     {
       "id.": 192,
-      "Name": "Jobat",
-      "District": "Alirajpur"
+      Name: "Jobat/जोबट",
+      District: "Alirajpur/अलीराजपुर",
     },
     {
       "id.": 193,
-      "Name": "Jhabua",
-      "District": "Jhabua"
+      Name: "Jhabua/झाबुआ",
+      District: "Jhabua/झाबुआ",
     },
     {
       "id.": 194,
-      "Name": "Thandla",
-      "District": "Jhabua"
+      Name: "Thandla/थांडला",
+      District: "Jhabua/झाबुआ",
     },
     {
       "id.": 195,
-      "Name": "Petlawad",
-      "District": "Jhabua"
+      Name: "Petlawad/पेटलावाद",
+      District: "Jhabua/झाबुआ",
     },
     {
       "id.": 196,
-      "Name": "Sardarpur",
-      "District": "Dhar"
+      Name: "Sardarpur/सरदारपुर",
+      District: "Dhar/धार",
     },
     {
       "id.": 197,
-      "Name": "Gandhwani",
-      "District": "Dhar"
+      Name: "Gandhwani/गंधवानी ",
+      District: "Dhar/धार",
     },
     {
       "id.": 198,
-      "Name": "Kukshi",
-      "District": "Dhar"
+      Name: "Kukshi/कुक्षी ",
+      District: "Dhar/धार",
     },
     {
       "id.": 199,
-      "Name": "Manawar",
-      "District": "Dhar"
+      Name: "Manawar/मनावर",
+      District: "Dhar/धार",
     },
     {
       "id.": 200,
-      "Name": "Dharampuri",
-      "District": "Dhar"
+      Name: "Dharampuri/धरमपुरी",
+      District: "Dhar/धार",
     },
     {
       "id.": 201,
-      "Name": "Dhar",
-      "District": "Dhar"
+      Name: "Dhar/धार",
+      District: "Dhar/धार",
     },
     {
       "id.": 202,
-      "Name": "Badnawar",
-      "District": "Dhar"
+      Name: "Badnawar/बदनवार",
+      District: "Dhar/धार",
     },
     {
       "id.": 203,
-      "Name": "Depalpur",
-      "District": "Indore"
+      Name: "Depalpur/देपालपुर",
+      District: "Indore/इंदौर",
     },
     {
       "id.": 204,
-      "Name": "Indore-1",
-      "District": "Indore"
+      Name: "Indore-1/इंदौर-1",
+      District: "Indore/इंदौर",
     },
     {
       "id.": 205,
-      "Name": "Indore-2",
-      "District": "Indore"
+      Name: "Indore-2/इंदौर-2",
+      District: "Indore/इंदौर",
     },
     {
       "id.": 206,
-      "Name": "Indore-3",
-      "District": "Indore"
+      Name: "Indore-3/इंदौर-3",
+      District: "Indore/इंदौर",
     },
     {
       "id.": 207,
-      "Name": "Indore-4",
-      "District": "Indore"
+      Name: "Indore-4/इंदौर-4",
+      District: "Indore/इंदौर",
     },
     {
       "id.": 208,
-      "Name": "Indore-5",
-      "District": "Indore"
+      Name: "Indore-5/इंदौर-5",
+      District: "Indore/इंदौर",
     },
     {
       "id.": 209,
-      "Name": "Dr. Ambedkar Nagar-Mhow",
-      "District": "Indore"
+      Name: "Dr. Ambedkar Nagar-Mhow/डॉ. अंबेडकर नगर-महूँ",
+      District: "Indore/इंदौर",
     },
     {
       "id.": 210,
-      "Name": "Rau",
-      "District": "Indore"
+      Name: "Rau/राउ",
+      District: "Indore/इंदौर",
     },
     {
       "id.": 211,
-      "Name": "Sanwer",
-      "District": "Indore"
+      Name: "Sanwer/सांवेर",
+      District: "Indore/इंदौर",
     },
     {
       "id.": 212,
-      "Name": "Nagda-Khachrod",
-      "District": "Ujjain"
+      Name: "Nagda-Khachrod/नागदा-खचरोड़",
+      District: "Ujjain/उज्जैन",
     },
     {
       "id.": 213,
-      "Name": "Mahidpur",
-      "District": "Ujjain"
+      Name: "Mahidpur/महिड़पुर",
+      District: "Ujjain/उज्जैन",
     },
     {
       "id.": 214,
-      "Name": "Tarana",
-      "District": "Ujjain"
+      Name: "Tarana/तराना",
+      District: "Ujjain/उज्जैन",
     },
     {
       "id.": 215,
-      "Name": "Ghatiya",
-      "District": "Ujjain"
+      Name: "Ghatiya/घटिया",
+      District: "Ujjain/उज्जैन",
     },
     {
       "id.": 216,
-      "Name": "Ujjain North",
-      "District": "Ujjain"
+      Name: "Ujjain/उज्जैन North",
+      District: "Ujjain/उज्जैन",
     },
     {
       "id.": 217,
-      "Name": "Ujjain South",
-      "District": "Ujjain"
+      Name: "Ujjain/उज्जैन South",
+      District: "Ujjain/उज्जैन",
     },
     {
       "id.": 218,
-      "Name": "Badnagar",
-      "District": "Ujjain"
+      Name: "Badnagar/बदनागर",
+      District: "Ujjain/उज्जैन",
     },
     {
       "id.": 219,
-      "Name": "Ratlam Rural",
-      "District": "Ratlam"
+      Name: "Ratlam Rural/रतलाम ग्रामीण",
+      District: "Ratlam/रतलाम",
     },
     {
       "id.": 220,
-      "Name": "Ratlam City",
-      "District": "Ratlam"
+      Name: "Ratlam City/रतलाम शहर",
+      District: "Ratlam/रतलाम",
     },
     {
       "id.": 221,
-      "Name": "Sailana",
-      "District": "Ratlam"
+      Name: "Sailana/सैलाना",
+      District: "Ratlam/रतलाम",
     },
     {
       "id.": 222,
-      "Name": "Jaora",
-      "District": "Ratlam"
+      Name: "Jaora/जावरा",
+      District: "Ratlam/रतलाम",
     },
     {
       "id.": 223,
-      "Name": "Alot",
-      "District": "Ratlam"
+      Name: "Alot/आलोट",
+      District: "Ratlam/रतलाम",
     },
     {
       "id.": 224,
-      "Name": "Mandsaur",
-      "District": "Mandsaur"
+      Name: "Mandsaur/मंदसौर",
+      District: "Mandsaur/मंदसौर",
     },
     {
       "id.": 225,
-      "Name": "Malhargarh",
-      "District": "Mandsaur"
+      Name: "Malhargarh/मालहारगढ़",
+      District: "Mandsaur/मंदसौर",
     },
     {
       "id.": 226,
-      "Name": "Suwasra",
-      "District": "Mandsaur"
+      Name: "Suwasra/सुवासरा",
+      District: "Mandsaur/मंदसौर",
     },
     {
       "id.": 227,
-      "Name": "Garoth",
-      "District": "Mandsaur"
+      Name: "Garoth/गरोठ",
+      District: "Mandsaur/मंदसौर",
     },
     {
       "id.": 228,
-      "Name": "Manasa",
-      "District": "Neemuch"
+      Name: "Manasa/मनासा",
+      District: "Neemuch/नीमच/",
     },
     {
       "id.": 229,
-      "Name": "Neemuch",
-      "District": "Neemuch"
+      Name: "Neemuch/नीमच/",
+      District: "Neemuch/नीमच/",
     },
     {
       "id.": 230,
-      "Name": "Jawad",
-      "District": "Neemuch"
-    }
-  ]
-}  
+      Name: "Jawad/जवाड़",
+      District: "Neemuch/नीमच/",
+    },
+  ],
+};
