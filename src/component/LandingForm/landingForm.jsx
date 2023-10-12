@@ -5,10 +5,10 @@ import { useNavigate, Link } from "react-router-dom";
 
 const Signup = () => {
   const [formValue, setFormValue] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    password: "",
+    us_name: "",
+    us_email: "",
+    us_phone: "",
+    us_password: "",
   });
 
   const [otp, setOtp] = useState(false);
@@ -49,11 +49,46 @@ const Signup = () => {
     }
   };
 
+  //http://mpvoter.com/api/voter_registration
+
   const signIn = async (e) => {
     e.preventDefault();
 
-    navigate("/voting-form");
-    console.log(formValue);
+    await axios
+      .post("http://mpvoter.com/api/voter_registration", formValue, {
+        headers: { "content-type": "application/json" },
+      })
+      .then((response) => {
+        if (response) {
+          const user = {
+            username: response.data.us_name,
+            useremail: response.data.us_email,
+            userphone: response.data.us_phone,
+          };
+          localStorage.setItem("user", JSON.stringify(user));
+          navigate("/voting-form");
+        } else {
+          alert("Something went wrong");
+        }
+      });
+
+
+
+    // if (result && result.status === 200) {
+    //   // Update user isVerified
+    //   const user = {
+    //     username: result.data.user.name,
+    //     email: result.data.user.email,
+    //   };
+    //   const token = result.data.token;
+    //   localStorage.setItem("user", JSON.stringify(user));
+    //   localStorage.setItem("jwt", token);
+    //   navigate("/dashboard");
+    // } else if (result && result.status === 404) {
+    //   alert("User Not Found");
+    // } else if (result && result.status === 400) {
+    //   alert("Wrong Password");
+    // }
 
     // const result = await axios.post(
     //   `${process.env.REACT_APP_BASE_URL}/api/auth/register`,
@@ -139,7 +174,7 @@ const Signup = () => {
                   id="form3Example1c"
                   className="form-control"
                   required
-                  name="name"
+                  name="us_name"
                   placeholder="Your name"
                   onChange={handleChange}
                 />
@@ -152,7 +187,7 @@ const Signup = () => {
                   id="form3Example2c"
                   className="form-control"
                   required
-                  name="email"
+                  name="us_email"
                   placeholder="Your Email"
                   onChange={handleChange}
                 />
@@ -165,7 +200,7 @@ const Signup = () => {
                   id="form3Example3c"
                   className="form-control"
                   required
-                  name="phone"
+                  name="us_phone"
                   placeholder="Your Phone"
                   onChange={handleChange}
                 />
@@ -179,7 +214,7 @@ const Signup = () => {
                   id="form3Example4c"
                   className="form-control"
                   required
-                  name="password"
+                  name="us_password"
                   placeholder="Password"
                   onChange={handleChange}
                 />

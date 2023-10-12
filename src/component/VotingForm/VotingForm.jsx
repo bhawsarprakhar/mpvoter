@@ -16,6 +16,7 @@ const Drop = () => {
     assembly: "",
     politicsParty: "",
     description: "",
+    username: "",
   });
 
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -81,6 +82,7 @@ const Drop = () => {
 
   const submitData = async (e) => {
     e.preventDefault();
+
     console.log(formValue);
 
     navigate("/thank-you");
@@ -149,7 +151,7 @@ const Drop = () => {
         </div>
         {/* )} */}
         <div className="form-check">
-        <img src={bjp} alt="BJP" />
+          <img src={bjp} alt="BJP" />
           <input
             type="radio"
             className="form-check-input"
@@ -159,11 +161,11 @@ const Drop = () => {
             onChange={selectPolitics}
             required
           />
-           Bharatiya Janata Party (BJP)
+          Bharatiya Janata Party (BJP)
           <label className="form-check-label" for="radio1"></label>
         </div>
         <div className="form-check">
-        <img src={sp} alt="SP" />
+          <img src={sp} alt="SP" />
           <input
             type="radio"
             className="form-check-input"
@@ -177,7 +179,7 @@ const Drop = () => {
           <label className="form-check-label" for="radio1"></label>
         </div>
         <div className="form-check">
-        <img src={bsp} alt="BSP" />
+          <img src={bsp} alt="BSP" />
           <input
             type="radio"
             className="form-check-input"
@@ -191,7 +193,7 @@ const Drop = () => {
           <label className="form-check-label" for="radio1"></label>
         </div>
         <div className="form-check">
-        <img src={aap} alt="AAP" />
+          <img src={aap} alt="AAP" />
           <input
             type="radio"
             className="form-check-input"
@@ -205,9 +207,8 @@ const Drop = () => {
           <label className="form-check-label" for="radio1"></label>
         </div>
         <div className="form-check">
-        <img src={congress} alt="congress" />
+          <img src={congress} alt="congress" />
           <input
-          
             type="radio"
             className="form-check-input"
             id="radio1"
@@ -217,11 +218,11 @@ const Drop = () => {
             required
             // value="option1"
           />
-           Indian National Congress 
+          Indian National Congress
           <label className="form-check-label" for="radio1"></label>
         </div>
         <div className="form-check">
-        <img src={other} alt="other" />
+          <img src={other} alt="other" />
           <input
             type="radio"
             className="form-check-input"
