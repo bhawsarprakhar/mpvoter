@@ -4,8 +4,8 @@ import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
   const [formValue, setFormValue] = useState({
-    number: "",
-    password: "",
+    us_phone: "",
+    us_password: "",
   });
 
   const handleChange = (e) => {
@@ -14,7 +14,24 @@ const Login = () => {
   const navigate = useNavigate();
   const LogIn = async (e) => {
     e.preventDefault();
-    navigate("/voting-form");
+    await axios
+      .post("https://mpvoter.com/api/voter_login", formValue, {
+        headers: { "content-type": "application/json" },
+      })
+      .then((response) => {
+        if (response) {
+          const user = {
+            username: response.data.us_name,
+            useremail: response.data.us_email,
+            userphone: response.data.us_phone,
+          };
+          localStorage.setItem("user", JSON.stringify(user));
+          navigate("/voting-form");
+        } else {
+          alert("Something went wrong");
+        }
+        console.log(response)
+      });
     // const result = await axios.post(
     //   `${process.env.REACT_APP_BASE_URL}/api/auth/login`,
     //   formValue,
@@ -42,14 +59,12 @@ const Login = () => {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
- 
 
-  
-    const [isActive, setIsActive] = useState(false);
-  
-    const toggleClass = () => {
-      setIsActive(!isActive);
-    }
+  const [isActive, setIsActive] = useState(false);
+
+  const toggleClass = () => {
+    setIsActive(!isActive);
+  };
   return (
     <div className="container poll-form">
       <form className="col-12 m-auto col-lg-6" onSubmit={(e) => LogIn(e)}>
@@ -61,7 +76,7 @@ const Login = () => {
               id="form3Example3c"
               className="form-control"
               required
-              name="number"
+              name="us_phone"
               placeholder=" Your number"
               onChange={handleChange}
             />
@@ -71,21 +86,24 @@ const Login = () => {
         <div className="d-flex flex-row align-items-center mb-4 hs-ps">
           <div className="form-outline flex-fill mb-0 ">
             <input
-              type={showPassword ? 'text' : 'password'}
+              type={showPassword ? "text" : "password"}
               id="form3Example4c"
               className="form-control"
               required
-              name="password"
+              name="us_password"
               placeholder="Password"
               onChange={(e) => handleChange(e)}
             />
           </div>
-      
-          <div className={`custom-button ${isActive ? 'active' : 'inactive'}`}
-        onClick={toggleClass}>
-          <p className="click-pas" onClick={togglePasswordVisibility}>
-        {showPassword ? 'Hide' : 'Show'} 
-      </p></div>
+
+          <div
+            className={`custom-button ${isActive ? "active" : "inactive"}`}
+            onClick={toggleClass}
+          >
+            <p className="click-pas" onClick={togglePasswordVisibility}>
+              {showPassword ? "Hide" : "Show"}
+            </p>
+          </div>
         </div>
 
         <button type="submit" className="btn btn-primary btn-lg mb-4">
