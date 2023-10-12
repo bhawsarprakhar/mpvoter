@@ -95,6 +95,20 @@ const Signup = () => {
   const handleChange = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
   };
+
+
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+ 
+
+  
+    const [isActive, setIsActive] = useState(false);
+  
+    const toggleClass = () => {
+      setIsActive(!isActive);
+    }
   return (
     <div className="container poll-form">
       {otp === true ? (
@@ -132,6 +146,10 @@ const Signup = () => {
         <>
           <form className="col-12 m-auto col-lg-6" onSubmit={(e) => signIn(e)}>
             <h2 className="mb-4 text-center">Create Account</h2>
+            <button type="submit" className="btn btn-primary btn-lg mb-4 google-login">
+              SignUp With Google
+            </button>
+            <p className="text-center">-OR-</p>
             <div className="d-flex flex-row align-items-center mb-4">
               <div className="form-outline flex-fill mb-0">
                 <input
@@ -172,10 +190,10 @@ const Signup = () => {
               </div>
             </div>
 
-            <div className="d-flex flex-row align-items-center mb-4">
+            <div className="d-flex flex-row align-items-center mb-4 hs-ps">
               <div className="form-outline flex-fill mb-0">
                 <input
-                  type="password"
+                  type={showPassword ? 'text' : 'password'}
                   id="form3Example4c"
                   className="form-control"
                   required
@@ -184,15 +202,18 @@ const Signup = () => {
                   onChange={handleChange}
                 />
               </div>
+              <div className={`custom-button ${isActive ? 'active' : 'inactive'}`}
+        onClick={toggleClass}>
+          <p className="click-pas" onClick={togglePasswordVisibility}>
+        {showPassword ? 'Hide' : 'Show'} 
+      </p></div>
             </div>
 
             <button type="submit" className="btn btn-primary btn-lg mb-3">
-              Register
+            Create Account
             </button>
 
-            <button type="submit" className="btn btn-primary btn-lg mb-4">
-              SignUp With Gmail
-            </button>
+
 
             <div>
               <p className="have-acc">

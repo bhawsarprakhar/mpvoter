@@ -38,9 +38,18 @@ const Login = () => {
     //   alert("Wrong Password");
     // }
   };
-
-
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
  
+
+  
+    const [isActive, setIsActive] = useState(false);
+  
+    const toggleClass = () => {
+      setIsActive(!isActive);
+    }
   return (
     <div className="container poll-form">
       <form className="col-12 m-auto col-lg-6" onSubmit={(e) => LogIn(e)}>
@@ -62,7 +71,7 @@ const Login = () => {
         <div className="d-flex flex-row align-items-center mb-4 hs-ps">
           <div className="form-outline flex-fill mb-0 ">
             <input
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               id="form3Example4c"
               className="form-control"
               required
@@ -71,7 +80,12 @@ const Login = () => {
               onChange={(e) => handleChange(e)}
             />
           </div>
-          <p className="click-pas" ></p>
+      
+          <div className={`custom-button ${isActive ? 'active' : 'inactive'}`}
+        onClick={toggleClass}>
+          <p className="click-pas" onClick={togglePasswordVisibility}>
+        {showPassword ? 'Hide' : 'Show'} 
+      </p></div>
         </div>
 
         <button type="submit" className="btn btn-primary btn-lg mb-4">
