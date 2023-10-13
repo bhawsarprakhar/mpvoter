@@ -5,6 +5,7 @@ import Login from './component/SignInForm.jsx';
 import VotingForm from './component/VotingForm/VotingForm';
 import BrandExample from './component/Header/Header';
 import Thankyou from './component/ThankYou';
+import NotFound from './component/NotFound';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
           <Route path='/login' element={<Login />}></Route>
           <Route path='/voting-form' element={<VotingForm />}></Route>
           <Route path='/thank-you' element={<Thankyou />}></Route>
-          
+          <Route path='*' element={<NotFound />}></Route>
         </Routes>
       </Router>
       <div><h6 className='mt-4 text-center mb-0 text-secondary'>jmbliss | @2023 All Rights Reserved</h6></div>

@@ -54,7 +54,7 @@ const Signup = () => {
   const signIn = async (e) => {
     debugger;
     e.preventDefault();
-    //navigate("/voting-form");
+    
     const newErrors = {};
     if (!formValue.us_name || !/^[A-Za-z]+$/.test(formValue.us_name)) {
       newErrors.us_name = "name should be alphabetical only";
