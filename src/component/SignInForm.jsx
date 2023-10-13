@@ -11,49 +11,38 @@ const Login = () => {
   const handleChange = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
   };
+
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
   const LogIn = async (e) => {
     e.preventDefault();
-    await axios
-      .post("https://mpvoter.com/api/voter_login", formValue, {
-        headers: { "content-type": "application/json" },
-      })
-      .then((response) => {
-        if (response) {
-          const user = {
-            username: response.data.us_name,
-            useremail: response.data.us_email,
-            userphone: response.data.us_phone,
-          };
-          localStorage.setItem("user", JSON.stringify(user));
-          navigate("/voting-form");
-        } else {
-          alert("Something went wrong");
-        }
-        console.log(response)
-      });
-    // const result = await axios.post(
-    //   `${process.env.REACT_APP_BASE_URL}/api/auth/login`,
-    //   formValue,
-    //   {
-    //     validateStatus: () => true,
-    //   }
-    // );
-    // if (result && result.status === 200) {
-    //   // Update user isVerified
-    //   const user = {
-    //     username: result.data.user.name,
-    //     email: result.data.user.email,
-    //   };
-    //   const token = result.data.token;
-    //   localStorage.setItem("user", JSON.stringify(user));
-    //   localStorage.setItem("jwt", token);
-    //   navigate("/voting-form");
-    // } else if (result && result.status === 404) {
-    //   alert("User Not Found");
-    // } else if (result && result.status === 400) {
-    //   alert("Wrong Password");
-    // }
+    const newErrors = {};
+    if (!formValue.us_phone || !/^\d{10}$/.test(formValue.us_phone)) {
+      newErrors.us_phone = "Phone number should be numerical and 10 digit";
+    }
+    if (Object.keys(newErrors).length === 0) {
+      navigate("/voting-form");
+      // await axios
+      //   .post("https://backlaravel.mpvoter.com/voter_login", formValue, {
+      //     headers: { "content-type": "application/json" },
+      //   })
+      //   .then((response) => {
+      //     if (response) {
+      //       const user = {
+      //         username: response.data.us_name,
+      //         useremail: response.data.us_email,
+      //         userphone: response.data.us_phone,
+      //       };
+      //       localStorage.setItem("user", JSON.stringify(user));
+      //       navigate("/voting-form");
+      //     } else {
+      //       alert("Something went wrong");
+      //     }
+      //     console.log(response);
+      //   });
+    } else {
+      setErrors(newErrors);
+    }
   };
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
@@ -67,7 +56,10 @@ const Login = () => {
   };
   return (
     <div className="container poll-form">
-      <form className="col-12 m-auto col-lg-6 login-from" onSubmit={(e) => LogIn(e)}>
+      <form
+        className="col-12 m-auto col-lg-6 login-from"
+        onSubmit={(e) => LogIn(e)}
+      >
         <h2 className="mb-4 text-center">Login</h2>
         <div className="d-flex flex-row align-items-center mb-4">
           <div className="form-outline flex-fill mb-0">
@@ -80,6 +72,7 @@ const Login = () => {
               placeholder=" Your number"
               onChange={handleChange}
             />
+            {errors.us_phone && <p className="text-danger error">{errors.us_phone}</p>}
           </div>
         </div>
 

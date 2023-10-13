@@ -14,8 +14,7 @@ const Signup = () => {
   const [otp, setOtp] = useState(false);
   const [code, setCode] = useState("");
   const [inValidCode, setInvalidCode] = useState();
-  const [isValid, setIsValid] = useState(true);
-  const [isnumber, setNumber] = useState(true);
+
 
   const handleOtpChange = (code) => setCode(code);
 
@@ -50,34 +49,57 @@ const Signup = () => {
       console.log(err);
     }
   };
-
-  //http://mpvoter.com/api/voter_registration
+  const [errors, setErrors] = useState({});
 
   const signIn = async (e) => {
-    debugger
+    debugger;
     e.preventDefault();
-    navigate("/voting-form");
+    //navigate("/voting-form");
+    const newErrors = {};
+    if (!formValue.us_name || !/^[A-Za-z]+$/.test(formValue.us_name)) {
+      newErrors.us_name = "name should be alphabetical only";
+    }
+    if (
+      !formValue.us_email ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formValue.us_email)
+    ) {
+      newErrors.us_email = "Invalid email format";
+    }
 
-      await axios
-        .post("https://backlaravel.mpvoter.com/voter_registration", formValue, {
-          headers: { "content-type": "application/json" },
-        })
-        .then((response) => {
-          if (response) {
-            const user = {
-              username: response.data.us_name,
-              useremail: response.data.us_email,
-              userphone: response.data.us_phone,
-            };
-            localStorage.setItem("user", JSON.stringify(user));
-            navigate("/voting-form");
-          } else {
-            alert("Something went wrong");
-          }
-          console.log(response);
-        });
-      console.log(formValue);
-    
+    // if (!formValue.us_password || formValue.us_password.length < 8) {
+    //   newErrors.us_password = "Password must be at least 8 characters";
+    // }
+
+    if (!formValue.us_phone || !/^\d{10}$/.test(formValue.us_phone)) {
+      newErrors.us_phone = "Phone number should be numerical and 10 digit";
+    }
+    if (Object.keys(newErrors).length === 0) {
+      navigate("/voting-form");
+      // const result = await axios
+      //   .post("https://backlaravel.mpvoter.com/voter_registration", formValue, {
+      //     headers: { "content-type": "application/json" },
+      //   })
+      //   .then((response) => {
+      //     if (response.data) {
+      //       const user = {
+      //         username: response.data.us_name,
+      //         useremail: response.data.us_email,
+      //         userphone: response.data.us_phone,
+      //       };
+      //       localStorage.setItem("user", JSON.stringify(user));
+      //       navigate("/voting-form");
+      //     } else {
+      //       alert("Something went wrong");
+      //     }
+      //     console.log(response);
+      //     console.log(error.response.data);
+      //   });
+      // console.log(formValue);
+      // console.log(result);
+      // console.log("Valid data:", formValue);
+    } else {
+      setErrors(newErrors);
+    }
   };
 
   const reSendotp = async (e) => {
@@ -98,34 +120,11 @@ const Signup = () => {
     }
   };
   const [error, setError] = useState("");
-  const isAlphabetic = (value) => {
-    return /^[A-Za-z]+$/.test(value);
-  };
+
+
 
   const handleChange = (e) => {
-    //setFormValue({ ...formValue, [e.target.name]: e.target.value });
-    const newValue = e.target.value;
-    if (isAlphabetic(newValue) || newValue === "") {
-      setFormValue({ ...formValue, [e.target.name]: e.target.value });
-      setIsValid(false)
-    } else {
-      setError("Name should contain only alphabetic characters");
-      setIsValid(true)
-    }
-  };
-  const handleEmail = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
-  };
-
-  const handlePhone = (e) => {
-    const newValue = e.target.value;
-    if (!isNaN(newValue) || newValue.length == 10) {
-      setNumber(false)
-      setFormValue({ ...formValue, [e.target.name]: e.target.value });
-    } else {
-      setError("Phone number should be number");
-      setNumber(true)
-    }
   };
 
   const [showPassword, setShowPassword] = useState(false);
@@ -173,7 +172,10 @@ const Signup = () => {
         </div>
       ) : (
         <>
-          <form className="col-12 m-auto col-lg-6 register-form" onSubmit={(e) => signIn(e)}>
+          <form
+            className="col-12 m-auto col-lg-6 register-form"
+            onSubmit={(e) => signIn(e)}
+          >
             <h2 className="mb-4 text-center">Create Account</h2>
             <button
               type="submit"
@@ -193,6 +195,7 @@ const Signup = () => {
                   placeholder="Your name"
                   onChange={handleChange}
                 />
+                {errors.us_name && <p className="text-danger error">{errors.us_name}</p>}
               </div>
             </div>
             <div className="d-flex flex-row align-items-center mb-4">
@@ -204,8 +207,9 @@ const Signup = () => {
                   required
                   name="us_email"
                   placeholder="Your Email"
-                  onChange={handleEmail}
+                  onChange={handleChange}
                 />
+                {errors.us_email && <p className="text-danger error">{errors.us_email}</p>}
               </div>
             </div>
             <div className="d-flex flex-row align-items-center mb-4">
@@ -217,8 +221,9 @@ const Signup = () => {
                   required
                   name="us_phone"
                   placeholder="Your Phone"
-                  onChange={handlePhone}
+                  onChange={handleChange}
                 />
+                {errors.us_phone && <p className="text-danger error">{errors.us_phone}</p>}
               </div>
             </div>
 
@@ -231,8 +236,9 @@ const Signup = () => {
                   required
                   name="us_password"
                   placeholder="Password"
-                  onChange={handleEmail}
+                  onChange={handleChange}
                 />
+                {errors.us_password && <p className="text-danger error">{errors.us_password}</p>}
               </div>
               <div
                 className={`custom-button ${isActive ? "active" : "inactive"}`}
@@ -243,7 +249,7 @@ const Signup = () => {
                 </p>
               </div>
             </div>
-            {error && <div className="text-danger">{error}</div>}
+            {/* {error && <div className="text-danger">{error}</div>} */}
             <button type="submit" className="btn btn-primary btn-lg mb-3">
               Create Account
             </button>

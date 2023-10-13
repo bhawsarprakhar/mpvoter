@@ -96,21 +96,21 @@ const Drop = () => {
 
   const submitData = async (e) => {
     e.preventDefault();
+    navigate("/thank-you");
+    // console.log(formValue);
 
-    console.log(formValue);
-
-    await axios
-      .post("https://backlaravel.mpvoter.com/voter_voting", formValue, {
-        headers: { "content-type": "application/json" },
-      })
-      .then((response) => {
-        if (response) {
-          navigate("/thank-you");
-        } else {
-          alert("Something went wrong");
-        }
-        console.log(response.config.data);
-      });
+    // await axios
+    //   .post("https://backlaravel.mpvoter.com/voter_voting", formValue, {
+    //     headers: { "content-type": "application/json" },
+    //   })
+    //   .then((response) => {
+    //     if (response) {
+    //       navigate("/thank-you");
+    //     } else {
+    //       alert("Something went wrong");
+    //     }
+    //     console.log(response.config.data);
+    //   });
   };
   // Function to handle the category selection
   const handleCategoryChange = (e) => {
