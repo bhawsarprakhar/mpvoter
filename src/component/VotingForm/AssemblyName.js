@@ -174,42 +174,42 @@ export const Subcategories = {
     {
       "id.": 35,
       Name: "Bina/बीना",
-      District: "Sagar/सागर ",
+      District: "Sagar/सागर",
     },
     {
       "id.": 36,
       Name: "Khurai/खुरै",
-      District: "Sagar/सागर ",
+      District: "Sagar/सागर",
     },
     {
       "id.": 37,
       Name: "Surkhi/सुरखी",
-      District: "Sagar/सागर ",
+      District: "Sagar/सागर",
     },
     {
       "id.": 38,
       Name: "Deori/देवरी",
-      District: "Sagar/सागर ",
+      District: "Sagar/सागर",
     },
     {
       "id.": 39,
       Name: "Rehli/रेहली",
-      District: "Sagar/सागर ",
+      District: "Sagar/सागर",
     },
     {
       "id.": 40,
       Name: "Naryoli/नर्योली",
-      District: "Sagar/सागर ",
+      District: "Sagar/सागर",
     },
     {
       "id.": 41,
-      Name: "Sagar/सागर ",
-      District: "Sagar/सागर ",
+      Name: "Sagar/सागर",
+      District: "Sagar/सागर",
     },
     {
       "id.": 42,
       Name: "Banda/बांदा",
-      District: "Sagar/सागर ",
+      District: "Sagar/सागर",
     },
     {
       "id.": 43,

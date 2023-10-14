@@ -1,7 +1,16 @@
 // NotFound.js
-import React from 'react';
+// import { useEffect } from "react";
+import React,{useEffect} from 'react';
+import ReactGA from "react-ga";
 
-function NotFound() {
+const TRACKING_ID = 'G-Z3K0LX24BS';
+ReactGA.initialize(TRACKING_ID);
+
+  
+  function NotFound() {
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
   return (
     <div className='text-center'>
       <h1>404 - Not Found</h1>

@@ -1,8 +1,21 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
+import ReactGA from "react-ga";
+import { Helmet } from "react-helmet";
+
+
+const TRACKING_ID = "G-Z3K0LX24BS";
+ReactGA.initialize(TRACKING_ID);
+
+
 
 const Login = () => {
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
   const [formValue, setFormValue] = useState({
     us_phone: "",
     us_password: "",
@@ -56,6 +69,10 @@ const Login = () => {
   };
   return (
     <div className="container poll-form">
+       <Helmet>
+        <meta charSet="utf-8" />
+        <link rel="canonical" href="https://mpvoter.com/login" />
+      </Helmet>
       <form
         className="col-12 m-auto col-lg-6 login-from"
         onSubmit={(e) => LogIn(e)}
@@ -72,7 +89,9 @@ const Login = () => {
               placeholder=" Your number"
               onChange={handleChange}
             />
-            {errors.us_phone && <p className="text-danger error">{errors.us_phone}</p>}
+            {errors.us_phone && (
+              <p className="text-danger error">{errors.us_phone}</p>
+            )}
           </div>
         </div>
 

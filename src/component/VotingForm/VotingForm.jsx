@@ -8,8 +8,17 @@ import congress from "../../assests/images/INC.png";
 import bsp from "../../assests/images/BSP.png";
 import aap from "../../assests/images/AAP.png";
 import other from "../../assests/images/Other.png";
+import { Helmet } from "react-helmet";
+import ReactGA from "react-ga";
+
+const TRACKING_ID = "G-Z3K0LX24BS";
+ReactGA.initialize(TRACKING_ID);
 
 const Drop = () => {
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
   const subcategories = Subcategories.name;
   const navigate = useNavigate();
   const [formValue, setFormValue] = useState({
@@ -136,6 +145,13 @@ const Drop = () => {
 
   return (
     <div className="container poll-form">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>
+          Best Assembly Election Opinion website | Mp Voter Polls Opinion- 2023
+        </title>
+        <link rel="canonical" href="https://mpvoter.com/voting-form" />
+      </Helmet>
       <form
         className="col-12 m-auto col-lg-6 voting-form"
         onSubmit={(e) => submitData(e)}

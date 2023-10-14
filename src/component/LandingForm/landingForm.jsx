@@ -3,8 +3,19 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import ReactGA from "react-ga";
+
+
+const TRACKING_ID = "G-Z3K0LX24BS";
+ReactGA.initialize(TRACKING_ID);
 
 const Signup = () => {
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
+  
   const [formValue, setFormValue] = useState({
     us_name: "",
     us_email: "",
