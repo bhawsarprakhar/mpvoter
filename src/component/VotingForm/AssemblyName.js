@@ -959,6 +959,7 @@ export const Subcategories = {
       "id.": 192,
       Name: "Jobat/जोबट",
       District: "Alirajpur/अलीराजपुर",
+
     },
     {
       "id.": 193,

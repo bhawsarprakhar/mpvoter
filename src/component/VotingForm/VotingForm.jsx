@@ -8,6 +8,12 @@ import congress from "../../assests/images/INC.png";
 import bsp from "../../assests/images/BSP.png";
 import aap from "../../assests/images/AAP.png";
 import other from "../../assests/images/Other.png";
+import Candidate from "./Candidate";
+
+
+
+
+
 
 const Drop = () => {
   const subcategories = Subcategories.name;
@@ -38,7 +44,7 @@ const Drop = () => {
 
   const districts = [
     { id: "1", name: "Agar Malwa/आगर मालवा" },
-    { id: "2", name: "Alirajpur/अलीराजपुर" },
+    { id: "2", name: "Alirajpur/अलीराजपुर"},
     { id: "3", name: "Anuppur/अनूपपुर" },
     { id: "4", name: "Ashok Nagar/अशोकनगर" },
     { id: "5", name: "Balaghat/बालाघाट" },
@@ -162,7 +168,7 @@ const Drop = () => {
             // onChange={(e) => setSelectedSubcategory(e.target.value)}
             onChange={selectAssembly}
           >
-            <option value="">Select...</option>
+            <option  value="">Select...</option>
             {subcategories
               .filter(
                 (subcategory) => subcategory.District === selectedCategory
@@ -188,7 +194,9 @@ const Drop = () => {
           />
           Bharatiya Janata Party (BJP)
           <label className="form-check-label" for="radio1"></label>
+          <Candidate/>
         </div>
+
         <div className="form-check">
           <img src={sp} alt="SP" />
           <input
@@ -202,7 +210,9 @@ const Drop = () => {
           />
           Samajwadi Party (SP)
           <label className="form-check-label" for="radio1"></label>
+          
         </div>
+
         <div className="form-check">
           <img src={bsp} alt="BSP" />
           <input
@@ -217,6 +227,7 @@ const Drop = () => {
           Bahujan Samaj Party (BSP)
           <label className="form-check-label" for="radio1"></label>
         </div>
+
         <div className="form-check">
           <img src={aap} alt="AAP" />
           <input
@@ -231,6 +242,7 @@ const Drop = () => {
           Aam Aadmi Party (AAP)
           <label className="form-check-label" for="radio1"></label>
         </div>
+
         <div className="form-check">
           <img src={congress} alt="congress" />
           <input
@@ -246,6 +258,7 @@ const Drop = () => {
           Indian National Congress
           <label className="form-check-label" for="radio1"></label>
         </div>
+
         <div className="form-check">
           <img src={other} alt="other" />
           <input
