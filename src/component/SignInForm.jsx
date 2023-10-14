@@ -11,49 +11,38 @@ const Login = () => {
   const handleChange = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
   };
+
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
   const LogIn = async (e) => {
     e.preventDefault();
-    await axios
-      .post("https://mpvoter.com/api/voter_login", formValue, {
-        headers: { "content-type": "application/json" },
-      })
-      .then((response) => {
-        if (response) {
-          const user = {
-            username: response.data.us_name,
-            useremail: response.data.us_email,
-            userphone: response.data.us_phone,
-          };
-          localStorage.setItem("user", JSON.stringify(user));
-          navigate("/voting-form");
-        } else {
-          alert("Something went wrong");
-        }
-        console.log(response)
-      });
-    // const result = await axios.post(
-    //   `${process.env.REACT_APP_BASE_URL}/api/auth/login`,
-    //   formValue,
-    //   {
-    //     validateStatus: () => true,
-    //   }
-    // );
-    // if (result && result.status === 200) {
-    //   // Update user isVerified
-    //   const user = {
-    //     username: result.data.user.name,
-    //     email: result.data.user.email,
-    //   };
-    //   const token = result.data.token;
-    //   localStorage.setItem("user", JSON.stringify(user));
-    //   localStorage.setItem("jwt", token);
-    //   navigate("/voting-form");
-    // } else if (result && result.status === 404) {
-    //   alert("User Not Found");
-    // } else if (result && result.status === 400) {
-    //   alert("Wrong Password");
-    // }
+    const newErrors = {};
+    if (!formValue.us_phone || !/^\d{10}$/.test(formValue.us_phone)) {
+      newErrors.us_phone = "Phone number should be numerical and 10 digit";
+    }
+    if (Object.keys(newErrors).length === 0) {
+      navigate("/voting-form");
+      // await axios
+      //   .post("https://backlaravel.mpvoter.com/voter_login", formValue, {
+      //     headers: { "content-type": "application/json" },
+      //   })
+      //   .then((response) => {
+      //     if (response) {
+      //       const user = {
+      //         username: response.data.us_name,
+      //         useremail: response.data.us_email,
+      //         userphone: response.data.us_phone,
+      //       };
+      //       localStorage.setItem("user", JSON.stringify(user));
+      //       navigate("/voting-form");
+      //     } else {
+      //       alert("Something went wrong");
+      //     }
+      //     console.log(response);
+      //   });
+    } else {
+      setErrors(newErrors);
+    }
   };
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
@@ -67,8 +56,17 @@ const Login = () => {
   };
   return (
     <div className="container poll-form">
-      <form className="col-12 m-auto col-lg-6 login-from" onSubmit={(e) => LogIn(e)}>
-        <h2 className="mb-4 text-center">Login</h2>
+      <p className="text-light information-txt"><b>Join the Powerhouse of Madhya Pradesh's Social Movement!
+Be part of something extraordinary as we unite 10 lakh strong voices on social media, amplifying our collective impact and influence.Your voice, your power!
+Join us today to shape the future of Madhya Pradesh. Together, we can make a difference.</b><br/>
+मध्य प्रदेश के सामाजिक आंदोलन के पावरहाउस में शामिल हों!
+हम 10 लाख मजबूत आवाजों को सोशल मीडिया पर जोड़कर हमारे संगठनिक प्रभाव और प्रतिष्ठा को बढ़ाने का अद्वितीय अंश बनें। आपकी आवाज, आपकी शक्ति!
+हमारे साथ मिलकर आज ही मध्य प्रदेश के भविष्य को आकार देने में शामिल हों। हम मिलकर बदलाव ला सकते हैं।</p>
+      <form
+        className="col-12 m-auto col-lg-6 login-from"
+        onSubmit={(e) => LogIn(e)}
+      >
+        <h1 className="mb-4 text-center">Login</h1>
         <div className="d-flex flex-row align-items-center mb-4">
           <div className="form-outline flex-fill mb-0">
             <input
@@ -80,6 +78,7 @@ const Login = () => {
               placeholder=" Your number"
               onChange={handleChange}
             />
+            {errors.us_phone && <p className="text-danger error">{errors.us_phone}</p>}
           </div>
         </div>
 
@@ -109,9 +108,9 @@ const Login = () => {
         <button type="submit" className="btn btn-primary btn-lg mb-4">
           LOGIN
         </button>
-        <button type="submit" className="btn btn-primary btn-lg mb-4">
+        {/* <button type="submit" className="btn btn-primary btn-lg mb-4">
           Login With Gmail
-        </button>
+        </button> */}
         <div>
           <p className="have-acc">
             Not have an account ? <Link to="/">Sign Up</Link>

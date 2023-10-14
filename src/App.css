@@ -11,7 +11,7 @@ h1,h2,h3,h4,h5,h6,p,label,body,input{
 }
 
 .poll-form form {
-  background: #fff;
+  background: #ffffff8c;
   padding: 39px;
   border-radius: 20px;
   box-shadow: 0px 0px 2px 2px #0000001a;
@@ -19,14 +19,49 @@ h1,h2,h3,h4,h5,h6,p,label,body,input{
  
 }
 .poll-form input::placeholder {
-  color: #c1c1c1;
+  color: #000;
+}
+.poll-form .form-control {
+  background: transparent;
+}
+.poll-form  .select:before {
+  content: "\f107";
+  font-family: "FontAwesome";
+  font-size: 23px;
+  color: #000;
+  z-index: 11111;
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  z-index: 0;
+  transition: 0.3s;
+}
+h6.footer a {
+  color: #6c757d;
+  text-decoration: auto;
+}
+.poll-form  .select {
+  position: relative;
+}
+.poll-form  select { 
+-webkit-appearance: none;
+z-index: 1;
+
+}
+.select.active:before {
+  transform: rotate(180deg);
 }
 .poll-form select,.poll-form input:not(input[type="radio"]) {
-  border-bottom: 1px solid #C1C1C1 !IMPORTANT;
+  border-bottom: 1px solid #000 !IMPORTANT;
   padding: 9px 9px;
   border: none;
   cursor: pointer;
   border-radius:0 ;
+  background: transparent !important;
+}
+
+.poll-form textarea.form-control {
+  border-color: #000;
 }
 .poll-form select:focus-visible ,.poll-form input:focus-visible ,.poll-form input:focus,
  .poll-form textarea:focus-visible,.poll-form button[type=submit]:focus{
@@ -46,13 +81,19 @@ background: #35CCED;
 border: 1px solid #35cced;
 
 }
+
+.poll-form input:-webkit-autofill,
+.poll-form input:-webkit-autofill:hover {
+  -webkit-box-shadow: 0 0 0px 1000px #a4e8f7 inset;
+}
+
 .poll-form button[type=submit]:hover {
   background: transparent;
   color: #3f0c01;
 }
 .poll-form form:before {
   content: "";
-  background-image: url(http://localhost:3000/static/media/Mp-LOGO.59fe4e745199feae262b.png);
+  background-image: url(../src/assests/Mp-LOGO.png);
   width: 100px;
   height: 100px;
   background-size: contain;
@@ -69,7 +110,7 @@ border: 1px solid #35cced;
 .form-check-input {
   cursor: pointer;
 }
-.poll-form h2 {
+.poll-form h1 {
   font-weight: 400;
 }
 
@@ -164,6 +205,7 @@ button.btn.btn-primary.btn-lg.mb-4.google-login:before {
   border-radius: 0 !IMPORTANT;
   cursor: pointer !IMPORTANT;
   margin-top: 8px;
+  border-radius: 25px !important;
 }
 
 .voting-form .form-check img {
@@ -172,8 +214,17 @@ button.btn.btn-primary.btn-lg.mb-4.google-login:before {
 
 .voting-form .form-check-input:checked {
   border: 10px solid #35cced;
+  outline: 2px solid;
 }
-
+p.text-light.information-txt {
+  max-width: 900px;
+  text-align: center;
+  font-size: 19px;
+  font-weight: 300;
+  font-family: cursive;
+  z-index: 99999999;
+  padding-bottom: 44px;
+}
 
 /* animation on forms */
 .register-form {
@@ -221,10 +272,21 @@ button.btn.btn-primary.btn-lg.mb-4.google-login:before {
 }
 
 @media(max-width:600px){
-  .poll-form h2 {
+  .vote{
+
+    margin-top: 40px;
+  }
+  .navbar-expand{
+    height: 49px;
+
+  }
+  p.text-light.information-txt {
+    margin-bottom: 54px;
+}
+  .poll-form h1 {
     font-size: 22px;
 }
-  .poll-form h2 {
+  .poll-form h1 {
     font-size: 22px;
 }
 .poll-form form {
@@ -249,7 +311,95 @@ button.btn.btn-primary.btn-lg.mb-4.google-login:before {
 
 
 
-h2.text-center {
+
+/*  */
+
+
+body:before {content:'';display: block;width: 300px;height: 300px;border-radius: 50%;background-color: #dc76cc85; position: absolute;animation: moveX 7.5s linear 0s infinite alternate, moveY 9s linear 0s infinite alternate;}
+
+@keyframes moveX {
+  from { right: -120px; } to {right:  -120px;}
+}
+
+@keyframes moveY {
+  from { top: 12%; } to {top: 20%;}
+}
+
+body:after {content:'';display: block;width: 150px;height: 150px;border-radius: 50%;background-color: #feb8466e; position: absolute;animation: moveXx 7.5s linear 0s infinite alternate, moveYy 9s linear 0s infinite alternate;z-index: -1;}
+
+@keyframes moveXx {
+  from { right: 110px; } to {right:  120px;}
+}
+
+@keyframes moveYy {
+  from { top: 30%; } to {top: 40%;}
+}
+
+
+#root:after {content:'';display: block;width: 50px;height: 50px;border-radius: 50%; position: absolute;animation: moveXx1 7.5s linear 0s infinite alternate, moveYy1 9s linear 0s infinite alternate;background: linear-gradient(-45deg, #1f6fd0, #1c6dcf, #23a6d5, #23d5ab);box-shadow: inset -5px -5px 5px rgb(0 0 0 / 13%), 15px 15px 2px rgba(0,0,0,.04);z-index: -1;}
+
+@keyframes moveXx1 {
+  from { right: 130px; } to {right:  130px;}
+}
+
+@keyframes moveYy1 {
+  from { top: 65%; } to {top: 70%;}
+}
+
+#root:before{content:'';display: block;width: 100px;height: 100px;border-radius: 50%;background-size: 400% 400% !important;background: linear-gradient(-45deg, #b37993, #e73c7e96, #307ad7, #23d5ab);box-shadow: inset -5px -5px 5px rgb(0 0 0 / 13%), 15px 15px 2px rgba(0,0,0,.04);position: absolute;animation: move_X 7.5s linear 0s infinite alternate, move_Y 9s linear 0s infinite alternate , gradient 6s ease infinite;}
+
+@keyframes move_X {
+  from { left: 0; } to {left: 50%;}
+}
+
+@keyframes move_Y {
+  from { top: 0; } to {top: 80%;}
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+#root>div:before{content:'';display: block;width: 100px;height: 100px;border-radius: 50%;background-size: 400% 400% !important;background: linear-gradient(-45deg, #8cc3a5, #bbc38c, #307ad7, #23d5ab);box-shadow: inset -5px -5px 5px rgb(0 0 0 / 13%), 15px 15px 2px rgba(0,0,0,.04);position: absolute;animation: move__X 7.5s linear 0s infinite alternate, move__Y 9s linear 0s infinite alternate , gradient 6s ease infinite;}
+
+@keyframes move__X {
+  from { left: 40%; } to {left: 0%;}
+}
+
+@keyframes move__Y {
+  from { top: 80%; } to {top: 10%;}
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    position: relative;
+}
+
+
+
+/* thank u */
+
+h1.text-center.thank-you {
   font-size: 40px;
   font-family: Arial, Helvetica, sans-serif;
   background: linear-gradient(to right, #0f65ca, 
@@ -257,22 +407,21 @@ h2.text-center {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   font-size: 109px;
-  height: 72vh;
+  height: 75vh;
   font-weight: 700;
   font-family: cursive;
   z-index: 1;
   position: relative;
-animation: head 0.6s linear;
-
+  animation: head 0.6s linear;
   }
-@keyframes head{
+  @keyframes head{
 
-0% {
-opacity: 0;
-transform: scale(0.1)
-}
-100% {
-opacity: 1;
-transform: scale(1)
-}
-}
+    0% {
+    opacity: 0;
+    transform: scale(0.1)
+    }
+    100% {
+    opacity: 1;
+    transform: scale(1)
+    }
+    }
