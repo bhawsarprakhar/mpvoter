@@ -4,7 +4,7 @@ export const Subcategories = {
       "id.": 1,
       Name: "Sheopur/श्योपुर",
       District: "Sheopur/श्योपुर",
-      bjp:"demo"
+
     },
     {
       "id.": 2,

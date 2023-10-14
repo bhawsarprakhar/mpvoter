@@ -102,9 +102,9 @@ const Login = () => {
         <button type="submit" className="btn btn-primary btn-lg mb-4">
           LOGIN
         </button>
-        <button type="submit" className="btn btn-primary btn-lg mb-4">
+        {/* <button type="submit" className="btn btn-primary btn-lg mb-4">
           Login With Gmail
-        </button>
+        </button> */}
         <div>
           <p className="have-acc">
             Not have an account ? <Link to="/">Sign Up</Link>

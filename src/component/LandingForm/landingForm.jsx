@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 // import OtpInput from "react-otp-input";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Signup = () => {
   const [formValue, setFormValue] = useState({
@@ -14,7 +15,6 @@ const Signup = () => {
   const [otp, setOtp] = useState(false);
   const [code, setCode] = useState("");
   const [inValidCode, setInvalidCode] = useState();
-
 
   const handleOtpChange = (code) => setCode(code);
 
@@ -54,7 +54,7 @@ const Signup = () => {
   const signIn = async (e) => {
     debugger;
     e.preventDefault();
-    
+
     const newErrors = {};
     if (!formValue.us_name || !/^[A-Za-z]+$/.test(formValue.us_name)) {
       newErrors.us_name = "name should be alphabetical only";
@@ -121,8 +121,6 @@ const Signup = () => {
   };
   const [error, setError] = useState("");
 
-
-
   const handleChange = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
   };
@@ -139,6 +137,11 @@ const Signup = () => {
   };
   return (
     <div className="container poll-form">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Best  Assembly Election Opinion website | Mp Voter Polls Opinion- 2023</title>
+        <link rel="canonical" href="https://mpvoter.com" />
+      </Helmet>
       {otp === true ? (
         <div>
           {" "}
@@ -176,14 +179,14 @@ const Signup = () => {
             className="col-12 m-auto col-lg-6 register-form"
             onSubmit={(e) => signIn(e)}
           >
-            <h2 className="mb-4 text-center">Create Account</h2>
-            <button
+            <h2 className="mb-4 text-center">Welcome</h2>
+            {/* <button
               type="submit"
               className="btn btn-primary btn-lg mb-4 google-login"
             >
               SignUp With Google
-            </button>
-            <p className="text-center">-OR-</p>
+            </button> */}
+            {/* <p className="text-center">-OR-</p> */}
             <div className="d-flex flex-row align-items-center mb-4">
               <div className="form-outline flex-fill mb-0">
                 <input
@@ -195,7 +198,9 @@ const Signup = () => {
                   placeholder="Your name"
                   onChange={handleChange}
                 />
-                {errors.us_name && <p className="text-danger error">{errors.us_name}</p>}
+                {errors.us_name && (
+                  <p className="text-danger error">{errors.us_name}</p>
+                )}
               </div>
             </div>
             <div className="d-flex flex-row align-items-center mb-4">
@@ -209,7 +214,9 @@ const Signup = () => {
                   placeholder="Your Email"
                   onChange={handleChange}
                 />
-                {errors.us_email && <p className="text-danger error">{errors.us_email}</p>}
+                {errors.us_email && (
+                  <p className="text-danger error">{errors.us_email}</p>
+                )}
               </div>
             </div>
             <div className="d-flex flex-row align-items-center mb-4">
@@ -223,7 +230,9 @@ const Signup = () => {
                   placeholder="Your Phone"
                   onChange={handleChange}
                 />
-                {errors.us_phone && <p className="text-danger error">{errors.us_phone}</p>}
+                {errors.us_phone && (
+                  <p className="text-danger error">{errors.us_phone}</p>
+                )}
               </div>
             </div>
 
@@ -238,7 +247,9 @@ const Signup = () => {
                   placeholder="Password"
                   onChange={handleChange}
                 />
-                {errors.us_password && <p className="text-danger error">{errors.us_password}</p>}
+                {errors.us_password && (
+                  <p className="text-danger error">{errors.us_password}</p>
+                )}
               </div>
               <div
                 className={`custom-button ${isActive ? "active" : "inactive"}`}

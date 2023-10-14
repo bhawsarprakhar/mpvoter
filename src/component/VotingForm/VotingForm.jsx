@@ -96,8 +96,8 @@ const Drop = () => {
 
   const submitData = async (e) => {
     e.preventDefault();
-
-    console.log(formValue);
+    navigate("/thank-you");
+    //console.log(formValue);
 
     // await axios
     //   .post("https://backlaravel.mpvoter.com/voter_voting", formValue, {
@@ -203,7 +203,7 @@ const Drop = () => {
               (subcategories) => subcategories.Name === selectedSubcategory
             )
             .map((subcategories) => (
-              <div onChange={selectVoter}>{subcategories?.bjp}</div>
+              <div></div>
             ))}
           <label className="form-check-label" for="radio1"></label>
         </div>
@@ -227,7 +227,7 @@ const Drop = () => {
               (subcategories) => subcategories.Name === selectedSubcategory
             )
             .map((subcategories) => (
-              <div onChange={selectVoter}>{subcategories?.bjp}</div>
+              <div></div>
             ))}
           <label className="form-check-label" for="radio1"></label>
         </div>
@@ -251,7 +251,7 @@ const Drop = () => {
               (subcategories) => subcategories.Name === selectedSubcategory
             )
             .map((subcategories) => (
-              <div onChange={selectVoter}>{subcategories?.bjp}</div>
+              <div></div>
             ))}
           <label className="form-check-label" for="radio1"></label>
         </div>
@@ -275,7 +275,7 @@ const Drop = () => {
               (subcategories) => subcategories.Name === selectedSubcategory
             )
             .map((subcategories) => (
-              <div onChange={selectVoter}>{subcategories?.bjp}</div>
+              <div></div>
             ))}
           <label className="form-check-label" for="radio1"></label>
         </div>
@@ -300,32 +300,32 @@ const Drop = () => {
               (subcategories) => subcategories.Name === selectedSubcategory
             )
             .map((subcategories) => (
-              <div onChange={selectVoter}>{subcategories?.bjp}</div>
+              <div onChange={selectVoter}></div>
             ))}
           <label className="form-check-label" for="radio1"></label>
         </div>
         <div className="form-check d-flex align-items-center">
           <img src={other} alt="other" />
-          Other
+
+          <div className="d-flex">
+            <input
+              type="radio"
+              className="form-check-input"
+              id="radio1"
+              value="Other"
+              name="voter_partie_support"
+              onChange={selectPolitics}
+              required
+              // value="option1"
+            />
+            Other
+          </div>
           {subcategories
             .filter(
               (subcategories) => subcategories.Name === selectedSubcategory
             )
             .map((subcategories) => (
-              <div className="d-flex">
-                <input
-                  type="radio"
-                  className="form-check-input"
-                  id="radio1"
-                  value={subcategories?.bjp}
-                  name="voter_partie_support"
-                  onChange={selectPolitics}
-                  required
-                  // value="option1"
-                />
-
-                <div>{subcategories?.bjp}</div>
-              </div>
+              <div className=""></div>
             ))}
           <label className="form-check-label" for="radio1"></label>
         </div>
