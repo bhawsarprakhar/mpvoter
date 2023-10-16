@@ -23,6 +23,7 @@ function App() {
           <Route path='/' element={<LandingForm />}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/voting-form' element={<VotingForm />}></Route>
+          <Route path='/voting-form/:token' element={<VotingForm />}></Route>
           <Route path='/thank-you' element={<Thankyou />}></Route>
           <Route path='*' element={<NotFound />}></Route>
         </Routes>

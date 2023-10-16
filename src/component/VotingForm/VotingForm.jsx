@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Subcategories } from "./AssemblyName";
 import bjp from "../../assests/images/BJP.png";
 import sp from "../../assests/images/SP.png";
@@ -10,6 +10,7 @@ import aap from "../../assests/images/AAP.png";
 import other from "../../assests/images/Other.png";
 import { Helmet } from "react-helmet";
 import ReactGA from "react-ga";
+import { useParams } from "react-router-dom";
 
 const TRACKING_ID = "G-Z3K0LX24BS";
 ReactGA.initialize(TRACKING_ID);
@@ -19,22 +20,63 @@ const Drop = () => {
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
 
+  const { token } = useParams();
+  const [clientData, setclientData] = useState();
+  const [loginuser, setLogInUser] = useState("");
+  const [userName, setUserName] = useState("false");
+
+  useEffect(() => {
+    if (token) {
+      fetchPortfolio();
+    } else {
+      if (!localStorage.getItem("user")) {
+        navigate("/");
+      } else {
+        const user = JSON.parse(localStorage.getItem("user"));
+        setLogInUser(user?.username);
+        setUserName(true);
+      }
+    }
+  }, []);
+
+  const fetchPortfolio = async () => {
+    try {
+      const url = `https://backlaravel.mpvoter.com/api/verify/${token}`;
+      const res = await axios.get(url);
+      setclientData(res);
+      console.log(res);
+      const user = {
+        username: res?.data[0],
+        email: res?.data[1],
+      };
+      localStorage.setItem("user", JSON.stringify(user));
+
+      if (res?.data[1] == "s") {
+        navigate("/");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+    console.log(clientData);
+  };
+
+
   const subcategories = Subcategories.name;
+
   const navigate = useNavigate();
+
   const [formValue, setFormValue] = useState({
     voter_district: "",
     voter_assembly: "",
     voter_partie_support: "",
     voter_content: "",
-    voter_name: "Name",
+    voter_name: loginuser,
   });
 
-  const [user, setUser] = useState("");
-
-  const getLoggedUser = () => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    setUser(user?.username);
-  };
+  // const getLoggedUser = () => {
+  //   const user = JSON.parse(localStorage.getItem("user"));
+  //   setUser(user?.username);
+  // };
   // useEffect(() => {
   //   getLoggedUser();
   //   if (!localStorage.getItem("user")) {
@@ -105,7 +147,7 @@ const Drop = () => {
   const submitData = async (e) => {
     e.preventDefault();
     //navigate("/thank-you");
-    
+
     console.log(formValue);
     const result = await axios
       .post("https://backlaravel.mpvoter.com/api/some_route", formValue, {
@@ -179,7 +221,9 @@ const Drop = () => {
           className="col-12 m-auto col-lg-6 voting-form"
           onSubmit={(e) => submitData(e)}
         >
-          <h1 className="mb-4">Welcome </h1>
+          <h1 className="mb-4">
+            Welcome {clientData?.data[0]} {loginuser}{" "}
+          </h1>
 
           <div
             className={`select ${isActive ? "active" : "inactive"}`}
@@ -202,12 +246,7 @@ const Drop = () => {
             </select>
           </div>
 
-          <input
-          type="hidden"
-          name="voter_name"
-          value="test"
-          readOnly
-        />
+          <input type="hidden" name="voter_name" value="test" readOnly />
           {/* {selectedCategory && ( */}
           <div
             className={`select  ${isaassmbly ? "inactive" : "active"}`}
