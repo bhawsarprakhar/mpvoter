@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import ReactGA from "react-ga";
 import { Helmet } from "react-helmet";
+import GoogleLoginButton from '../component/GoogleLoginButton.js';
 
 const TRACKING_ID = "G-Z3K0LX24BS";
 ReactGA.initialize(TRACKING_ID);
@@ -58,6 +59,29 @@ const Login = () => {
     // }
   };
 
+
+  // const handleGoogleLogin = async () => {
+  //   debugger
+  //   try {
+  //     const response = await axios.get('https://backlaravel.mpvoter.com/api/googlelogin');
+  //     // If successful, you may receive a URL to redirect the user to Google for login.
+  //     const { redirect_url } = response.data;
+  //     window.location.href = redirect_url;
+  //   } catch (error) {
+  //     // Handle login error.
+  //     console.error(error);
+  //   }
+  // };
+
+  const handleLoginSuccess = (response) => {
+    // Handle successful Google login, send the token to your backend for verification
+    console.log(response);
+  };
+
+  const handleLoginFailure = (error) => {
+    // Handle Google login failure
+    console.error(error);
+  };
   // const handleGoogleLogin = async () => {
   //   debugger
   //   try {
@@ -135,10 +159,15 @@ const Login = () => {
         <button type="submit" className="btn btn-primary btn-lg mb-4">
           LOGIN
         </button>
+        <div>
+      
+    </div>
         {/* <div onClick={handleGoogleLogin} className="btn btn-primary btn-lg mb-4">
           Login With Gmail
         </div> */}
-        {/* <div onClick={handleGoogleLogin}>Login with Google</div> */}
+
+        <GoogleLoginButton onLoginSuccess={handleLoginSuccess} onLoginFailure={handleLoginFailure} />
+     
         <div>
           <p className="have-acc">
             Not have an account ? <Link to="/">Sign Up</Link>
