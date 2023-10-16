@@ -179,7 +179,7 @@ const Drop = () => {
           className="col-12 m-auto col-lg-6 voting-form"
           onSubmit={(e) => submitData(e)}
         >
-          <h1 className="mb-4">Welcome {"Name"}</h1>
+          <h1 className="mb-4">Welcome </h1>
 
           <div
             className={`select ${isActive ? "active" : "inactive"}`}
@@ -387,7 +387,7 @@ const Drop = () => {
             id="exampleFormControlTextarea1"
             name="voter_content"
             rows="3"
-            placeholder="why you choose this party/Canidate/आपने इस पार्टी/उम्मीदवार को क्यों चुना"
+            placeholder="Why you choose this Party/Candidate ?/आपने इस पार्टी/उम्मीदवार को क्यों चुना ?"
           ></textarea>
           <button type="submit" className="btn btn-primary mt-4">
             Submit
