@@ -55,7 +55,7 @@ const Drop = () => {
     { id: "7", name: "Betul / बैतूल" },
     { id: "8", name: "Bhind / भिंड" },
     { id: "9", name: "Bhopal / भोपाल" },
-    // { id: "10", name: "Burhanpur/बुरहानपुर" },
+    { id: "10", name: "Burhanpur / बुरहानपुर" },
     { id: "11", name: "Chhatarpur / छतरपुर" },
     { id: "12", name: "Chhindwara / छिंदवाड़ा" },
     { id: "13", name: "Damoh / दमोह" },
@@ -66,7 +66,6 @@ const Drop = () => {
     { id: "18", name: "Guna / गुना" },
     { id: "19", name: "Gwalior / ग्वालियर" },
     { id: "20", name: "Harda / हरदा" },
-    { id: "21", name: "Hoshangabad / होशंगाबाद" },
     { id: "22", name: "Indore / इंदौर" },
     { id: "23", name: "Jabalpur / जबलपुर" },
     { id: "24", name: "Jhabua / झाबुआ" },
@@ -78,6 +77,7 @@ const Drop = () => {
     { id: "30", name: "Morena / मुरैना" },
     { id: "31", name: "Narsinghpur / नरसिंहपुर" },
     { id: "32", name: "Neemuch / नीमच" },
+    { id: "21", name: "Narmadapuram / नर्मदापुरम" },
     { id: "33", name: "Panna / पन्ना" },
     { id: "34", name: "Raisen / रायसेन" },
     { id: "35", name: "Rajgarh / राजगढ़" },
@@ -170,7 +170,7 @@ const Drop = () => {
   };
 
   return (
-    <div className="container poll-form">
+    <div className="container poll-form-1">
       <Helmet>
         <link rel="canonical" href="https://mpvoter.com/voting-form" />
       </Helmet>
@@ -210,7 +210,7 @@ const Drop = () => {
         />
           {/* {selectedCategory && ( */}
           <div
-            className={`select  ${isaassmbly ? "inactive" : "active"}`}
+            className={`select  ${isaassmbly ? "active" : "inactive"}`}
             onClick={toggleClassAssambly}
           >
             <label className="h5">Select Your Assembly / विधानसभा:</label>

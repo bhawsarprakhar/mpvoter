@@ -8,7 +8,8 @@ import BrandExample from './component/Header/Header';
 import Thankyou from './component/ThankYou';
 import NotFound from './component/NotFound';
 import ReactGA from "react-ga";
-
+import VoteGuid from './component/Pages/VoteGuid';
+import AllCandidates from './component/Pages/AllCandidates';
 const TRACKING_ID = 'G-Z3K0LX24BS';
 ReactGA.initialize(TRACKING_ID);
 function App() {
@@ -25,6 +26,9 @@ function App() {
           <Route path='/voting-form' element={<VotingForm />}></Route>
           <Route path='/thank-you' element={<Thankyou />}></Route>
           <Route path='*' element={<NotFound />}></Route>
+          <Route path='/VoteGuid' element={<VoteGuid/>}></Route>
+          <Route path='/AllCandidates' element={<AllCandidates/>}></Route>
+
         </Routes>
       </Router>
       <div><h6 className='mt-4 text-center mb-0 text-secondary footer'><a href="https://jmbliss.com/">Jmbliss It Solutions</a> | @2023 All Rights Reserved</h6></div>
