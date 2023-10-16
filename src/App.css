@@ -24,12 +24,44 @@ h1,h2,h3,h4,h5,h6,p,label,body,input{
 .poll-form .form-control {
   background: transparent;
 }
+.poll-form  .select:before {
+  content: "\f107";
+  font-family: "FontAwesome";
+  font-size: 23px;
+  color: #000;
+  z-index: 11111;
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  z-index: 0;
+  transition: 0.3s;
+}
+h6.footer a {
+  color: #6c757d;
+  text-decoration: auto;
+}
+.poll-form  .select {
+  position: relative;
+}
+.poll-form  select { 
+-webkit-appearance: none;
+z-index: 1;
+
+}
+.select.active:before {
+  transform: rotate(180deg);
+}
 .poll-form select,.poll-form input:not(input[type="radio"]) {
   border-bottom: 1px solid #000 !IMPORTANT;
   padding: 9px 9px;
   border: none;
   cursor: pointer;
   border-radius:0 ;
+  background: transparent !important;
+}
+
+.poll-form textarea.form-control {
+  border-color: #000;
 }
 .poll-form select:focus-visible ,.poll-form input:focus-visible ,.poll-form input:focus,
  .poll-form textarea:focus-visible,.poll-form button[type=submit]:focus{
@@ -78,7 +110,7 @@ border: 1px solid #35cced;
 .form-check-input {
   cursor: pointer;
 }
-.poll-form h2 {
+.poll-form h1 {
   font-weight: 400;
 }
 
@@ -173,6 +205,7 @@ button.btn.btn-primary.btn-lg.mb-4.google-login:before {
   border-radius: 0 !IMPORTANT;
   cursor: pointer !IMPORTANT;
   margin-top: 8px;
+  border-radius: 25px !important;
 }
 
 .voting-form .form-check img {
@@ -180,9 +213,18 @@ button.btn.btn-primary.btn-lg.mb-4.google-login:before {
 }
 
 .voting-form .form-check-input:checked {
-  border: 9px solid #35cced;
+  border: 10px solid #35cced;
+  outline: 2px solid;
 }
-
+p.text-light.information-txt {
+  max-width: 900px;
+  text-align: center;
+  font-size: 19px;
+  font-weight: 300;
+  font-family: cursive;
+  z-index: 99999999;
+  padding-bottom: 44px;
+}
 
 /* animation on forms */
 .register-form {
@@ -230,10 +272,21 @@ button.btn.btn-primary.btn-lg.mb-4.google-login:before {
 }
 
 @media(max-width:600px){
-  .poll-form h2 {
+  .vote{
+
+    margin-top: 40px;
+  }
+  .navbar-expand{
+    height: 49px;
+
+  }
+  p.text-light.information-txt {
+    margin-bottom: 54px;
+}
+  .poll-form h1 {
     font-size: 22px;
 }
-  .poll-form h2 {
+  .poll-form h1 {
     font-size: 22px;
 }
 .poll-form form {
@@ -346,7 +399,7 @@ body {
 
 /* thank u */
 
-h2.text-center.thank-you {
+h1.text-center.thank-you {
   font-size: 40px;
   font-family: Arial, Helvetica, sans-serif;
   background: linear-gradient(to right, #0f65ca, 
@@ -354,9 +407,21 @@ h2.text-center.thank-you {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   font-size: 109px;
-  height: 100vh;
+  height: 75vh;
   font-weight: 700;
   font-family: cursive;
   z-index: 1;
   position: relative;
+  animation: head 0.6s linear;
   }
+  @keyframes head{
+
+    0% {
+    opacity: 0;
+    transform: scale(0.1)
+    }
+    100% {
+    opacity: 1;
+    transform: scale(1)
+    }
+    }

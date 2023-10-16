@@ -67,8 +67,8 @@ const Signup = () => {
     e.preventDefault();
 
     const newErrors = {};
-    if (!formValue.us_name || !/^[A-Za-z]+$/.test(formValue.us_name)) {
-      newErrors.us_name = "name should be alphabetical only";
+    if (!formValue.us_name || !/^[A-Za-z-' ]+$/.test(formValue.us_name)) {
+      newErrors.us_name = "Name should be alphabetical only";
     }
     if (
       !formValue.us_email ||
@@ -186,11 +186,17 @@ const Signup = () => {
         </div>
       ) : (
         <>
+    <p className="text-light information-txt"><b>Join the Powerhouse of Madhya Pradesh's Social Movement!
+Be part of something extraordinary as we unite 10 lakh strong voices on social media, amplifying our collective impact and influence.Your voice, your power!
+Join us today to shape the future of Madhya Pradesh. Together, we can make a difference.</b><br/>
+मध्य प्रदेश के सामाजिक आंदोलन के पावरहाउस में शामिल हों!
+हम 10 लाख मजबूत आवाजों को सोशल मीडिया पर जोड़कर हमारे संगठनिक प्रभाव और प्रतिष्ठा को बढ़ाने का अद्वितीय अंश बनें। आपकी आवाज, आपकी शक्ति!
+हमारे साथ मिलकर आज ही मध्य प्रदेश के भविष्य को आकार देने में शामिल हों। हम मिलकर बदलाव ला सकते हैं।</p>
           <form
             className="col-12 m-auto col-lg-6 register-form"
             onSubmit={(e) => signIn(e)}
           >
-            <h2 className="mb-4 text-center">Welcome</h2>
+            <h1 className="mb-4 text-center">Welcome</h1>
             {/* <button
               type="submit"
               className="btn btn-primary btn-lg mb-4 google-login"

@@ -27,7 +27,7 @@ function App() {
           <Route path='*' element={<NotFound />}></Route>
         </Routes>
       </Router>
-      <div><h6 className='mt-4 text-center mb-0 text-secondary'>jmbliss | @2023 All Rights Reserved</h6></div>
+      <div><h6 className='mt-4 text-center mb-0 text-secondary footer'><a href="https://jmbliss.com/">Jmbliss It Solutions</a> | @2023 All Rights Reserved</h6></div>
     </div>
   );
 }
