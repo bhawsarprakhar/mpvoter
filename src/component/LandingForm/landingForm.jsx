@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import ReactGA from "react-ga";
+import VoteGuid from "../Pages/VoteGuid";
 
 const TRACKING_ID = "G-Z3K0LX24BS";
 ReactGA.initialize(TRACKING_ID);
@@ -59,7 +60,6 @@ const Signup = () => {
   };
   const [errors, setErrors] = useState({});
 
-  
   const signIn = async (e) => {
     //debugger;
     e.preventDefault();
@@ -82,7 +82,7 @@ const Signup = () => {
     if (!formValue.phone || !/^\d{10}$/.test(formValue.phone)) {
       newErrors.phone = "Phone number should be numerical and 10 digit";
     }
-    
+
     if (Object.keys(newErrors).length === 0) {
       //navigate("/voting-form");
       //   const result = await axios
@@ -110,32 +110,27 @@ const Signup = () => {
       // } else {
       //   setErrors(newErrors);
       // }
-      
+
       await axios
         .post("https://backlaravel.mpvoter.com/api/reg_test", formValue, {
           headers: { "content-type": "application/json" },
         })
         .then((response) => {
           if (response.data) {
-            alert(
-              response.data
-            );
+            alert(response.data);
             const user = {
               username: formValue?.name,
-              useremail:formValue?.email
+              useremail: formValue?.email,
             };
             localStorage.setItem("user", JSON.stringify(user));
-            navigate("/voting-form" , { state: user });
+            navigate("/voting-form", { state: user });
           } else {
-            alert(
-              "something went wrong"
-            )
+            alert("something went wrong");
           }
           console.log(response);
         });
-      }
-    };
- 
+    }
+  };
 
   const reSendotp = async (e) => {
     e.preventDefault();
@@ -171,7 +166,7 @@ const Signup = () => {
     setIsActive(!isActive);
   };
   return (
-    <div className="container poll-form">
+    <div className="container poll-form guid-video">
       <Helmet>
         <meta charSet="utf-8" />
         <title>
@@ -212,6 +207,7 @@ const Signup = () => {
         </div>
       ) : (
         <>
+          <VoteGuid />
           <form
             className="col-12 m-auto col-lg-8 register-form"
             onSubmit={(e) => signIn(e)}
@@ -308,9 +304,15 @@ const Signup = () => {
               </p>
             </div>
           </form>
-          <p className="text-light information-txt"><b>Join the Powerhouse of Madhya Pradesh's Social Movement!
-Be part of something extraordinary as we unite 10 lakh strong voices on social media, amplifying our collective impact and influence.Your voice, your power!
-Join us today to shape the future of Madhya Pradesh. Together, we can make a difference.</b></p>
+          <p className="text-light information-txt">
+            <b>
+              Join the Powerhouse of Madhya Pradesh's Social Movement! Be part
+              of something extraordinary as we unite 10 lakh strong voices on
+              social media, amplifying our collective impact and influence.Your
+              voice, your power! Join us today to shape the future of Madhya
+              Pradesh. Together, we can make a difference.
+            </b>
+          </p>
         </>
       )}
     </div>

@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import ReactGA from "react-ga";
 import { Helmet } from "react-helmet";
+import VoteGuid from "./Pages/VoteGuid";
 // import GoogleLoginButton from '../component/GoogleLoginButton.js';
 
 const TRACKING_ID = "G-Z3K0LX24BS";
@@ -116,11 +117,11 @@ const Login = () => {
     setIsActive(!isActive);
   };
   return (
-    <div className="container poll-form">
+    <div className="container poll-form guid-video">
       <Helmet>
         <link rel="canonical" href="https://mpvoter.com/login" />
       </Helmet>
-    
+    <VoteGuid/>
       <form
         className="col-12 m-auto col-lg-8 login-from"
         onSubmit={(e) => LogIn(e)}

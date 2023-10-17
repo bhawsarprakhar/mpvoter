@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link  } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // toast.configure();
@@ -113,6 +113,11 @@ function ForgotPassword() {
         <button type="submit" className="btn btn-primary btn-lg mb-4">
           Reset Password
         </button>
+        <div>
+              <p className="have-acc">
+                Back to <Link to="/login">Log In</Link>
+              </p>
+            </div>
       </form>
     </div>
   );

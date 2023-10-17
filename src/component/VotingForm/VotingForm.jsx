@@ -238,6 +238,7 @@ const Drop = () => {
       <Helmet>
         <link rel="canonical" href="https://mpvoter.com/voting-form" />
       </Helmet>
+      
       <div className="container poll-form vote bottom-pd">
         <form
           className="col-12 m-auto col-lg-8 voting-form"
