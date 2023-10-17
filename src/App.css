@@ -320,8 +320,10 @@ p.text-light.information-txt {
 }
 
 @media(max-width:600px){
+ .vote.bottom-pd {
+    padding-bottom: 28%;
+}
   body{
-
     background-size: auto;
   }
 
@@ -653,7 +655,46 @@ h1.text-center.thank-you {
 }
 /* candidates end */
 
-/* .navbar-expand-lg .navbar-collapse, .navbar-toggler{
+/* demo video css */
+.guid-video {
+  display: flex;
+  flex-direction: row !IMPORTANT;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
-  display: none !important;
-} */
+.guid-video>* {
+  /* width: 48%;
+  margin: 0 !IMPORTANT; */
+}
+.guid-video>div:first-child{
+display: none;
+
+}
+
+
+.guid-video>p {
+  width: 100%;
+  margin: auto !IMPORTANT;
+  margin-top: 45px !IMPORTANT;
+}
+
+.guid-video h1 {
+  font-size: 21px;
+  margin-bottom: 11px !important;
+}
+
+@media(max-width:991px){
+  .guid-video {
+
+    flex-direction: column;
+  }
+  .guid-video>*{
+    width: 100%;
+  }
+  .guid-video form{
+    margin-top: 40px !important;
+  }
+
+}
+/* demo video css end*/

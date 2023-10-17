@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import ReactGA from "react-ga";
-
+import VoteGuid from "../Pages/VoteGuid";
 
 const TRACKING_ID = "G-Z3K0LX24BS";
 ReactGA.initialize(TRACKING_ID);
@@ -147,7 +147,7 @@ const Signup = () => {
     setIsActive(!isActive);
   };
   return (
-    <div className="container poll-form">
+    <div className="container poll-form guid-video">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Best  Assembly Election Opinion website | Mp Voter Polls Opinion- 2023</title>
@@ -186,7 +186,7 @@ const Signup = () => {
         </div>
       ) : (
         <>
-
+  <VoteGuid/>
           <form
             className="col-12 m-auto col-lg-8 register-form"
             onSubmit={(e) => signIn(e)}
