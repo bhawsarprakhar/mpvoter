@@ -12,6 +12,7 @@ import VoteGuid from './component/Pages/VoteGuid';
 import AllCandidates from './component/Pages/AllCandidates';
 import ForgotPassword from './component/ForgetPasswod';
 
+import AboutUsPage from './component/Pages/AboutUsPage';
 const TRACKING_ID = 'G-Z3K0LX24BS';
 ReactGA.initialize(TRACKING_ID);
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route path='/VoteGuid' element={<VoteGuid/>}></Route>
           <Route path='/AllCandidates' element={<AllCandidates/>}></Route>
           <Route path='/forget-password' element={<ForgotPassword />}></Route>
+          <Route path='/AboutUsPage' element={<AboutUsPage/>}></Route>
 
         </Routes>
       </Router>

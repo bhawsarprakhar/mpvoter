@@ -3,14 +3,10 @@ import Navbar from "react-bootstrap/Navbar";
 import logo from "../../assests/Mp-LOGO.png";
 import React, { useState, useEffect } from "react";
 
-
-
 function BrandExample() {
   const [isDarkHeader, setDarkHeader] = useState(false);
   const [logInUser, setLogInUser] = useState();
 
- 
- 
   useEffect(() => {
     const handleScroll = () => {
       const scroll = window.scrollY;
@@ -30,20 +26,18 @@ function BrandExample() {
     };
   }, []);
 
-  
+  // useEffect(() => {
+  //   getLoggedUser();
+  // }, []);
 
-  useEffect(() => {
-    getLoggedUser();
-  }, []);
+  // const getLoggedUser = () => {
+  //   const user = JSON.parse(localStorage.getItem("user"));
+  //   setLogInUser(user?.username);
+  // };
+  // const logOut = () => {
+  //   localStorage.removeItem("user");
 
-  const getLoggedUser = () => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    setLogInUser(user?.username);
-  };
-  const logOut = () => {
-    localStorage.removeItem("user");
-    
-  };
+  // };
 
   return (
     <>
@@ -104,38 +98,21 @@ function BrandExample() {
                   Home
                 </a>
               </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="/VoteGuid">
-                  How To Vote <span class="sr-only">(current)</span>
-                </a>
-              </li>
+              {/* <li class="nav-item active">
+        <a class="nav-link" href="/VoteGuid">How To Vote <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/AllCandidates">Candidates</a>
+      </li> */}
               <li class="nav-item">
-                <a class="nav-link" href="/AllCandidates">
-                  Candidates
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://jmbliss.com/about-us/">
+                <a class="nav-link" href="/AboutUsPage">
                   About Us
                 </a>
               </li>
 
-              <li class="nav-item">
-                <a class="nav-link " href="https://jmbliss.com/contact/">
-                  Contact
-                </a>
-              </li>
               {/* <li class="nav-item">
-                {logInUser ? (
-                  <a class="nav-link " href="/login">
-                    Sign In
-                  </a>
-                ) : (
-                  <a>
-                    <button onClick={logOut}>LogOut</button>
-                  </a>
-                )}
-              </li> */}
+        <a class="nav-link " href="/">Contact</a>
+      </li> */}
             </ul>
           </div>
         </nav>
