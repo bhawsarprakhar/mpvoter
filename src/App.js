@@ -10,6 +10,7 @@ import NotFound from './component/NotFound';
 import ReactGA from "react-ga";
 import VoteGuid from './component/Pages/VoteGuid';
 import AllCandidates from './component/Pages/AllCandidates';
+import AboutUsPage from './component/Pages/AboutUsPage';
 const TRACKING_ID = 'G-Z3K0LX24BS';
 ReactGA.initialize(TRACKING_ID);
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path='*' element={<NotFound />}></Route>
           <Route path='/VoteGuid' element={<VoteGuid/>}></Route>
           <Route path='/AllCandidates' element={<AllCandidates/>}></Route>
+          <Route path='/AboutUsPage' element={<AboutUsPage/>}></Route>
 
         </Routes>
       </Router>

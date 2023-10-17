@@ -65,21 +65,21 @@ function BrandExample() {
   <div class="collapse navbar-collapse  justify-content-end" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-        <a class="nav-link" href="#">Home</a>
+        <a class="nav-link" href="/">Home</a>
       </li>
-      <li class="nav-item active">
+      {/* <li class="nav-item active">
         <a class="nav-link" href="/VoteGuid">How To Vote <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/AllCandidates">Candidates</a>
-      </li>
+      </li> */}
       <li class="nav-item">
-        <a class="nav-link" href="https://jmbliss.com/about-us/">About Us</a>
+        <a class="nav-link" href="/AboutUsPage">About Us</a>
       </li>
    
-      <li class="nav-item">
-        <a class="nav-link " href="https://jmbliss.com/contact/">Contanct</a>
-      </li>
+      {/* <li class="nav-item">
+        <a class="nav-link " href="/">Contact</a>
+      </li> */}
     </ul>
   
   </div>

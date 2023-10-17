@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import ReactGA from "react-ga";
 import { Helmet } from "react-helmet";
-import GoogleLoginButton from '../component/GoogleLoginButton.js';
+// import GoogleLoginButton from '../component/GoogleLoginButton.js';
 
 const TRACKING_ID = "G-Z3K0LX24BS";
 ReactGA.initialize(TRACKING_ID);
@@ -112,7 +112,7 @@ const Login = () => {
       </Helmet>
     
       <form
-        className="col-12 m-auto col-lg-6 login-from"
+        className="col-12 m-auto col-lg-8 login-from"
         onSubmit={(e) => LogIn(e)}
       >
         <h1 className="mb-4 text-center">Login</h1>
@@ -166,7 +166,7 @@ const Login = () => {
           Login With Gmail
         </div> */}
 
-        <GoogleLoginButton onLoginSuccess={handleLoginSuccess} onLoginFailure={handleLoginFailure} />
+        {/* <GoogleLoginButton onLoginSuccess={handleLoginSuccess} onLoginFailure={handleLoginFailure} /> */}
      
         <div>
           <p className="have-acc">
@@ -182,12 +182,7 @@ const Login = () => {
           power! Join us today to shape the future of Madhya Pradesh. Together,
           we can make a difference.
         </b>
-        <br />
-        मध्य प्रदेश के सामाजिक आंदोलन के पावरहाउस में शामिल हों! हम 10 लाख मजबूत
-        आवाजों को सोशल मीडिया पर जोड़कर हमारे संगठनिक प्रभाव और प्रतिष्ठा को
-        बढ़ाने का अद्वितीय अंश बनें। आपकी आवाज, आपकी शक्ति! हमारे साथ मिलकर आज
-        ही मध्य प्रदेश के भविष्य को आकार देने में शामिल हों। हम मिलकर बदलाव ला
-        सकते हैं।
+   
       </p>
     </div>
   );
