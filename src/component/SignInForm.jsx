@@ -27,39 +27,35 @@ const Login = () => {
   const navigate = useNavigate();
   const LogIn = async (e) => {
     e.preventDefault();
-    debugger
+    // debugger;
     // const newErrors = {};
     // if (!formValue.us_phone || !/^\d{10}$/.test(formValue.us_phone)) {
     //   newErrors.us_phone = "Phone number should be numerical and 10 digit";
     // }
     // if (Object.keys(newErrors).length === 0) {
-      //navigate("/voting-form");
-      console.log(formValue)
-      await axios
-        .post("https://backlaravel.mpvoter.com/api/login_route", formValue, {
-          headers: { "content-type": "application/json" },
-        })
-        .then((response) => {
-          if (response.data.error == "Check Your Email and Password") {
-            alert("Check Your Email and Password");
-            
-          } else {
-            const user = {
-              username: response.data.us_name,
-              useremail: response.data.us_email,
-              userphone: response.data.us_phone,
-            };
-            localStorage.setItem("user", JSON.stringify(user));
-            navigate("/voting-form");
-          }
-          console.log(response.data.error);
-        })
-        
+    //navigate("/voting-form");
+    console.log(formValue);
+    await axios
+      .post("https://backlaravel.mpvoter.com/api/login_route", formValue, {
+        headers: { "content-type": "application/json" },
+      })
+      .then((response) => {
+        if (response.data.error == "Check Your Email and Password") {
+          alert("Check Your Email and Password");
+        } else {
+          const user = {
+            username: response?.data?.name,
+            useremail: response?.data?.email
+          };
+          localStorage.setItem("user", JSON.stringify(user));
+          navigate("/voting-form" , { state: user });
+        }
+      });
+
     // } else {
     //   setErrors(newErrors);
     // }
   };
-
 
   // const handleGoogleLogin = async () => {
   //   debugger
@@ -74,8 +70,34 @@ const Login = () => {
   //   }
   // };
 
-  const handleLoginSuccess = (response) => {
+  const handleLoginSuccess = async (response) => {
     // Handle successful Google login, send the token to your backend for verification
+
+    try {
+      // Send the Google OAuth response (token) to your backend for verification.
+      const token = response.tokenId;
+      const responseFromBackend = await fetch(
+        "https://backlaravel.mpvoter.com/api/auth/google/callback",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ token }),
+        }
+      );
+
+      if (responseFromBackend.status === 200) {
+        const responseData = await responseFromBackend.json();
+        const { token } = responseData;
+        // Store the token or take further action.
+        console.log("Successfully authenticated with token:", token);
+      } else {
+        console.error("Google login verification failed.");
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
     console.log(response);
   };
 
@@ -83,19 +105,7 @@ const Login = () => {
     // Handle Google login failure
     console.error(error);
   };
-  // const handleGoogleLogin = async () => {
-  //   debugger
-  //   try {
-  //     // Redirect to your Laravel API for Google login
-  //     const response = await axios.get('https://backlaravel.mpvoter.com/api/googlelogin');
-
-  //     // Handle the response (e.g., show user data or redirect)
-  //     console.log(response.data);
-  //   } catch (error) {
-  //     // Handle any errors (e.g., display an error message)
-  //     console.error(error);
-  //   }
-  // };
+  
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -160,9 +170,7 @@ const Login = () => {
         <button type="submit" className="btn btn-primary btn-lg mb-4">
           LOGIN
         </button>
-        <div>
-      
-    </div>
+    
         {/* <div onClick={handleGoogleLogin} className="btn btn-primary btn-lg mb-4">
           Login With Gmail
         </div> */}
@@ -170,6 +178,7 @@ const Login = () => {
         {/* <GoogleLoginButton onLoginSuccess={handleLoginSuccess} onLoginFailure={handleLoginFailure} /> */}
      
         <div>
+          <p className="have-acc">Forget <Link to="/forget-password">password !</Link></p>
           <p className="have-acc">
             Not have an account ? <Link to="/">Sign Up</Link>
           </p>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Subcategories } from "./AssemblyName";
 import bjp from "../../assests/images/BJP.png";
 import sp from "../../assests/images/SP.png";
@@ -10,6 +10,10 @@ import aap from "../../assests/images/AAP.png";
 import other from "../../assests/images/Other.png";
 import { Helmet } from "react-helmet";
 import ReactGA from "react-ga";
+import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+// toast.configure()
 
 const TRACKING_ID = "G-Z3K0LX24BS";
 ReactGA.initialize(TRACKING_ID);
@@ -18,23 +22,83 @@ const Drop = () => {
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
+  const location = useLocation();
+  const { token } = useParams();
+  const [clientData, setclientData] = useState();
+  const [loginuser, setLogInUser] = useState("");
+  const [userName, setUserName] = useState("false");
+  const clientemail = location?.state?.useremail;
+  const clientname = location?.state?.username;
+
+  console.log(clientname);
+
+  useEffect(() => {
+    if (token) {
+      fetchPortfolio();
+    } else {
+      if (!localStorage.getItem("user")) {
+        navigate("/");
+      } else {
+        const user = JSON.parse(localStorage.getItem("user"));
+        setLogInUser(user?.username);
+        setUserName(true);
+      }
+    }
+  }, []);
+
+  const fetchPortfolio = async () => {
+    try {
+      const url = `https://backlaravel.mpvoter.com/api/verify/${token}`;
+      const res = await axios.get(url);
+      setclientData(res);
+      console.log(res);
+      const user = {
+        username: res?.data[0],
+        email: res?.data[1],
+      };
+      localStorage.setItem("user", JSON.stringify(user));
+
+      if (res?.data[1] == "s") {
+        navigate("/login");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const subcategories = Subcategories.name;
+
   const navigate = useNavigate();
+
   const [formValue, setFormValue] = useState({
     voter_district: "",
     voter_assembly: "",
     voter_partie_support: "",
     voter_content: "",
-    voter_name: "Name",
+    voter_name: clientemail,
   });
 
-  const [user, setUser] = useState("");
+  const [toggle, setToggle] = useState(true);
+  useEffect(() => {
+    formShow();
+  }, []);
 
-  const getLoggedUser = () => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    setUser(user?.username);
+
+
+  const formShow = async () => {
+    try {
+      const url = "https://backlaravel.mpvoter.com/api/verify_with_login";
+      const res = await axios.get(url);
+
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
   };
+  // const getLoggedUser = () => {
+  //   const user = JSON.parse(localStorage.getItem("user"));
+  //   setUser(user?.username);
+  // };
   // useEffect(() => {
   //   getLoggedUser();
   //   if (!localStorage.getItem("user")) {
@@ -174,12 +238,13 @@ const Drop = () => {
       <Helmet>
         <link rel="canonical" href="https://mpvoter.com/voting-form" />
       </Helmet>
+      
       <div className="container poll-form vote bottom-pd">
         <form
           className="col-12 m-auto col-lg-8 voting-form"
           onSubmit={(e) => submitData(e)}
         >
-          <h1 className="mb-4">Welcome </h1>
+          <h1 className="mb-4">Welcome {clientname} </h1>
 
           <div
             className={`select ${isActive ? "active" : "inactive"}`}
@@ -202,12 +267,7 @@ const Drop = () => {
             </select>
           </div>
 
-          <input
-            type="hidden"
-            name="voter_name"
-            value="test"
-            readOnly
-          />
+          <input type="hidden" name="voter_name" value="test" readOnly />
           {selectedCategory && (
             <div
               className={`select  ${isaassmbly ? "active" : "inactive"}`}
@@ -253,7 +313,8 @@ const Drop = () => {
                 </div>
                 {subcategories
                   .filter(
-                    (subcategories) => subcategories.Name === selectedSubcategory
+                    (subcategories) =>
+                      subcategories.Name === selectedSubcategory
                   )
                   .map((subcategories) => (
                     <div></div>
@@ -272,13 +333,14 @@ const Drop = () => {
                     name="voter_partie_support"
                     onChange={selectPolitics}
                     required
-                  // value="option1"
+                    // value="option1"
                   />
                   Indian National Congress
                 </div>
                 {subcategories
                   .filter(
-                    (subcategories) => subcategories.Name === selectedSubcategory
+                    (subcategories) =>
+                      subcategories.Name === selectedSubcategory
                   )
                   .map((subcategories) => (
                     <div onChange={selectVoter}></div>
@@ -302,7 +364,8 @@ const Drop = () => {
                 </div>
                 {subcategories
                   .filter(
-                    (subcategories) => subcategories.Name === selectedSubcategory
+                    (subcategories) =>
+                      subcategories.Name === selectedSubcategory
                   )
                   .map((subcategories) => (
                     <div></div>
@@ -326,7 +389,8 @@ const Drop = () => {
                 </div>
                 {subcategories
                   .filter(
-                    (subcategories) => subcategories.Name === selectedSubcategory
+                    (subcategories) =>
+                      subcategories.Name === selectedSubcategory
                   )
                   .map((subcategories) => (
                     <div></div>
@@ -350,7 +414,8 @@ const Drop = () => {
                 </div>
                 {subcategories
                   .filter(
-                    (subcategories) => subcategories.Name === selectedSubcategory
+                    (subcategories) =>
+                      subcategories.Name === selectedSubcategory
                   )
                   .map((subcategories) => (
                     <div></div>
@@ -370,21 +435,20 @@ const Drop = () => {
                     name="voter_partie_support"
                     onChange={selectPolitics}
                     required
-                  // value="option1"
+                    // value="option1"
                   />
                   Other
                 </div>
                 {subcategories
                   .filter(
-                    (subcategories) => subcategories.Name === selectedSubcategory
+                    (subcategories) =>
+                      subcategories.Name === selectedSubcategory
                   )
                   .map((subcategories) => (
                     <div className=""></div>
                   ))}
                 <label className="form-check-label" htmlFor="radio1"></label>
               </div>
-
-
 
               <textarea
                 onChange={selectDescription}
@@ -395,7 +459,6 @@ const Drop = () => {
                 placeholder="Why you choose this Party/Candidate ?/आपने इस पार्टी/उम्मीदवार को क्यों चुना ?"
               ></textarea>
             </div>
-
           )}
 
           <button type="submit" className="btn btn-primary mt-4">

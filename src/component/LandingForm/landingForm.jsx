@@ -10,17 +10,15 @@ const TRACKING_ID = "G-Z3K0LX24BS";
 ReactGA.initialize(TRACKING_ID);
 
 const Signup = () => {
-
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
 
-  
   const [formValue, setFormValue] = useState({
-    us_name: "",
-    us_email: "",
-    us_phone: "",
-    us_password: "",
+    name: "",
+    email: "",
+    phone: "",
+    password: "",
   });
 
   const [otp, setOtp] = useState(false);
@@ -63,53 +61,74 @@ const Signup = () => {
   const [errors, setErrors] = useState({});
 
   const signIn = async (e) => {
-    debugger;
+    //debugger;
     e.preventDefault();
 
     const newErrors = {};
-    if (!formValue.us_name || !/^[A-Za-z-' ]+$/.test(formValue.us_name)) {
-      newErrors.us_name = "Name should be alphabetical only";
+    if (!formValue.name || !/^[A-Za-z-' ]+$/.test(formValue.name)) {
+      newErrors.name = "Name should be alphabetical only";
     }
     if (
-      !formValue.us_email ||
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formValue.us_email)
+      !formValue.email ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formValue.email)
     ) {
-      newErrors.us_email = "Invalid email format";
+      newErrors.email = "Invalid email format";
     }
 
     // if (!formValue.us_password || formValue.us_password.length < 8) {
     //   newErrors.us_password = "Password must be at least 8 characters";
     // }
 
-    if (!formValue.us_phone || !/^\d{10}$/.test(formValue.us_phone)) {
-      newErrors.us_phone = "Phone number should be numerical and 10 digit";
+    if (!formValue.phone || !/^\d{10}$/.test(formValue.phone)) {
+      newErrors.phone = "Phone number should be numerical and 10 digit";
     }
+
     if (Object.keys(newErrors).length === 0) {
-      navigate("/voting-form");
-      // const result = await axios
-      //   .post("https://backlaravel.mpvoter.com/voter_registration", formValue, {
-      //     headers: { "content-type": "application/json" },
-      //   })
-      //   .then((response) => {
-      //     if (response.data) {
-      //       const user = {
-      //         username: response.data.us_name,
-      //         useremail: response.data.us_email,
-      //         userphone: response.data.us_phone,
-      //       };
-      //       localStorage.setItem("user", JSON.stringify(user));
-      //       navigate("/voting-form");
-      //     } else {
-      //       alert("Something went wrong");
-      //     }
-      //     console.log(response);
-      //     console.log(error.response.data);
-      //   });
-      // console.log(formValue);
-      // console.log(result);
-      // console.log("Valid data:", formValue);
-    } else {
-      setErrors(newErrors);
+      //navigate("/voting-form");
+      //   const result = await axios
+      //     .post("https://backlaravel.mpvoter.com/api/reg_test", formValue, {
+      //       headers: { "content-type": "application/json" },
+      //     })
+      //     .then((response) => {
+      //       if (response.data) {
+      //         const user = {
+      //           username: response.data.us_name,
+      //           useremail: response.data.us_email,
+      //           userphone: response.data.us_phone,
+      //         };
+      //         localStorage.setItem("user", JSON.stringify(user));
+      //         navigate("/voting-form");
+      //       } else {
+      //         alert("Something went wrong");
+      //       }
+      //       console.log(response);
+      //       console.log(error.response.data);
+      //     });
+      //   console.log(formValue);
+      //   console.log(result);
+      //   console.log("Valid data:", formValue);
+      // } else {
+      //   setErrors(newErrors);
+      // }
+
+      await axios
+        .post("https://backlaravel.mpvoter.com/api/reg_test", formValue, {
+          headers: { "content-type": "application/json" },
+        })
+        .then((response) => {
+          if (response.data) {
+            alert(response.data);
+            const user = {
+              username: formValue?.name,
+              useremail: formValue?.email,
+            };
+            localStorage.setItem("user", JSON.stringify(user));
+            navigate("/voting-form", { state: user });
+          } else {
+            alert("something went wrong");
+          }
+          console.log(response);
+        });
     }
   };
 
@@ -150,7 +169,9 @@ const Signup = () => {
     <div className="container poll-form guid-video">
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Best  Assembly Election Opinion website | Mp Voter Polls Opinion- 2023</title>
+        <title>
+          Best Assembly Election Opinion website | Mp Voter Polls Opinion- 2023
+        </title>
         <link rel="canonical" href="https://mpvoter.com" />
       </Helmet>
       {otp === true ? (
@@ -186,7 +207,7 @@ const Signup = () => {
         </div>
       ) : (
         <>
-  <VoteGuid/>
+          <VoteGuid />
           <form
             className="col-12 m-auto col-lg-8 register-form"
             onSubmit={(e) => signIn(e)}
@@ -206,12 +227,12 @@ const Signup = () => {
                   id="form3Example1c"
                   className="form-control"
                   required
-                  name="us_name"
+                  name="name"
                   placeholder="Your name"
                   onChange={handleChange}
                 />
-                {errors.us_name && (
-                  <p className="text-danger error">{errors.us_name}</p>
+                {errors.name && (
+                  <p className="text-danger error">{errors.name}</p>
                 )}
               </div>
             </div>
@@ -222,12 +243,12 @@ const Signup = () => {
                   id="form3Example2c"
                   className="form-control"
                   required
-                  name="us_email"
+                  name="email"
                   placeholder="Your Email"
                   onChange={handleChange}
                 />
-                {errors.us_email && (
-                  <p className="text-danger error">{errors.us_email}</p>
+                {errors.email && (
+                  <p className="text-danger error">{errors.email}</p>
                 )}
               </div>
             </div>
@@ -238,12 +259,12 @@ const Signup = () => {
                   id="form3Example3c"
                   className="form-control"
                   required
-                  name="us_phone"
+                  name="phone"
                   placeholder="Your Phone"
                   onChange={handleChange}
                 />
-                {errors.us_phone && (
-                  <p className="text-danger error">{errors.us_phone}</p>
+                {errors.phone && (
+                  <p className="text-danger error">{errors.phone}</p>
                 )}
               </div>
             </div>
@@ -255,12 +276,12 @@ const Signup = () => {
                   id="form3Example4c"
                   className="form-control"
                   required
-                  name="us_password"
+                  name="password"
                   placeholder="Password"
                   onChange={handleChange}
                 />
-                {errors.us_password && (
-                  <p className="text-danger error">{errors.us_password}</p>
+                {errors.password && (
+                  <p className="text-danger error">{errors.password}</p>
                 )}
               </div>
               <div
@@ -283,9 +304,15 @@ const Signup = () => {
               </p>
             </div>
           </form>
-          <p className="text-light information-txt"><b>Join the Powerhouse of Madhya Pradesh's Social Movement!
-Be part of something extraordinary as we unite 10 lakh strong voices on social media, amplifying our collective impact and influence.Your voice, your power!
-Join us today to shape the future of Madhya Pradesh. Together, we can make a difference.</b></p>
+          <p className="text-light information-txt">
+            <b>
+              Join the Powerhouse of Madhya Pradesh's Social Movement! Be part
+              of something extraordinary as we unite 10 lakh strong voices on
+              social media, amplifying our collective impact and influence.Your
+              voice, your power! Join us today to shape the future of Madhya
+              Pradesh. Together, we can make a difference.
+            </b>
+          </p>
         </>
       )}
     </div>
