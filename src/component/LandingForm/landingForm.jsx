@@ -59,6 +59,7 @@ const Signup = () => {
   };
   const [errors, setErrors] = useState({});
 
+  
   const signIn = async (e) => {
     //debugger;
     e.preventDefault();
@@ -81,6 +82,7 @@ const Signup = () => {
     if (!formValue.phone || !/^\d{10}$/.test(formValue.phone)) {
       newErrors.phone = "Phone number should be numerical and 10 digit";
     }
+    
     if (Object.keys(newErrors).length === 0) {
       //navigate("/voting-form");
       //   const result = await axios
@@ -108,7 +110,7 @@ const Signup = () => {
       // } else {
       //   setErrors(newErrors);
       // }
-
+      
       await axios
         .post("https://backlaravel.mpvoter.com/api/reg_test", formValue, {
           headers: { "content-type": "application/json" },
@@ -125,8 +127,9 @@ const Signup = () => {
           }
           console.log(response);
         });
-    }
-  };
+      }
+    };
+ 
 
   const reSendotp = async (e) => {
     e.preventDefault();
@@ -203,21 +206,6 @@ const Signup = () => {
         </div>
       ) : (
         <>
-          <p className="text-light information-txt">
-            <b>
-              Join the Powerhouse of Madhya Pradesh's Social Movement! Be part
-              of something extraordinary as we unite 10 lakh strong voices on
-              social media, amplifying our collective impact and influence.Your
-              voice, your power! Join us today to shape the future of Madhya
-              Pradesh. Together, we can make a difference.
-            </b>
-            <br />
-            मध्य प्रदेश के सामाजिक आंदोलन के पावरहाउस में शामिल हों! हम 10 लाख
-            मजबूत आवाजों को सोशल मीडिया पर जोड़कर हमारे संगठनिक प्रभाव और
-            प्रतिष्ठा को बढ़ाने का अद्वितीय अंश बनें। आपकी आवाज, आपकी शक्ति!
-            हमारे साथ मिलकर आज ही मध्य प्रदेश के भविष्य को आकार देने में शामिल
-            हों। हम मिलकर बदलाव ला सकते हैं।
-          </p>
           <form
             className="col-12 m-auto col-lg-6 register-form"
             onSubmit={(e) => signIn(e)}
@@ -314,6 +302,12 @@ const Signup = () => {
               </p>
             </div>
           </form>
+          <p className="text-light information-txt"><b>Join the Powerhouse of Madhya Pradesh's Social Movement!
+Be part of something extraordinary as we unite 10 lakh strong voices on social media, amplifying our collective impact and influence.Your voice, your power!
+Join us today to shape the future of Madhya Pradesh. Together, we can make a difference.</b><br/>
+मध्य प्रदेश के सामाजिक आंदोलन के पावरहाउस में शामिल हों!
+हम 10 लाख मजबूत आवाजों को सोशल मीडिया पर जोड़कर हमारे संगठनिक प्रभाव और प्रतिष्ठा को बढ़ाने का अद्वितीय अंश बनें। आपकी आवाज, आपकी शक्ति!
+हमारे साथ मिलकर आज ही मध्य प्रदेश के भविष्य को आकार देने में शामिल हों। हम मिलकर बदलाव ला सकते हैं।</p>
         </>
       )}
     </div>

@@ -14,7 +14,7 @@ export const Subcategories = {
     {
       "id.": 3,
       Name: "Sabalgarh / सबलगढ़	",
-      District: "Morena / मुरैना / मुरैना",
+      District: "Morena / मुरैना",
     },
     {
       "id.": 4,
@@ -558,7 +558,7 @@ export const Subcategories = {
     },
     {
       "id.": 112,
-      Name: "WaraSeoni / सिवनी / वारासिवनी",
+      Name: "WaraSeoni / वारासिवनी",
       District: "Balaghat / बालाघाट",
     },
     {
@@ -669,7 +669,7 @@ export const Subcategories = {
     {
       "id.": 134,
       Name: "Timarni / तिमरनी",
-      District: "Harda / हरदा / हरदा",
+      District: "Harda / हरदा",
     },
     {
       "id.": 135,
@@ -763,7 +763,7 @@ export const Subcategories = {
     },
     {
       "id.": 153,
-      Name: "Bhopal / भोपाल Madhya",
+      Name: "Bhopal Madhya / भोपाल मध्य",
       District: "Bhopal / भोपाल",
     },
     {
@@ -892,15 +892,17 @@ export const Subcategories = {
       District: "Khandwa / खंडवा",
     },
     {
-      "id.": 179,
-      Name: "NePanagar / पानगढ़",
-      District: "Khandwa / खंडवा",
+      "id.": 231,
+      Name: "Burhanpur / बुरहानपुर",
+      District: "Burhanpur / बुरहानपुर",
     },
+  
     {
       "id.": 180,
-      Name: "Burhanpur / बुरहानपुर",
-      District: "Khandwa / खंडवा",
+      Name: "Nepanagar / नेपानगर",
+      District: "Burhanpur / बुरहानपुर",
     },
+
     {
       "id.": 181,
       Name: "Bhikangaon / भीकंगांव",
@@ -1079,12 +1081,12 @@ export const Subcategories = {
     },
     {
       "id.": 216,
-      Name: "Ujjain / उज्जैन North",
+      Name: "Ujjain North / उज्जैन उत्तर ",
       District: "Ujjain / उज्जैन",
     },
     {
       "id.": 217,
-      Name: "Ujjain / उज्जैन South",
+      Name: "Ujjain South/ उज्जैन दक्षिण ",
       District: "Ujjain / उज्जैन",
     },
     {
@@ -1152,5 +1154,7 @@ export const Subcategories = {
       Name: "Jawad / जवाड़",
       District: "Neemuch / नीमच",
     },
+    
+
   ],
 };
