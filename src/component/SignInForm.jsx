@@ -34,7 +34,7 @@ const Login = () => {
     // }
     // if (Object.keys(newErrors).length === 0) {
     //navigate("/voting-form");
-    console.log(formValue);
+    // console.log(formValue);
     await axios
       .post("https://backlaravel.mpvoter.com/api/login_route", formValue, {
         headers: { "content-type": "application/json" },
@@ -98,7 +98,7 @@ const Login = () => {
     } catch (error) {
       console.error("An error occurred:", error);
     }
-    console.log(response);
+    // console.log(response);
   };
 
   const handleLoginFailure = (error) => {

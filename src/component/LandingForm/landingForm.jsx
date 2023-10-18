@@ -117,17 +117,22 @@ const Signup = () => {
         })
         .then((response) => {
           if (response.data) {
-            alert(response.data);
-            const user = {
-              username: formValue?.name,
-              useremail: formValue?.email,
-            };
-            localStorage.setItem("user", JSON.stringify(user));
-            navigate("/voting-form", { state: user });
+            if (response.data == "Email is already taken") {
+              alert(response.data);
+            } else {
+              alert(response.data);
+              const user = {
+                username: formValue?.name,
+                useremail: formValue?.email,
+              };
+              localStorage.setItem("user", JSON.stringify(user));
+              navigate("/voting-form", { state: user });
+              console.log(response.data);
+            }
           } else {
             alert("something went wrong");
           }
-          console.log(response);
+          // console.log(response);
         });
     }
   };
