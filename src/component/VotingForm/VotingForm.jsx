@@ -30,7 +30,7 @@ const Drop = () => {
   const clientemail = location?.state?.useremail;
   const clientname = location?.state?.username;
 
-  console.log(clientname);
+  // console.log(clientname);
 
   useEffect(() => {
     if (token) {
@@ -51,7 +51,7 @@ const Drop = () => {
       const url = `https://backlaravel.mpvoter.com/api/verify/${token}`;
       const res = await axios.get(url);
       setclientData(res);
-      console.log(res);
+      // console.log(res);
       const user = {
         username: res?.data[0],
         email: res?.data[1],
@@ -83,18 +83,20 @@ const Drop = () => {
     formShow();
   }, []);
 
-
-
+  const [data, setData] = useState();
   const formShow = async () => {
     try {
       const url = "https://backlaravel.mpvoter.com/api/verify_with_login";
       const res = await axios.get(url);
-
-      console.log(res);
+      setData(res.data);
+      console.log(res.data);
     } catch (err) {
       console.log(err);
     }
   };
+
+  const filteredItems = data?.filter((item) => item.voter_name === clientemail);
+  console.log(filteredItems);
   // const getLoggedUser = () => {
   //   const user = JSON.parse(localStorage.getItem("user"));
   //   setUser(user?.username);
@@ -170,7 +172,7 @@ const Drop = () => {
     e.preventDefault();
     //navigate("/thank-you");
 
-    console.log(formValue);
+    // console.log(formValue);
     const result = await axios
       .post("https://backlaravel.mpvoter.com/api/some_route", formValue, {
         headers: { "Content-Type": "application/json" },
@@ -195,7 +197,7 @@ const Drop = () => {
           // Something happened in setting up the request
           console.error("Error", error.message);
         }
-        console.log(error.config);
+        // console.log(error.config);
       });
     // console.log(result);
   };
@@ -238,234 +240,253 @@ const Drop = () => {
       <Helmet>
         <link rel="canonical" href="https://mpvoter.com/voting-form" />
       </Helmet>
-      
-      <div className="container poll-form vote bottom-pd">
-        <form
-          className="col-12 m-auto col-lg-8 voting-form"
-          onSubmit={(e) => submitData(e)}
-        >
-          <h1 className="mb-4">Welcome {clientname} </h1>
-
-          <div
-            className={`select ${isActive ? "active" : "inactive"}`}
-            onClick={toggleClass}
-          >
-            <label className="h5">Select Your District / ज़िला:</label>
-            <select
-              required
-              name="voter_district"
-              //value={selectedCategory}
-              //value={selectedCategory}
-              onChange={handleCategoryChange}
-            >
-              <option value="">Select...</option>
-              {districts.map((category) => (
-                <option key={category.id} value={category.name}>
-                  {category.name}
-                </option>
-              ))}
-            </select>
+      {filteredItems?.length > 0 ? (
+        <div>
+          <h2>You already submit form !</h2>
+          <div className="content">
+            <h5>
+              Name:-<span>{filteredItems[0]?.voter_assembly}</span>
+            </h5>
+            <h5>
+              District:-<span>Candidates District</span>
+            </h5>
+            <h5>
+              Assembly:-<span>Candidates Assembly</span>
+            </h5>
+            <h5>
+              Party:-<span>Candidates party</span>
+            </h5>
           </div>
+        </div>
+      ) : (
+        <div className="container poll-form vote bottom-pd">
+          <form
+            className="col-12 m-auto col-lg-8 voting-form"
+            onSubmit={(e) => submitData(e)}
+          >
+            <h1 className="mb-4">Welcome {clientname} </h1>
 
-          <input type="hidden" name="voter_name" value="test" readOnly />
-          {selectedCategory && (
             <div
-              className={`select  ${isaassmbly ? "active" : "inactive"}`}
-              onClick={toggleClassAssambly}
+              className={`select ${isActive ? "active" : "inactive"}`}
+              onClick={toggleClass}
             >
-              <label className="h5">Select Your Assembly / विधानसभा:</label>
+              <label className="h5">Select Your District / ज़िला:</label>
               <select
                 required
-                name="voter_assembly"
-                //value={selectedSubcategory}
-                // onChange={(e) => setSelectedSubcategory(e.target.value)}
-                onChange={selectAssembly}
+                name="voter_district"
+                //value={selectedCategory}
+                //value={selectedCategory}
+                onChange={handleCategoryChange}
               >
                 <option value="">Select...</option>
-                {subcategories
-                  .filter(
-                    (subcategory) => subcategory.District === selectedCategory
-                  )
-                  .map((subcategory) => (
-                    <option key={subcategory.id} value={subcategory.Name}>
-                      {subcategory.Name}
-                    </option>
-                  ))}
+                {districts.map((category) => (
+                  <option key={category.id} value={category.name}>
+                    {category.name}
+                  </option>
+                ))}
               </select>
             </div>
-          )}
 
-          {selectedSubcategory && (
-            <div>
-              <div className="form-check d-flex align-items-center">
-                <img src={bjp} alt="BJP" />
-                <div>
-                  <input
-                    type="radio"
-                    className="form-check-input"
-                    id="radio1"
-                    name="voter_partie_support"
-                    value="BJP"
-                    onChange={selectPolitics}
-                    required
-                  />
-                  Bharatiya Janata Party (BJP)
-                </div>
-                {subcategories
-                  .filter(
-                    (subcategories) =>
-                      subcategories.Name === selectedSubcategory
-                  )
-                  .map((subcategories) => (
-                    <div></div>
-                  ))}
-                <label className="form-check-label" htmlFor="radio1"></label>
+            <input type="hidden" name="voter_name" value="test" readOnly />
+            {selectedCategory && (
+              <div
+                className={`select  ${isaassmbly ? "active" : "inactive"}`}
+                onClick={toggleClassAssambly}
+              >
+                <label className="h5">Select Your Assembly / विधानसभा:</label>
+                <select
+                  required
+                  name="voter_assembly"
+                  //value={selectedSubcategory}
+                  // onChange={(e) => setSelectedSubcategory(e.target.value)}
+                  onChange={selectAssembly}
+                >
+                  <option value="">Select...</option>
+                  {subcategories
+                    .filter(
+                      (subcategory) => subcategory.District === selectedCategory
+                    )
+                    .map((subcategory) => (
+                      <option key={subcategory.id} value={subcategory.Name}>
+                        {subcategory.Name}
+                      </option>
+                    ))}
+                </select>
               </div>
-              <div className="form-check d-flex align-items-center">
-                <img src={congress} alt="congress" />
+            )}
 
-                <div>
-                  <input
-                    type="radio"
-                    className="form-check-input"
-                    id="radio1"
-                    value="congress"
-                    name="voter_partie_support"
-                    onChange={selectPolitics}
-                    required
-                    // value="option1"
-                  />
-                  Indian National Congress
+            {selectedSubcategory && (
+              <div>
+                <div className="form-check d-flex align-items-center">
+                  <img src={bjp} alt="BJP" />
+                  <div>
+                    <input
+                      type="radio"
+                      className="form-check-input"
+                      id="radio1"
+                      name="voter_partie_support"
+                      value="BJP"
+                      onChange={selectPolitics}
+                      required
+                    />
+                    Bharatiya Janata Party (BJP)
+                  </div>
+                  {subcategories
+                    .filter(
+                      (subcategories) =>
+                        subcategories.Name === selectedSubcategory
+                    )
+                    .map((subcategories) => (
+                      <div></div>
+                    ))}
+                  <label className="form-check-label" htmlFor="radio1"></label>
                 </div>
-                {subcategories
-                  .filter(
-                    (subcategories) =>
-                      subcategories.Name === selectedSubcategory
-                  )
-                  .map((subcategories) => (
-                    <div onChange={selectVoter}></div>
-                  ))}
-                <label className="form-check-label" htmlFor="radio1"></label>
-              </div>
-              <div className="form-check d-flex align-items-center">
-                <img src={sp} alt="SP" />
+                <div className="form-check d-flex align-items-center">
+                  <img src={congress} alt="congress" />
 
-                <div>
-                  <input
-                    type="radio"
-                    className="form-check-input"
-                    id="radio1"
-                    name="voter_partie_support"
-                    value="SP"
-                    onChange={selectPolitics}
-                    required
-                  />
-                  Samajwadi Party (SP)
+                  <div>
+                    <input
+                      type="radio"
+                      className="form-check-input"
+                      id="radio1"
+                      value="congress"
+                      name="voter_partie_support"
+                      onChange={selectPolitics}
+                      required
+                      // value="option1"
+                    />
+                    Indian National Congress
+                  </div>
+                  {subcategories
+                    .filter(
+                      (subcategories) =>
+                        subcategories.Name === selectedSubcategory
+                    )
+                    .map((subcategories) => (
+                      <div onChange={selectVoter}></div>
+                    ))}
+                  <label className="form-check-label" htmlFor="radio1"></label>
                 </div>
-                {subcategories
-                  .filter(
-                    (subcategories) =>
-                      subcategories.Name === selectedSubcategory
-                  )
-                  .map((subcategories) => (
-                    <div></div>
-                  ))}
-                <label className="form-check-label" htmlFor="radio1"></label>
-              </div>
-              <div className="form-check d-flex align-items-center">
-                <img src={bsp} alt="BSP" />
+                <div className="form-check d-flex align-items-center">
+                  <img src={sp} alt="SP" />
 
-                <div>
-                  <input
-                    type="radio"
-                    className="form-check-input"
-                    id="radio1"
-                    name="voter_partie_support"
-                    value="BSP"
-                    onChange={selectPolitics}
-                    required
-                  />
-                  Bahujan Samaj Party (BSP)
+                  <div>
+                    <input
+                      type="radio"
+                      className="form-check-input"
+                      id="radio1"
+                      name="voter_partie_support"
+                      value="SP"
+                      onChange={selectPolitics}
+                      required
+                    />
+                    Samajwadi Party (SP)
+                  </div>
+                  {subcategories
+                    .filter(
+                      (subcategories) =>
+                        subcategories.Name === selectedSubcategory
+                    )
+                    .map((subcategories) => (
+                      <div></div>
+                    ))}
+                  <label className="form-check-label" htmlFor="radio1"></label>
                 </div>
-                {subcategories
-                  .filter(
-                    (subcategories) =>
-                      subcategories.Name === selectedSubcategory
-                  )
-                  .map((subcategories) => (
-                    <div></div>
-                  ))}
-                <label className="form-check-label" htmlFor="radio1"></label>
-              </div>
-              <div className="form-check d-flex align-items-center">
-                <img src={aap} alt="AAP" />
+                <div className="form-check d-flex align-items-center">
+                  <img src={bsp} alt="BSP" />
 
-                <div>
-                  <input
-                    type="radio"
-                    className="form-check-input"
-                    id="radio1"
-                    name="voter_partie_support"
-                    value="AAP"
-                    onChange={selectPolitics}
-                    required
-                  />
-                  Aam Aadmi Party (AAP)
+                  <div>
+                    <input
+                      type="radio"
+                      className="form-check-input"
+                      id="radio1"
+                      name="voter_partie_support"
+                      value="BSP"
+                      onChange={selectPolitics}
+                      required
+                    />
+                    Bahujan Samaj Party (BSP)
+                  </div>
+                  {subcategories
+                    .filter(
+                      (subcategories) =>
+                        subcategories.Name === selectedSubcategory
+                    )
+                    .map((subcategories) => (
+                      <div></div>
+                    ))}
+                  <label className="form-check-label" htmlFor="radio1"></label>
                 </div>
-                {subcategories
-                  .filter(
-                    (subcategories) =>
-                      subcategories.Name === selectedSubcategory
-                  )
-                  .map((subcategories) => (
-                    <div></div>
-                  ))}
-                <label className="form-check-label" htmlFor="radio1"></label>
-              </div>
+                <div className="form-check d-flex align-items-center">
+                  <img src={aap} alt="AAP" />
 
-              <div className="form-check d-flex align-items-center">
-                <img src={other} alt="other" />
-
-                <div className="d-flex">
-                  <input
-                    type="radio"
-                    className="form-check-input"
-                    id="radio1"
-                    value="Other"
-                    name="voter_partie_support"
-                    onChange={selectPolitics}
-                    required
-                    // value="option1"
-                  />
-                  Other
+                  <div>
+                    <input
+                      type="radio"
+                      className="form-check-input"
+                      id="radio1"
+                      name="voter_partie_support"
+                      value="AAP"
+                      onChange={selectPolitics}
+                      required
+                    />
+                    Aam Aadmi Party (AAP)
+                  </div>
+                  {subcategories
+                    .filter(
+                      (subcategories) =>
+                        subcategories.Name === selectedSubcategory
+                    )
+                    .map((subcategories) => (
+                      <div></div>
+                    ))}
+                  <label className="form-check-label" htmlFor="radio1"></label>
                 </div>
-                {subcategories
-                  .filter(
-                    (subcategories) =>
-                      subcategories.Name === selectedSubcategory
-                  )
-                  .map((subcategories) => (
-                    <div className=""></div>
-                  ))}
-                <label className="form-check-label" htmlFor="radio1"></label>
+
+                <div className="form-check d-flex align-items-center">
+                  <img src={other} alt="other" />
+
+                  <div className="d-flex">
+                    <input
+                      type="radio"
+                      className="form-check-input"
+                      id="radio1"
+                      value="Other"
+                      name="voter_partie_support"
+                      onChange={selectPolitics}
+                      required
+                      // value="option1"
+                    />
+                    Other
+                  </div>
+                  {subcategories
+                    .filter(
+                      (subcategories) =>
+                        subcategories.Name === selectedSubcategory
+                    )
+                    .map((subcategories) => (
+                      <div className=""></div>
+                    ))}
+                  <label className="form-check-label" htmlFor="radio1"></label>
+                </div>
+
+                <textarea
+                  onChange={selectDescription}
+                  className="form-control mt-4"
+                  id="exampleFormControlTextarea1"
+                  name="voter_content"
+                  rows="3"
+                  placeholder="Why you choose this Party/Candidate ?/आपने इस पार्टी/उम्मीदवार को क्यों चुना ?"
+                ></textarea>
               </div>
+            )}
 
-              <textarea
-                onChange={selectDescription}
-                className="form-control mt-4"
-                id="exampleFormControlTextarea1"
-                name="voter_content"
-                rows="3"
-                placeholder="Why you choose this Party/Candidate ?/आपने इस पार्टी/उम्मीदवार को क्यों चुना ?"
-              ></textarea>
-            </div>
-          )}
-
-          <button type="submit" className="btn btn-primary mt-4">
-            Submit
-          </button>
-        </form>
-      </div>
+            <button type="submit" className="btn btn-primary mt-4">
+              Submit
+            </button>
+          </form>
+        </div>
+      )}
     </div>
   );
 };
