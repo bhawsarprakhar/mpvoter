@@ -237,14 +237,14 @@ const Drop = () => {
   };
 
   return (
-    <div className="container poll-form-1">
+    <div className="container poll-form-1 bottom-pd">
       <Helmet>
         <link rel="canonical" href="https://mpvoter.com/voting-form" />
       </Helmet>
       {filteredItems?.length > 0 ? (
-        <div>
+        <div className="poll-form">
+          <form className="content">
           <h2>You already submit form !</h2>
-          <div className="content">
             <h5>
               Name:-<span>{filteredItems[0]?.voter_assembly}</span>
             </h5>
@@ -257,7 +257,7 @@ const Drop = () => {
             <h5>
               Party:-<span>Candidates party</span>
             </h5>
-          </div>
+          </form>
         </div>
       ) : (
         <div className="container poll-form vote bottom-pd">

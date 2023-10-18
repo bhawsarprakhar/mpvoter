@@ -178,6 +178,8 @@ body{
   /* height: 100vh; */
   background-repeat: no-repeat;
   overflow-x: hidden;
+  background-position: top right;
+  background-attachment: fixed;
 }
 p.click-pas:before {
   content: "\f06e";
@@ -599,7 +601,7 @@ h1.text-center.thank-you {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   font-size: 109px;
-  height: 100vh;
+  /* height: 100vh; */
   font-weight: 700;
   font-family: cursive;
   z-index: 1;
@@ -608,6 +610,7 @@ h1.text-center.thank-you {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 6% 0 15% 0;
   }
   @keyframes head{
 
@@ -654,7 +657,12 @@ h1.text-center.thank-you {
   padding-bottom: 10%;
 }
 /* candidates end */
-
+/* data submitted */
+form.content {
+  margin: auto;
+  width: fit-content;
+}
+/* data submitted end */
 /* demo video css */
 .guid-video {
   display: flex;
@@ -663,10 +671,10 @@ h1.text-center.thank-you {
   justify-content: space-between;
 }
 
-.guid-video>* {
-  /* width: 48%;
-  margin: 0 !IMPORTANT; */
-}
+/* .guid-video>* {
+  width: 48%;
+  margin: 0 !IMPORTANT;
+} */
 .guid-video>div:first-child{
 display: none;
 
