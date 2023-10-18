@@ -30,7 +30,7 @@ const Drop = () => {
   const clientemail = location?.state?.useremail;
   const clientname = location?.state?.username;
 
-   console.log(location);
+  // console.log(location);
 
   useEffect(() => {
     if (token) {
@@ -85,19 +85,18 @@ const Drop = () => {
 
   const [data, setData] = useState();
   const formShow = async () => {
-    
     try {
       const url = "https://backlaravel.mpvoter.com/api/verify_with_login";
       const res = await axios.get(url);
       setData(res.data);
-      console.log(res.data);
+      // console.log(res.data);
     } catch (err) {
       console.log(err);
     }
   };
 
   const filteredItems = data?.filter((item) => item.voter_name === clientemail);
-  console.log(filteredItems);
+  // console.log(filteredItems);
   // const getLoggedUser = () => {
   //   const user = JSON.parse(localStorage.getItem("user"));
   //   setUser(user?.username);
@@ -244,18 +243,20 @@ const Drop = () => {
       {filteredItems?.length > 0 ? (
         <div className="poll-form">
           <form className="content">
-          <h2>You already submit form !</h2>
-            <h5>
-              Name:-<span>{filteredItems[0]?.voter_assembly}</span>
+            <h2 className="m-4">Thanks for the voting</h2>
+            <h5 className="m-4">
+              Your District / ज़िला:-   
+              <span> {filteredItems[0]?.voter_district}</span>
             </h5>
-            <h5>
-              District:-<span>Candidates District</span>
+            <h5 className="m-4">
+              Your Assembly / विधानसभा:-   
+              <span>{filteredItems[0]?.voter_assembly}</span>
             </h5>
-            <h5>
-              Assembly:-<span>Candidates Assembly</span>
+            <h5 className="m-4">
+              Your Party :-   <span>{filteredItems[0]?.voter_partie_support}</span>
             </h5>
-            <h5>
-              Party:-<span>Candidates party</span>
+            <h5 className="m-4">
+            Why you choose this Party/Candidate ?/आपने इस पार्टी/उम्मीदवार को क्यों चुना ?:-   <span>{filteredItems[0]?.voter_content}</span>
             </h5>
           </form>
         </div>

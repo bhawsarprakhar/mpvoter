@@ -98,7 +98,7 @@ const Signup = () => {
               toast.error("Email is already taken.");
               // alert(response.data);
             } else {
-              toast.success("You are Registered.Please verify your MailID");
+              toast.success("You are Registered.Please verify your mailID");
               // setMessage("Form submitted successfully.");
               // alert(response.data);
               const user = {
