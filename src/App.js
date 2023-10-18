@@ -13,7 +13,7 @@ import AllCandidates from './component/Pages/AllCandidates';
 import ForgotPassword from './component/ForgetPasswod';
 
 import AboutUsPage from './component/Pages/AboutUsPage';
-const TRACKING_ID = 'G-Z3K0LX24BS';
+const TRACKING_ID = 'G-Z0G655HHZ0';
 ReactGA.initialize(TRACKING_ID);
 function App() {
   useEffect(() => {

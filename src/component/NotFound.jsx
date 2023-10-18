@@ -3,7 +3,7 @@
 import React,{useEffect} from 'react';
 import ReactGA from "react-ga";
 
-const TRACKING_ID = 'G-Z3K0LX24BS';
+const TRACKING_ID = 'G-Z0G655HHZ0';
 ReactGA.initialize(TRACKING_ID);
 
   

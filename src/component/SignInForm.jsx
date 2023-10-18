@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet";
 import VoteGuid from "./Pages/VoteGuid";
 // import GoogleLoginButton from '../component/GoogleLoginButton.js';
 
-const TRACKING_ID = "G-Z3K0LX24BS";
+const TRACKING_ID = "G-Z0G655HHZ0";
 ReactGA.initialize(TRACKING_ID);
 
 const Login = () => {

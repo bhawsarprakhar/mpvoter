@@ -5,8 +5,11 @@ import { useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import ReactGA from "react-ga";
 import VoteGuid from "../Pages/VoteGuid";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
-const TRACKING_ID = "G-Z3K0LX24BS";
+const TRACKING_ID = "G-Z0G655HHZ0";
 ReactGA.initialize(TRACKING_ID);
 
 const Signup = () => {
@@ -28,7 +31,7 @@ const Signup = () => {
   const handleOtpChange = (code) => setCode(code);
 
   const navigate = useNavigate();
-
+  const [message, setMessage] = useState("");
   const OtpSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -59,9 +62,9 @@ const Signup = () => {
     }
   };
   const [errors, setErrors] = useState({});
-
+  const [loading, setLoading] = useState(false);
   const signIn = async (e) => {
-    //debugger;
+    // debugger;
     e.preventDefault();
 
     const newErrors = {};
@@ -84,33 +87,7 @@ const Signup = () => {
     }
 
     if (Object.keys(newErrors).length === 0) {
-      //navigate("/voting-form");
-      //   const result = await axios
-      //     .post("https://backlaravel.mpvoter.com/api/reg_test", formValue, {
-      //       headers: { "content-type": "application/json" },
-      //     })
-      //     .then((response) => {
-      //       if (response.data) {
-      //         const user = {
-      //           username: response.data.us_name,
-      //           useremail: response.data.us_email,
-      //           userphone: response.data.us_phone,
-      //         };
-      //         localStorage.setItem("user", JSON.stringify(user));
-      //         navigate("/voting-form");
-      //       } else {
-      //         alert("Something went wrong");
-      //       }
-      //       console.log(response);
-      //       console.log(error.response.data);
-      //     });
-      //   console.log(formValue);
-      //   console.log(result);
-      //   console.log("Valid data:", formValue);
-      // } else {
-      //   setErrors(newErrors);
-      // }
-
+      setLoading(true);
       await axios
         .post("https://backlaravel.mpvoter.com/api/reg_test", formValue, {
           headers: { "content-type": "application/json" },
@@ -118,24 +95,39 @@ const Signup = () => {
         .then((response) => {
           if (response.data) {
             if (response.data == "Email is already taken") {
-              alert(response.data);
+              toast.error("Email is already taken.");
+              // alert(response.data);
             } else {
-              alert(response.data);
+              toast.success("You are Registered.Please verify your MailID");
+              // setMessage("Form submitted successfully.");
+              // alert(response.data);
               const user = {
                 username: formValue?.name,
                 useremail: formValue?.email,
               };
               localStorage.setItem("user", JSON.stringify(user));
-              navigate("/voting-form", { state: user });
+              setTimeout(() => {
+                navigate("/voting-form", { state: user });
+              }, 4000);
+              
               console.log(response.data);
             }
           } else {
             alert("something went wrong");
           }
           // console.log(response);
+        })
+        .finally(() => {
+          setLoading(false);
         });
     }
   };
+
+  useEffect(() => {
+    if (message) {
+      toast.success(message);
+    }
+  }, [message]);
 
   const reSendotp = async (e) => {
     e.preventDefault();
@@ -213,6 +205,8 @@ const Signup = () => {
       ) : (
         <>
           <VoteGuid />
+          <ToastContainer />
+
           <form
             className="col-12 m-auto col-lg-8 register-form"
             onSubmit={(e) => signIn(e)}
@@ -302,7 +296,13 @@ const Signup = () => {
             <button type="submit" className="btn btn-primary btn-lg mb-3">
               Create Account
             </button>
-
+            {/* {loading && (
+              <div class="d-flex align-items-center text-center">
+                <div class="spinner-border" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+            )} */}
             <div>
               <p className="have-acc">
                 Already have an account ? <Link to="/login">Log In</Link>

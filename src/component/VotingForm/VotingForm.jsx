@@ -15,7 +15,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // toast.configure()
 
-const TRACKING_ID = "G-Z3K0LX24BS";
+const TRACKING_ID = "G-Z0G655HHZ0";
 ReactGA.initialize(TRACKING_ID);
 
 const Drop = () => {
@@ -30,7 +30,7 @@ const Drop = () => {
   const clientemail = location?.state?.useremail;
   const clientname = location?.state?.username;
 
-  // console.log(clientname);
+   console.log(location);
 
   useEffect(() => {
     if (token) {
@@ -85,6 +85,7 @@ const Drop = () => {
 
   const [data, setData] = useState();
   const formShow = async () => {
+    
     try {
       const url = "https://backlaravel.mpvoter.com/api/verify_with_login";
       const res = await axios.get(url);
