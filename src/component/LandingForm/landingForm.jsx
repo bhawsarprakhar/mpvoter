@@ -31,7 +31,6 @@ const Signup = () => {
   const handleOtpChange = (code) => setCode(code);
 
   const navigate = useNavigate();
-  const [message, setMessage] = useState("");
   const OtpSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -93,14 +92,11 @@ const Signup = () => {
           headers: { "content-type": "application/json" },
         })
         .then((response) => {
-          if (response.data) {
+          if (response) {
             if (response.data == "Email is already taken") {
               toast.error("Email is already taken.");
-              // alert(response.data);
             } else {
-              toast.success("You are Registered.Please verify your mailID");
-              // setMessage("Form submitted successfully.");
-              // alert(response.data);
+              toast.success("You are Registered.Please verify your Email ID");
               const user = {
                 username: formValue?.name,
                 useremail: formValue?.email,
@@ -109,13 +105,12 @@ const Signup = () => {
               setTimeout(() => {
                 navigate("/voting-form", { state: user });
               }, 4000);
-              
-              console.log(response.data);
             }
           } else {
             alert("something went wrong");
+     
           }
-          // console.log(response);
+
         })
         .finally(() => {
           setLoading(false);
@@ -123,11 +118,7 @@ const Signup = () => {
     }
   };
 
-  useEffect(() => {
-    if (message) {
-      toast.success(message);
-    }
-  }, [message]);
+
 
   const reSendotp = async (e) => {
     e.preventDefault();
@@ -206,7 +197,7 @@ const Signup = () => {
         <>
           <VoteGuid />
           <ToastContainer />
-
+          
           <form
             className="col-12 m-auto col-lg-8 register-form"
             onSubmit={(e) => signIn(e)}
@@ -296,13 +287,13 @@ const Signup = () => {
             <button type="submit" className="btn btn-primary btn-lg mb-3">
               Create Account
             </button>
-            {/* {loading && (
-              <div class="d-flex align-items-center text-center">
-                <div class="spinner-border" role="status">
-                  <span class="sr-only">Loading...</span>
-                </div>
+            {loading && (
+            <div class="d-flex align-items-center justify-content-center">
+              <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
               </div>
-            )} */}
+            </div>
+          )}
             <div>
               <p className="have-acc">
                 Already have an account ? <Link to="/login">Log In</Link>

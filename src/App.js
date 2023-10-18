@@ -11,6 +11,7 @@ import ReactGA from "react-ga";
 import VoteGuid from './component/Pages/VoteGuid';
 import AllCandidates from './component/Pages/AllCandidates';
 import ForgotPassword from './component/ForgetPasswod';
+import ChangePassword from './component/ChangePassword';
 
 import AboutUsPage from './component/Pages/AboutUsPage';
 const TRACKING_ID = 'G-Z0G655HHZ0';
@@ -21,13 +22,14 @@ function App() {
   }, []);
   return (
     <div>
-      <BrandExample />
       <Router>
+      <BrandExample />
         <Routes>
           <Route path='/' element={<LandingForm />}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/voting-form' element={<VotingForm />}></Route>
           <Route path='/voting-form/:token' element={<VotingForm />}></Route>
+          <Route path='/forget-form/:token' element={<ChangePassword />}></Route>
           <Route path='/thank-you' element={<Thankyou />}></Route>
           <Route path='*' element={<NotFound />}></Route>
           <Route path='/VoteGuid' element={<VoteGuid/>}></Route>

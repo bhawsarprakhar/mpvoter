@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate,Link  } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // toast.configure();
@@ -31,13 +31,14 @@ function ForgotPassword() {
         headers: { "content-type": "application/json" },
       })
       .then((response) => {
-        if (response.data.message == "Password updated successfully") {
-          alert("Password updated successfully");
-          navigate("/login");
+        if (response.data.message == "Check your email box") {
+          alert("Send Reset Password link to your Email");
         } else {
           alert("You are not registered User");
           navigate("/");
         }
+
+        console.log(response);
       });
   };
   return (
@@ -82,11 +83,10 @@ function ForgotPassword() {
               placeholder="Your Email"
               onChange={handleChange}
             />
-            
           </div>
         </div>
 
-        <div className="d-flex flex-row align-items-center mb-4 hs-ps">
+        {/* <div className="d-flex flex-row align-items-center mb-4 hs-ps">
           <div className="form-outline flex-fill mb-0 ">
             <input
                 type={showPassword ? "text" : "password"}
@@ -108,16 +108,16 @@ function ForgotPassword() {
               {showPassword ? "Hide" : "Show"}
             </p>
           </div>
-        </div>
+        </div> */}
 
         <button type="submit" className="btn btn-primary btn-lg mb-4">
-          Reset Password
+          Send Reset Password link to your Email
         </button>
         <div>
-              <p className="have-acc">
-                Back to <Link to="/login">Log In</Link>
-              </p>
-            </div>
+          <p className="have-acc">
+            Back to <Link to="/login">Log In</Link>
+          </p>
+        </div>
       </form>
     </div>
   );

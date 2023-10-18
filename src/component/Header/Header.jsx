@@ -26,18 +26,19 @@ function BrandExample() {
     };
   }, []);
 
-  // useEffect(() => {
-  //   getLoggedUser();
-  // }, []);
+  useEffect(() => {
+    getLoggedUser();
+  },[]);
 
-  // const getLoggedUser = () => {
-  //   const user = JSON.parse(localStorage.getItem("user"));
-  //   setLogInUser(user?.username);
-  // };
-  // const logOut = () => {
-  //   localStorage.removeItem("user");
+  const getLoggedUser = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    setLogInUser(user?.username);
+  
+  };
 
-  // };
+  const logOut = () => {
+    localStorage.removeItem("user");
+  };
 
   return (
     <>
@@ -109,6 +110,18 @@ function BrandExample() {
                   About Us
                 </a>
               </li>
+
+              {/* <li class="nav-item">
+                {logInUser ? (
+                  <a class="nav-link" onClick={logOut} href="/login">
+                    Log Out
+                  </a>
+                ) : (
+                  <a class="nav-link" href="/login">
+                    Sign In
+                  </a>
+                )}
+              </li> */}
 
               {/* <li class="nav-item">
         <a class="nav-link " href="/">Contact</a>

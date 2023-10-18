@@ -706,3 +706,8 @@ display: none;
 
 }
 /* demo video css end*/
+
+
+.Toastify {
+  z-index: 999999999;
+}
