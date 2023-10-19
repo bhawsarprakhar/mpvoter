@@ -38,7 +38,7 @@ const Login = () => {
     //   newErrors.us_phone = "Phone number should be numerical and 10 digit";
     // }
     // if (Object.keys(newErrors).length === 0) {
-    //navigate("/voting-form");
+    // navigate("/voting-form");
     // console.log(formValue);
     await axios
       .post("https://backlaravel.mpvoter.com/api/login_route", formValue, {
@@ -84,9 +84,11 @@ const Login = () => {
       navigate("/voting-form");
     }
   }, []);
-  const handleverify = async () => {
-    debugger
 
+  // https://backlaravel.mpvoter.com/api/password-update/{token}/{confirm}/
+
+
+  const handleverify = async () => {
     try {
       const url = `https://backlaravel.mpvoter.com/api/password-update/${token}/${password}`;
       const res = await axios.get(url);

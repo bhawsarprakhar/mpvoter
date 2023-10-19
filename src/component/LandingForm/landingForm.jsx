@@ -64,7 +64,7 @@ const Signup = () => {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const signIn = async (e) => {
-    // debugger;
+     //debugger;
     e.preventDefault();
 
     const newErrors = {};
@@ -86,6 +86,8 @@ const Signup = () => {
       newErrors.phone = "Phone number should be numerical and 10 digit";
     }
 
+    // console.log(newErrors)
+    setErrors(newErrors)
     if (Object.keys(newErrors).length === 0) {
       setLoading(true);
       await axios
@@ -226,7 +228,7 @@ const Signup = () => {
                   className="form-control"
                   required
                   name="name"
-                  placeholder="Your name"
+                  placeholder="Your Name"
                   onChange={handleChange}
                 />
                 {errors.name && (
