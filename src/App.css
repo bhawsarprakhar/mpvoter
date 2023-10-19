@@ -80,7 +80,7 @@ header li a {
 }
 
 h6.footer a {
-  color: #6c757d;
+  color: #000;
   text-decoration: auto;
 }
 header+div{
@@ -675,7 +675,7 @@ form.content {
   width: 48%;
   margin: 0 !IMPORTANT;
 } */
-.guid-video>div:first-child{
+.guid-video .demo{
 display: none;
 
 }

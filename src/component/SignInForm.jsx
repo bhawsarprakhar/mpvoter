@@ -4,6 +4,10 @@ import { useNavigate, Link } from "react-router-dom";
 import ReactGA from "react-ga";
 import { Helmet } from "react-helmet";
 import VoteGuid from "./Pages/VoteGuid";
+import BrandExample from "./Header/Header";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useParams } from "react-router-dom";
 // import GoogleLoginButton from '../component/GoogleLoginButton.js';
 
 const TRACKING_ID = "G-Z0G655HHZ0";
@@ -13,7 +17,8 @@ const Login = () => {
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
-
+  const { token } = useParams();
+  const { password } = useParams();
   const [formValue, setFormValue] = useState({
     email: "",
     password: "",
@@ -41,14 +46,14 @@ const Login = () => {
       })
       .then((response) => {
         if (response.data.error == "Check Your Email and Password") {
-          alert("Check Your Email and Password");
+          toast.error("Check Your Email and Password");
         } else {
           const user = {
             username: response?.data?.name,
-            useremail: response?.data?.email
+            useremail: response?.data?.email,
           };
           localStorage.setItem("user", JSON.stringify(user));
-          navigate("/voting-form" , { state: user });
+          navigate("/voting-form", { state: user });
         }
       });
 
@@ -70,6 +75,30 @@ const Login = () => {
   //   }
   // };
 
+
+  useEffect(() => {
+    if (token) {
+      handleverify();
+    } 
+    if (localStorage.getItem("user")) {
+      navigate("/voting-form");
+    }
+  }, []);
+  const handleverify = async () => {
+    debugger
+
+    try {
+      const url = `https://backlaravel.mpvoter.com/api/password-update/${token}/${password}`;
+      const res = await axios.get(url);
+      console.log(res)
+      toast.success(res.data);
+      // setTimeout(() => {
+      //   navigate("/login");
+      // }, 4000);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   const handleLoginSuccess = async (response) => {
     // Handle successful Google login, send the token to your backend for verification
 
@@ -105,7 +134,7 @@ const Login = () => {
     // Handle Google login failure
     console.error(error);
   };
-  
+
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -117,84 +146,89 @@ const Login = () => {
     setIsActive(!isActive);
   };
   return (
-    <div className="container poll-form guid-video">
-      <Helmet>
-        <link rel="canonical" href="https://mpvoter.com/login" />
-      </Helmet>
-    <VoteGuid/>
-      <form
-        className="col-12 m-auto col-lg-8 login-from"
-        onSubmit={(e) => LogIn(e)}
-      >
-        <h1 className="mb-4 text-center">Login</h1>
-        <div className="d-flex flex-row align-items-center mb-4">
-          <div className="form-outline flex-fill mb-0">
-            <input
-              type="email"
-              id="form3Example3c"
-              className="form-control"
-              required
-              name="email"
-              placeholder="Your Email"
-              onChange={handleChange}
-            />
-            {/* {errors.us_phone && (
+    <>
+      <BrandExample />
+      <ToastContainer />
+      <div className="container poll-form guid-video">
+        <Helmet>
+          <link rel="canonical" href="https://mpvoter.com/login" />
+        </Helmet>
+        <VoteGuid />
+        <form
+          className="col-12 m-auto col-lg-8 login-from"
+          onSubmit={(e) => LogIn(e)}
+        >
+          <h1 className="mb-4 text-center">Login</h1>
+          <div className="d-flex flex-row align-items-center mb-4">
+            <div className="form-outline flex-fill mb-0">
+              <input
+                type="email"
+                id="form3Example3c"
+                className="form-control"
+                required
+                name="email"
+                placeholder="Your Email"
+                onChange={handleChange}
+              />
+              {/* {errors.us_phone && (
               <p className="text-danger error">{errors.us_phone}</p>
             )} */}
-          </div>
-        </div>
-
-        <div className="d-flex flex-row align-items-center mb-4 hs-ps">
-          <div className="form-outline flex-fill mb-0 ">
-            <input
-              type={showPassword ? "text" : "password"}
-              id="form3Example4c"
-              className="form-control"
-              required
-              name="password"
-              placeholder="Password"
-              onChange={(e) => handleChange(e)}
-            />
+            </div>
           </div>
 
-          <div
-            className={`custom-button ${isActive ? "active" : "inactive"}`}
-            onClick={toggleClass}
-          >
-            <p className="click-pas" onClick={togglePasswordVisibility}>
-              {showPassword ? "Hide" : "Show"}
-            </p>
-          </div>
-        </div>
+          <div className="d-flex flex-row align-items-center mb-4 hs-ps">
+            <div className="form-outline flex-fill mb-0 ">
+              <input
+                type={showPassword ? "text" : "password"}
+                id="form3Example4c"
+                className="form-control"
+                required
+                name="password"
+                placeholder="Password"
+                onChange={(e) => handleChange(e)}
+              />
+            </div>
 
-        <button type="submit" className="btn btn-primary btn-lg mb-4">
-          LOGIN
-        </button>
-    
-        {/* <div onClick={handleGoogleLogin} className="btn btn-primary btn-lg mb-4">
+            <div
+              className={`custom-button ${isActive ? "active" : "inactive"}`}
+              onClick={toggleClass}
+            >
+              <p className="click-pas" onClick={togglePasswordVisibility}>
+                {showPassword ? "Hide" : "Show"}
+              </p>
+            </div>
+          </div>
+
+          <button type="submit" className="btn btn-primary btn-lg mb-4">
+            LOGIN
+          </button>
+
+          {/* <div onClick={handleGoogleLogin} className="btn btn-primary btn-lg mb-4">
           Login With Gmail
         </div> */}
 
-        {/* <GoogleLoginButton onLoginSuccess={handleLoginSuccess} onLoginFailure={handleLoginFailure} /> */}
-     
-        <div>
-          <p className="have-acc">Forget <Link to="/forget-password">password !</Link></p>
-          <p className="have-acc">
-            Not have an account ? <Link to="/">Sign Up</Link>
-          </p>
-        </div>
-      </form>
-      <p className="text-light information-txt">
-        <b>
-          Join the Powerhouse of Madhya Pradesh's Social Movement! Be part of
-          something extraordinary as we unite 10 lakh strong voices on social
-          media, amplifying our collective impact and influence.Your voice, your
-          power! Join us today to shape the future of Madhya Pradesh. Together,
-          we can make a difference.
-        </b>
-   
-      </p>
-    </div>
+          {/* <GoogleLoginButton onLoginSuccess={handleLoginSuccess} onLoginFailure={handleLoginFailure} /> */}
+
+          <div>
+            <p className="have-acc">
+              Forget <Link to="/forget-password">password !</Link>
+            </p>
+            <p className="have-acc">
+              Not have an account ? <Link to="/">Sign Up</Link>
+            </p>
+          </div>
+        </form>
+        <p className="text-light information-txt">
+          <b>
+            Join the Powerhouse of Madhya Pradesh's Social Movement! Be part of
+            something extraordinary as we unite 10 lakh strong voices on social
+            media, amplifying our collective impact and influence.Your voice,
+            your power! Join us today to shape the future of Madhya Pradesh.
+            Together, we can make a difference.
+          </b>
+        </p>
+      </div>
+    </>
   );
 };
 export default Login;

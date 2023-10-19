@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-import { toast ,ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useParams } from "react-router-dom";
+import BrandExample from "./Header/Header";
 // toast.configure();
 
 function ChangePassword() {
   const { token } = useParams();
+  //const {email} = useParams()
+  //console.log(email)
   const navigate = useNavigate();
   const [formValue, setFormValue] = useState({
+    //email:email,
     password: "",
   });
   const handleChange = (e) => {
@@ -26,14 +30,13 @@ function ChangePassword() {
     setIsActive(!isActive);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  const handleSubmit = async () => {
+    debugger
     try {
       const url = `https://backlaravel.mpvoter.com/api/password-update/${token}`;
-      const res = await axios.get(url , formValue);
+      const res = await axios.get(url, formValue);
       //console.log(res)
-      toast.success(res.data)
+      toast.success(res.data);
       setTimeout(() => {
         navigate("/login");
       }, 4000);
@@ -43,43 +46,45 @@ function ChangePassword() {
   };
 
   return (
-    <div className="container poll-form">
+    <>
+      <BrandExample />
+      <div className="container poll-form">
         <ToastContainer />
-      <form
-        className="col-12 m-auto col-lg-8 login-from"
-        onSubmit={(e) => handleSubmit(e)}
-      >
-        <h1 className="mb-4 text-center">Create New Password</h1>
+        <form
+          className="col-12 m-auto col-lg-8 login-from"
+          onSubmit={(e) => handleSubmit(e)}
+        >
+          <h1 className="mb-4 text-center">Create New Password</h1>
 
-        <div className="d-flex flex-row align-items-center mb-4 hs-ps">
-          <div className="form-outline flex-fill mb-0 ">
-            <input
-              type={showPassword ? "text" : "password"}
-              //   type="password"
-              id="form3Example4c"
-              className="form-control"
-              required
-              name="password"
-              placeholder="Create new Password"
-              onChange={(e) => handleChange(e)}
-            />
+          <div className="d-flex flex-row align-items-center mb-4 hs-ps">
+            <div className="form-outline flex-fill mb-0 ">
+              <input
+                type={showPassword ? "text" : "password"}
+                //   type="password"
+                id="form3Example4c"
+                className="form-control"
+                required
+                name="password"
+                placeholder="Create new Password"
+                onChange={(e) => handleChange(e)}
+              />
+            </div>
+
+            <div
+              className={`custom-button ${isActive ? "active" : "inactive"}`}
+              onClick={toggleClass}
+            >
+              <p className="click-pas" onClick={togglePasswordVisibility}>
+                {showPassword ? "Hide" : "Show"}
+              </p>
+            </div>
           </div>
-
-          <div
-            className={`custom-button ${isActive ? "active" : "inactive"}`}
-            onClick={toggleClass}
-          >
-            <p className="click-pas" onClick={togglePasswordVisibility}>
-              {showPassword ? "Hide" : "Show"}
-            </p>
-          </div>
-        </div>
-
-        <button type="submit" className="btn btn-primary btn-lg mb-4">
-          Reset Password
-        </button>
-      </form>
-    </div>
+          <button type="submit" className="btn btn-primary btn-lg mb-4">
+            Reset Password
+          </button>
+        </form>
+      </div>
+    </>
   );
 }
 export default ChangePassword;

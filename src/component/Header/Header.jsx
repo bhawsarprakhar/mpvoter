@@ -95,9 +95,16 @@ function BrandExample() {
           >
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                <a class="nav-link" href="/">
+              {logInUser ? (
+                   <a class="nav-link" href="/voting-form">
+                   Voting Data
+                 </a>
+                ) : (
+                  <a class="nav-link" href="/">
                   Home
                 </a>
+                )}
+                
               </li>
               {/* <li class="nav-item active">
         <a class="nav-link" href="/VoteGuid">How To Vote <span class="sr-only">(current)</span></a>
@@ -111,7 +118,7 @@ function BrandExample() {
                 </a>
               </li>
 
-              {/* <li class="nav-item">
+              <li class="nav-item">
                 {logInUser ? (
                   <a class="nav-link" onClick={logOut} href="/login">
                     Log Out
@@ -121,7 +128,7 @@ function BrandExample() {
                     Sign In
                   </a>
                 )}
-              </li> */}
+              </li>
 
               {/* <li class="nav-item">
         <a class="nav-link " href="/">Contact</a>

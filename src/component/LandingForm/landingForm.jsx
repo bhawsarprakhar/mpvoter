@@ -8,6 +8,7 @@ import VoteGuid from "../Pages/VoteGuid";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import BrandExample from "../Header/Header";
 
 const TRACKING_ID = "G-Z0G655HHZ0";
 ReactGA.initialize(TRACKING_ID);
@@ -118,7 +119,12 @@ const Signup = () => {
     }
   };
 
-
+  useEffect(() => {
+    
+    if (localStorage.getItem("user")) {
+      navigate("/voting-form");
+    }
+  }, []);
 
   const reSendotp = async (e) => {
     e.preventDefault();
@@ -154,6 +160,8 @@ const Signup = () => {
     setIsActive(!isActive);
   };
   return (
+    <>
+    <BrandExample />
     <div className="container poll-form guid-video">
       <Helmet>
         <meta charSet="utf-8" />
@@ -312,6 +320,7 @@ const Signup = () => {
         </>
       )}
     </div>
+    </>
   );
 };
 export default Signup;
