@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assests/Mp-LOGO.png";
+import logo from "../../assests/Mp-LOGO.webp";
 import BrandExample from "../Header/Header";
 
 export default function AllCandidates() {

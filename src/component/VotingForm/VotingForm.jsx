@@ -2,17 +2,15 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Subcategories } from "./AssemblyName";
-import bjp from "../../assests/images/BJP.png";
-import sp from "../../assests/images/SP.png";
-import congress from "../../assests/images/INC.png";
-import bsp from "../../assests/images/BSP.png";
-import aap from "../../assests/images/AAP.png";
-import other from "../../assests/images/Other.png";
+import bjp from "../../assests/images/BJP.webp";
+import sp from "../../assests/images/SP.webp";
+import congress from "../../assests/images/INC.webp";
+import bsp from "../../assests/images/BSP.webp";
+import aap from "../../assests/images/AAP.webp";
+import other from "../../assests/images/Other.webp";
 import { Helmet } from "react-helmet";
 import ReactGA from "react-ga";
 import { useParams } from "react-router-dom";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import BrandExample from "../Header/Header";
 // toast.configure()
 
@@ -28,11 +26,11 @@ const Drop = () => {
   const [clientData, setclientData] = useState();
   const [loginuser, setLogInUser] = useState("");
   const [userName, setUserName] = useState("false");
-  const [userEmail, setUserEmail] = useState("false");
-  const clientemail = location?.state?.useremail;
+  const [userEmail, setUserEmail] = useState();
+  const clientemail = location?.state?.email;
   const clientname = location?.state?.username;
 
-  // console.log(location);
+  //  console.log(location);
 
   useEffect(() => {
     if (token) {
@@ -43,7 +41,7 @@ const Drop = () => {
       } else {
         const user = JSON.parse(localStorage.getItem("user"));
         setLogInUser(user?.username);
-        setUserEmail(user?.useremail);
+        setUserEmail(user?.email);
         setUserName(true);
       }
     }
@@ -80,7 +78,7 @@ const Drop = () => {
     voter_assembly: "",
     voter_partie_support: "",
     voter_content: "",
-    voter_name: clientemail,
+    voter_name: "",
   });
 
   const [toggle, setToggle] = useState(true);
@@ -101,6 +99,7 @@ const Drop = () => {
   };
 
   const filteredItems = data?.filter((item) => item.voter_name === userEmail);
+  // console.log(filteredItems)
   // console.log(filteredItems);
   // const getLoggedUser = () => {
   //   const user = JSON.parse(localStorage.getItem("user"));
@@ -169,15 +168,13 @@ const Drop = () => {
     { id: "51", name: "Vidisha / विदिशा" },
   ];
 
-  // const subcategories = [
-  //   { id: "1", name: "Indore A", district: "Agar Malwa" },
-  // ];
+ 
 
   const submitData = async (e) => {
     e.preventDefault();
     //navigate("/thank-you");
 
-    // console.log(formValue);
+    //  console.log(formValue);
     const result = await axios
       .post("https://backlaravel.mpvoter.com/api/some_route", formValue, {
         headers: { "Content-Type": "application/json" },
@@ -212,6 +209,7 @@ const Drop = () => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
     setSelectedCategory(selectedValue);
     setSelectedSubcategory(""); // Reset subcategory selection
+    setFormValue({ ...formValue, voter_name: userEmail});
   };
   const selectAssembly = (e) => {
     const AssemblyValue = e.target.value;
@@ -285,7 +283,7 @@ const Drop = () => {
               className="col-12 m-auto col-lg-8 voting-form"
               onSubmit={(e) => submitData(e)}
             >
-              <h1 className="mb-4">Welcome {clientname} </h1>
+              <h1 className="mb-4">Welcome {loginuser} </h1>
 
               <div
                 className={`select ${isActive ? "active" : "inactive"}`}
@@ -518,8 +516,11 @@ const Drop = () => {
                     rows="3"
                     placeholder="Why you choose this Party ?/ आपने इस पार्टी को क्यों चुना ?"
                   ></textarea>
+                  
                 </div>
               )}
+
+              
 
               <button type="submit" className="btn btn-primary mt-4">
                 Submit

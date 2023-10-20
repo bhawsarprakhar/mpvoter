@@ -102,7 +102,7 @@ const Signup = () => {
               toast.success("You are Registered.Please verify your Email ID");
               const user = {
                 username: formValue?.name,
-                useremail: formValue?.email,
+                email: formValue?.email,
               };
               localStorage.setItem("user", JSON.stringify(user));
               setTimeout(() => {
@@ -298,9 +298,9 @@ const Signup = () => {
               Create Account
             </button>
             {loading && (
-            <div class="d-flex align-items-center justify-content-center">
-              <div class="spinner-border" role="status">
-                <span class="sr-only">Loading...</span>
+            <div className="d-flex align-items-center justify-content-center">
+              <div className="spinner-border" role="status">
+                <span className="sr-only">Loading...</span>
               </div>
             </div>
           )}

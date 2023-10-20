@@ -10,8 +10,13 @@ function ForgotPassword() {
   const navigate = useNavigate();
   const [formValue, setFormValue] = useState({
     email: "",
-    password:""
+    password: "",
   });
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      navigate("/voting-form");
+    }
+  }, []);
   const handleChange = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
   };
@@ -99,9 +104,9 @@ function ForgotPassword() {
             Send verify Password link to your Email
           </button>
           {loading && (
-            <div class="d-flex align-items-center justify-content-center">
-              <div class="spinner-border" role="status">
-                <span class="sr-only">Loading...</span>
+            <div className="d-flex align-items-center justify-content-center">
+              <div className="spinner-border" role="status">
+                <span className="sr-only">Loading...</span>
               </div>
             </div>
           )}

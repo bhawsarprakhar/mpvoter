@@ -50,7 +50,7 @@ const Login = () => {
         } else {
           const user = {
             username: response?.data?.name,
-            useremail: response?.data?.email,
+            email: response?.data?.email,
           };
           localStorage.setItem("user", JSON.stringify(user));
           navigate("/voting-form", { state: user });
