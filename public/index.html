@@ -31,7 +31,7 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="The MPVoter is a free online opinion website where Madhya Pradesh voters can share their opinions about the 2023 Assembly election and predict which party will win."
+      content="The MPVoter is a free online opinion website where Madhya Pradesh voters can share their opinions about the 2023 Assembly election which party will win."
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.ico.png" />
 
@@ -42,15 +42,22 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z0G655HHZ0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Z0G655HHZ0"
+    ></script>
 
-  gtag('config', 'G-Z0G655HHZ0');
-</script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-Z0G655HHZ0");
+    </script>
   </body>
 </html>

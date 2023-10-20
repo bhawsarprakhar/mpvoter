@@ -21,14 +21,11 @@ const Drop = () => {
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
-  const location = useLocation();
   const { token } = useParams();
   const [clientData, setclientData] = useState();
   const [loginuser, setLogInUser] = useState("");
   const [userName, setUserName] = useState("false");
   const [userEmail, setUserEmail] = useState();
-  const clientemail = location?.state?.email;
-  const clientname = location?.state?.username;
 
   //  console.log(location);
 
@@ -168,48 +165,25 @@ const Drop = () => {
     { id: "51", name: "Vidisha / विदिशा" },
   ];
 
- 
-
   const submitData = async (e) => {
     e.preventDefault();
     //navigate("/thank-you");
 
-    //  console.log(formValue);
-    const result = await axios
-      .post("https://backlaravel.mpvoter.com/api/some_route", formValue, {
-        headers: { "Content-Type": "application/json" },
-      })
-      .then((response) => {
-        if (response.data) {
-          navigate("/thank-you");
-        } else {
-          alert("Something went wrong");
-        }
-      })
-      .catch((error) => {
-        if (error.response) {
-          // The request was made, and the server responded with a status code
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        } else if (error.request) {
-          // The request was made, but there was no response from the server
-          console.log(error.request);
-        } else {
-          // Something happened in setting up the request
-          console.error("Error", error.message);
-        }
-        // console.log(error.config);
-      });
     // console.log(result);
   };
   // Function to handle the category selection
+
+  useEffect(() => {
+    if (userEmail) {
+      setFormValue({ ...formValue, voter_name: userEmail });
+    }
+  }, [userEmail]);
+
   const handleCategoryChange = (e) => {
     const selectedValue = e.target.value;
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
     setSelectedCategory(selectedValue);
     setSelectedSubcategory(""); // Reset subcategory selection
-    setFormValue({ ...formValue, voter_name: userEmail});
   };
   const selectAssembly = (e) => {
     const AssemblyValue = e.target.value;
@@ -356,7 +330,7 @@ const Drop = () => {
                         (subcategories) =>
                           subcategories.Name === selectedSubcategory
                       )
-                      .map((subcategories) => (
+                      .map(() => (
                         <div></div>
                       ))}
                     <label
@@ -385,7 +359,7 @@ const Drop = () => {
                         (subcategories) =>
                           subcategories.Name === selectedSubcategory
                       )
-                      .map((subcategories) => (
+                      .map(() => (
                         <div onChange={selectVoter}></div>
                       ))}
                     <label
@@ -413,7 +387,7 @@ const Drop = () => {
                         (subcategories) =>
                           subcategories.Name === selectedSubcategory
                       )
-                      .map((subcategories) => (
+                      .map(() => (
                         <div></div>
                       ))}
                     <label
@@ -441,7 +415,7 @@ const Drop = () => {
                         (subcategories) =>
                           subcategories.Name === selectedSubcategory
                       )
-                      .map((subcategories) => (
+                      .map(() => (
                         <div></div>
                       ))}
                     <label
@@ -469,7 +443,7 @@ const Drop = () => {
                         (subcategories) =>
                           subcategories.Name === selectedSubcategory
                       )
-                      .map((subcategories) => (
+                      .map(() => (
                         <div></div>
                       ))}
                     <label
@@ -499,7 +473,7 @@ const Drop = () => {
                         (subcategories) =>
                           subcategories.Name === selectedSubcategory
                       )
-                      .map((subcategories) => (
+                      .map(() => (
                         <div className=""></div>
                       ))}
                     <label
@@ -516,11 +490,8 @@ const Drop = () => {
                     rows="3"
                     placeholder="Why you choose this Party ?/ आपने इस पार्टी को क्यों चुना ?"
                   ></textarea>
-                  
                 </div>
               )}
-
-              
 
               <button type="submit" className="btn btn-primary mt-4">
                 Submit

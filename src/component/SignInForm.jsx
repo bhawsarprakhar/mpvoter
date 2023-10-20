@@ -8,7 +8,7 @@ import BrandExample from "./Header/Header";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useParams } from "react-router-dom";
-// import GoogleLoginButton from '../component/GoogleLoginButton.js';
+// import GoogleLoginButton from "../component/GoogleLoginButton.js";
 
 const TRACKING_ID = "G-Z0G655HHZ0";
 ReactGA.initialize(TRACKING_ID);
@@ -56,43 +56,22 @@ const Login = () => {
           navigate("/voting-form", { state: user });
         }
       });
-
-    // } else {
-    //   setErrors(newErrors);
-    // }
   };
-
-  // const handleGoogleLogin = async () => {
-  //   debugger
-  //   try {
-  //     const response = await axios.get('https://backlaravel.mpvoter.com/api/googlelogin');
-  //     // If successful, you may receive a URL to redirect the user to Google for login.
-  //     const { redirect_url } = response.data;
-  //     window.location.href = redirect_url;
-  //   } catch (error) {
-  //     // Handle login error.
-  //     console.error(error);
-  //   }
-  // };
-
 
   useEffect(() => {
     if (token) {
       handleverify();
-    } 
+    }
     if (localStorage.getItem("user")) {
       navigate("/voting-form");
     }
   }, []);
 
-  // https://backlaravel.mpvoter.com/api/password-update/{token}/{confirm}/
-
-
   const handleverify = async () => {
     try {
       const url = `https://backlaravel.mpvoter.com/api/password-update/${token}/${password}`;
       const res = await axios.get(url);
-      console.log(res)
+      console.log(res);
       toast.success(res.data);
       // setTimeout(() => {
       //   navigate("/login");
@@ -101,41 +80,70 @@ const Login = () => {
       console.log(err);
     }
   };
-  const handleLoginSuccess = async (response) => {
-    // Handle successful Google login, send the token to your backend for verification
+  // const handleLoginSuccess = async (response) => {
+  //   // Handle successful Google login, send the token to your backend for verification
 
-    try {
-      // Send the Google OAuth response (token) to your backend for verification.
-      const token = response.tokenId;
-      const responseFromBackend = await fetch(
-        "https://backlaravel.mpvoter.com/api/auth/google/callback",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ token }),
-        }
-      );
+  //   try {
+  //     // Send the Google OAuth response (token) to your backend for verification.
+  //     const token = response.tokenId;
+  //     const responseFromBackend = await fetch(
+  //       "https://backlaravel.mpvoter.com/api/auth/google/callback",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({ token }),
+  //       }
+  //     );
 
-      if (responseFromBackend.status === 200) {
-        const responseData = await responseFromBackend.json();
-        const { token } = responseData;
-        // Store the token or take further action.
-        console.log("Successfully authenticated with token:", token);
-      } else {
-        console.error("Google login verification failed.");
-      }
-    } catch (error) {
-      console.error("An error occurred:", error);
-    }
-    // console.log(response);
-  };
+  //     if (responseFromBackend.status === 200) {
+  //       const responseData = await responseFromBackend.json();
+  //       const { token } = responseData;
+  //       // Store the token or take further action.
+  //       console.log("Successfully authenticated with token:", token);
+  //     } else {
+  //       console.error("Google login verification failed.");
+  //     }
+  //   } catch (error) {
+  //     console.error("An error occurred:", error);
+  //   }
+  //   // console.log(response);
+  // };
 
-  const handleLoginFailure = (error) => {
-    // Handle Google login failure
-    console.error(error);
-  };
+  // const handleLoginFailure = (error) => {
+  //   // Handle Google login failure
+  //   console.error(error);
+  // };
+
+  // const handleLoginSuccess = async (response) => {
+  //   debugger
+  //   // The 'response' object will contain user information.
+  //   // You can send this information to your Laravel API for authentication.
+  //   console.log("Login successful:", response);
+  //   try {
+  //     const url = `https://backlaravel.mpvoter.com/api/googlelogin`;
+  //     const res = await axios.get(url);
+      
+  //     console.log(res);
+  //     if (res.data == "user not found or invalid token") {
+  //       navigate("/login");
+  //     } else {
+  //       const user = {
+  //         username: res?.data[0],
+  //         email: res?.data[1],
+  //       };
+  //       localStorage.setItem("user", JSON.stringify(user));
+      
+  //     }
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+
+  // const handleLoginFailure = (error) => {
+  //   console.error("Login failed:", error);
+  // };
 
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
@@ -205,13 +213,16 @@ const Login = () => {
             LOGIN
           </button>
 
-          {/* <div onClick={handleGoogleLogin} className="btn btn-primary btn-lg mb-4">
+          {/* <div onClick={handleLoginSuccess} className="btn btn-primary btn-lg mb-4">
           Login With Gmail
         </div> */}
-
+          {/* <GoogleLoginButton
+            onLoginSuccess={handleLoginSuccess}
+            onLoginFailure={handleLoginFailure}
+          /> */}
           {/* <GoogleLoginButton onLoginSuccess={handleLoginSuccess} onLoginFailure={handleLoginFailure} /> */}
 
-          <div>
+          <div className="mt-2">
             <p className="have-acc">
               Forget <Link to="/forget-password">password !</Link>
             </p>
@@ -224,7 +235,7 @@ const Login = () => {
           <b>
             Join the Powerhouse of Madhya Pradesh's Social Movement! Be part of
             something extraordinary as we unite 10 lakh strong voices on social
-            media, amplifying our collective impact and influence.Your voice,
+            media, amplifying our collective impact and influence. Your voice,
             your power! Join us today to shape the future of Madhya Pradesh.
             Together, we can make a difference.
           </b>
