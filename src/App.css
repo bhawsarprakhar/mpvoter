@@ -590,7 +590,7 @@ p.text-light.information-txt {
   header a.navbar-brand img {
     max-width: 209px;
     object-fit: contain;
-  } 
+  }
 
 }
 
@@ -876,7 +876,8 @@ h1.text-center.thank-you {
 /* data submitted */
 form.content {
   margin: auto;
-  width: fit-content;
+  /* width: fit-content; */
+  z-index: 999999;
 }
 
 /* data submitted end */
@@ -930,4 +931,7 @@ form.content {
 
 .Toastify {
   z-index: 999999999;
+  position: relative;
 }
+
+

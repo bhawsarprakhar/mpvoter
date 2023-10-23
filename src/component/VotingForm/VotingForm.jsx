@@ -13,6 +13,9 @@ import { Helmet } from "react-helmet";
 import ReactGA from "react-ga";
 import { useParams } from "react-router-dom";
 import BrandExample from "../Header/Header";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 // toast.configure()
 
 const TRACKING_ID = "G-Z0G655HHZ0";
@@ -85,6 +88,7 @@ const Drop = () => {
   }, []);
 
   const [data, setData] = useState();
+
   const formShow = async () => {
     try {
       const url = "https://backlaravel.mpvoter.com/api/verify_with_login";
@@ -95,9 +99,35 @@ const Drop = () => {
       console.log(err);
     }
   };
-
   const filteredItems = data?.filter((item) => item.voter_name === userEmail);
 
+
+  const [emailverified, setEmailVerified] = useState([]);
+  const [mailMsg, setMailMsg] = useState(null);
+  useEffect(() => {
+    setTimeout(() => {
+      axios
+        .get("https://backlaravel.mpvoter.com/api/user_register_data")
+        .then((response) => {
+          setEmailVerified(response.data);
+          const user = response.data.find(
+            (user) => user.email === userEmail
+          );
+
+          if (user) {
+            setMailMsg(user);
+            if(user.status == "pending"){
+              toast.error("Please verify your email by clicking on the link in your Gmail.");
+            }
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, 10000);
+  }, [userEmail]);
+
+  
 
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedSubcategory, setSelectedSubcategory] = useState("");
@@ -213,7 +243,7 @@ const Drop = () => {
 
   const selectPolitics = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
-    setShowSubmitBtn(false)
+    setShowSubmitBtn(false);
   };
   const [textAreaCount, setTextAreaCount] = useState(0);
   const selectDescription = (e) => {
@@ -221,10 +251,8 @@ const Drop = () => {
     setTextAreaCount(e.target.value.length);
   };
 
-
   const selectVoter = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
-  
   };
 
   const [isActive, setIsActive] = useState(false);
@@ -247,9 +275,10 @@ const Drop = () => {
         <Helmet>
           <link rel="canonical" href="https://mpvoter.com/voting-form" />
         </Helmet>
+        <ToastContainer />
         {filteredItems?.length > 0 ? (
           <div className="poll-form">
-            <form className="content">
+            <form className="content col-12 m-auto col-lg-8 voting-form">
               <h2 className="m-4">Thanks for the voting {loginuser}</h2>
               <h5 className="m-4">
                 Your District / ज़िला:-
@@ -279,7 +308,7 @@ const Drop = () => {
             </form>
           </div>
         ) : (
-          <div className="container poll-form vote bottom-pd">
+          <div className="container form-container poll-form vote bottom-pd">
             <form
               className="col-12 m-auto col-lg-8 voting-form"
               onSubmit={(e) => submitData(e)}
@@ -478,7 +507,6 @@ const Drop = () => {
                       htmlFor="radio1"
                     ></label>
                   </div>
-
                   <div className="form-check d-flex align-items-center">
                     <img src={other} alt="other" />
 
@@ -537,7 +565,6 @@ const Drop = () => {
                       htmlFor="radio1"
                     ></label>
                   </div> */}
-
                   <textarea
                     onChange={selectDescription}
                     className="form-control mt-4"
@@ -551,7 +578,11 @@ const Drop = () => {
                 </div>
               )}
 
-              <button disabled={showSubmitBtn} type="submit" className="btn btn-primary mt-4">
+              <button
+                disabled={showSubmitBtn}
+                type="submit"
+                className="btn btn-primary mt-4"
+              >
                 Submit
               </button>
             </form>

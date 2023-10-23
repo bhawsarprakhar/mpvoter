@@ -91,25 +91,37 @@ const Signup = () => {
     if (Object.keys(newErrors).length === 0) {
       setLoading(true);
 
+      const timer = setTimeout(() => {
+        const user = {
+          username: formValue?.name,
+          email: formValue?.email,
+        };
+        localStorage.setItem("user", JSON.stringify(user));
+        navigate("/voting-form", { state: user });
+      }, 3000); // 3 seconds
+
       const result = await axios
         .post("https://backlaravel.mpvoter.com/api/reg_test", formValue, {
           headers: { "content-type": "application/json" },
         })
+
         .then((response) => {
           if (response) {
             if (response.data == "Email is already taken") {
+              clearTimeout(timer);
               toast.error("Email is already taken.");
-            } else {
-              toast.success("You are Registered.Please verify your Email ID");
-              const user = {
-                username: formValue?.name,
-                email: formValue?.email,
-              };
-              localStorage.setItem("user", JSON.stringify(user));
-              setTimeout(() => {
-                navigate("/voting-form", { state: user });
-              }, 4000);
             }
+            // } else {
+            //   toast.success("You are Registered.Please verify your Email ID");
+            //   const user = {
+            //     username: formValue?.name,
+            //     email: formValue?.email,
+            //   };
+            //   localStorage.setItem("user", JSON.stringify(user));
+            //   setTimeout(() => {
+            //     navigate("/voting-form", { state: user });
+            //   }, 4000);
+            // }
           } else {
             alert("something went wrong");
           }
