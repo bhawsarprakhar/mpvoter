@@ -90,7 +90,8 @@ const Signup = () => {
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
       setLoading(true);
-      await axios
+
+      const result = await axios
         .post("https://backlaravel.mpvoter.com/api/reg_test", formValue, {
           headers: { "content-type": "application/json" },
         })
@@ -168,6 +169,11 @@ const Signup = () => {
             Best Assembly Election Opinion website | Mp Voter Polls Opinion-
             2023
           </title>
+          <meta
+            name="description"
+            content="Gear up to show your support to a preferred political party in the Assembly Election 2023. Sign
+up now to make your choice known using 3 easy steps."
+          />
           <link rel="canonical" href="https://mpvoter.com" />
         </Helmet>
         {otp === true ? (

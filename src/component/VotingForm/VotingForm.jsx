@@ -8,6 +8,7 @@ import congress from "../../assests/images/INC.webp";
 import bsp from "../../assests/images/BSP.webp";
 import aap from "../../assests/images/AAP.webp";
 import other from "../../assests/images/Other.webp";
+import nota from "../../assests/images/nota.webp";
 import { Helmet } from "react-helmet";
 import ReactGA from "react-ga";
 import { useParams } from "react-router-dom";
@@ -96,18 +97,7 @@ const Drop = () => {
   };
 
   const filteredItems = data?.filter((item) => item.voter_name === userEmail);
-  // console.log(filteredItems)
-  // console.log(filteredItems);
-  // const getLoggedUser = () => {
-  //   const user = JSON.parse(localStorage.getItem("user"));
-  //   setUser(user?.username);
-  // };
-  // useEffect(() => {
-  //   getLoggedUser();
-  //   if (!localStorage.getItem("user")) {
-  //     navigate("/");
-  //   }
-  // }, []);
+
 
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedSubcategory, setSelectedSubcategory] = useState("");
@@ -169,6 +159,34 @@ const Drop = () => {
     e.preventDefault();
     //navigate("/thank-you");
 
+    // console.log(formValue);
+    const result = await axios
+      .post("https://backlaravel.mpvoter.com/api/some_route", formValue, {
+        headers: { "Content-Type": "application/json" },
+      })
+      .then((response) => {
+        if (response.data) {
+          navigate("/thank-you");
+        } else {
+          alert("Something went wrong");
+        }
+      })
+      .catch((error) => {
+        alert("Something went wrong");
+        if (error.response) {
+          // The request was made, and the server responded with a status code
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          // The request was made, but there was no response from the server
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request
+          console.error("Error", error.message);
+        }
+        // console.log(error.config);
+      });
     // console.log(result);
   };
   // Function to handle the category selection
@@ -190,14 +208,23 @@ const Drop = () => {
     setSelectedSubcategory(AssemblyValue);
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
   };
+
+  const [showSubmitBtn, setShowSubmitBtn] = useState(true);
+
   const selectPolitics = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
+    setShowSubmitBtn(false)
   };
+  const [textAreaCount, setTextAreaCount] = useState(0);
   const selectDescription = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
+    setTextAreaCount(e.target.value.length);
   };
+
+
   const selectVoter = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
+  
   };
 
   const [isActive, setIsActive] = useState(false);
@@ -481,19 +508,50 @@ const Drop = () => {
                       htmlFor="radio1"
                     ></label>
                   </div>
+                  {/* <div className="form-check d-flex align-items-center">
+                    <img src={nota} alt="nota" />
+
+                    <div className="d-flex">
+                      <input
+                        type="radio"
+                        className="form-check-input"
+                        id="radio1"
+                        value="Nota"
+                        name="voter_partie_support"
+                        onChange={selectPolitics}
+                        required
+                        // value="option1"
+                      />
+                      None of the above (NOTA)
+                    </div>
+                    {subcategories
+                      .filter(
+                        (subcategories) =>
+                          subcategories.Name === selectedSubcategory
+                      )
+                      .map(() => (
+                        <div className=""></div>
+                      ))}
+                    <label
+                      className="form-check-label"
+                      htmlFor="radio1"
+                    ></label>
+                  </div> */}
 
                   <textarea
                     onChange={selectDescription}
                     className="form-control mt-4"
+                    maxLength="1000"
                     id="exampleFormControlTextarea1"
                     name="voter_content"
                     rows="3"
                     placeholder="Why you choose this Party ?/ आपने इस पार्टी को क्यों चुना ?"
                   ></textarea>
+                  {textAreaCount}/1000
                 </div>
               )}
 
-              <button type="submit" className="btn btn-primary mt-4">
+              <button disabled={showSubmitBtn} type="submit" className="btn btn-primary mt-4">
                 Submit
               </button>
             </form>

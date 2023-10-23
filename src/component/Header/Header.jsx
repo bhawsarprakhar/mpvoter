@@ -97,7 +97,7 @@ function BrandExample() {
               <li className="nav-item">
               {logInUser ? (
                    <a className="nav-link" href="/voting-form">
-                   Voting Data
+                   Opinion Poll
                  </a>
                 ) : (
                   <a className="nav-link" href="/">
