@@ -8,13 +8,13 @@ export default function AboutUsPage() {
 
       <div className="about-main container bottom-pd ">
         <div className="box-bg">
-          <p className="text-light">
+          <p className="text-black">
             <b>
               Spread the word and show your unwavering support to the party of
               your choice!
             </b>
           </p>
-          <p className="text-light">
+          <p className="text-black-color">
             mpvoter.com was conceived and launched with a mission to maintain
             the choice of the right leadership in Madhya Pradesh in the next
             Assembly Election 2023. True and honest public opinion can serve as
@@ -22,7 +22,7 @@ export default function AboutUsPage() {
             another era of safety, economic development, growth, prosperity,
             sustainability, and peace.
           </p>
-          <p className="text-light">
+          <p className="text-black-color">
             The idea behind this particular website is quite simple; every MP
             Voter will never stop believing in the power of people's voice and
             the deserving political establishment. By choosing to voice their
@@ -31,7 +31,7 @@ export default function AboutUsPage() {
             choosing the right party and sustain the existing or a wholly new
             generation of strong leaders
           </p>
-          <p className="text-light">
+          <p className="text-black-color">
             The next <b> Madhya Pradesh Election 2023 </b> is just around the
             corner and citizens can express their support to a party quite
             easily. The platform can be utilized effortlessly by any person who

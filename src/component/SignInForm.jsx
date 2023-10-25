@@ -163,7 +163,7 @@ const Login = () => {
         <Helmet>
           <link rel="canonical" href="https://mpvoter.com/login" />
         </Helmet>
-        <VoteGuid />
+
         <p className="text-light information-txt mb-4 mx-auto">
           <b>
             Voice your valuable opinion to unleash the immeasurable potential to
@@ -174,8 +174,9 @@ const Login = () => {
             our state.
           </b>
         </p>
+        <VoteGuid />
         <form
-          className="col-12 m-auto col-lg-8 login-from"
+          className="col-12 m-auto col-lg-8 login-from demo"
           onSubmit={(e) => LogIn(e)}
         >
           <h1 className="mb-4 text-center">Login</h1>

@@ -896,14 +896,14 @@ form.content {
   justify-content: space-between;
 }
 
-/* .guid-video>* {
+.guid-video .demo {
   width: 48%;
   margin: 0 !IMPORTANT;
-} */
-.guid-video .demo {
+}
+/* .guid-video .demo {
   display: none;
 
-}
+} */
 
 
 /* .guid-video>p {
@@ -925,7 +925,7 @@ form.content {
     flex-direction: column;
   }
 
-  .guid-video>* {
+  .guid-video .demo {
     width: 100%;
   }
 
@@ -953,7 +953,7 @@ form.content {
   background: #fff;
 }
 
-p.text-light {
+p.text-black-color {
   color: #000 !important;
 }
 
