@@ -877,7 +877,6 @@ h1.text-center.thank-you {
 form.content {
   margin: auto;
   /* width: fit-content; */
-  z-index: 999999;
 }
 
 /* data submitted end */
@@ -932,6 +931,7 @@ form.content {
 .Toastify {
   z-index: 999999999;
   position: relative;
+  width: fit-content;
 }
 
 

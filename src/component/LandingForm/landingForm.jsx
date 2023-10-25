@@ -181,11 +181,7 @@ const Signup = () => {
             Best Assembly Election Opinion website | Mp Voter Polls Opinion-
             2023
           </title>
-          <meta
-            name="description"
-            content="Gear up to show your support to a preferred political party in the Assembly Election 2023. Sign
-up now to make your choice known using 3 easy steps."
-          />
+
           <link rel="canonical" href="https://mpvoter.com" />
         </Helmet>
         {otp === true ? (
@@ -330,11 +326,12 @@ up now to make your choice known using 3 easy steps."
             </form>
             <p className="text-light information-txt">
               <b>
-                Join the Powerhouse of Madhya Pradesh's Social Movement! Be part
-                of something extraordinary as we unite 10 lakh strong voices on
-                social media, amplifying our collective impact and influence.
-                Your voice, your power! Join us today to shape the future of
-                Madhya Pradesh. Together, we can make a difference.
+                Voice your valuable opinion to unleash the immeasurable
+                potential to choose the right leader, a power that solely rests
+                with the people! Your opinion counts and it's high time we
+                prioritize our state of Madhya Pradesh once again and usher in a
+                new era of development. Join us in this unstoppable pursuit to
+                build a brighter future of our state.
               </b>
             </p>
           </>

@@ -6,49 +6,41 @@ export default function AboutUsPage() {
     <>
       <BrandExample />
 
-      <div className="about-main container bottom-pd">
-        <p className="text-light">
-          "MP Voter.com" में आपका स्वागत है, यहां आपको रोचक चर्चाओं,
-          विचार-विमर्शन वाले प्रश्नों का संवाद और विभिन्न प्रकार के मुद्दों पर
-          अपने विचार साझा करने का मौका मिलेगा।
-        </p>
-        <p className="text-light">
-          {" "}
-          🗳️ हमारे बारे में:- हमारे चैनल का उद्देश्य विचारमूलक मतदान, सर्वेक्षण,
-          और विवादित मुद्दों का संचालन करना है, जिसमें राजनीति, प्रौद्योगिकी,
-          मनोरंजन, और जीवनशैली के मुद्दे शामिल हैं।
-        </p>
-        <p className="text-light">
-          <b>🤔 क्या अपेक्षित है:</b>
-        </p>
-        <ul className="text-light">
-          <li>
-            {" "}
-            वर्तमान घटनाओं, गरम विषयों, और ट्रेंडिंग मुद्दों पर रोजाना मतदान।
-          </li>
-          <li>
-            {" "}
-            विचारमूलक वाद-विवाद और चर्चाओं में आपके विचारों को महत्वपूर्ण स्थान
-            पर रखा जाएगा।
-          </li>
-          <li>
-            {" "}
-            एक ऐसी समुदाय की यात्रा जिसमें विविध दृष्टिकोणों का सम्मान किया जाता
-            है
-          </li>
-          <li>
-            {" "}
-            सदस्यों के साथ एक साथिक और प्रेरणादायक तरीके से संवाद करने का एक
-            मजेदार और गतिविधिपूर्ण तरीका।
-          </li>
-        </ul>
-
-        <p className="text-light">
-          🙌 संवाद में शामिल हों: हम आपको सक्रिय भागीदारी करने की प्रोत्साहित
-          करते हैं। आपके दृष्टिकोण हमारे समुदाय की पूल्स को समझने में महत्वपूर्ण
-          हैं। हमारे समुदाय के विचारों का सम्मान करते हुए, अपने विचार साझा करें,
-          सवाल पूछें, और विचारों को चुनौती दें।
-        </p>
+      <div className="about-main container bottom-pd ">
+        <div>
+          <p className="text-light">
+            <b>
+              Spread the word and show your unwavering support to the party of
+              your choice!
+            </b>
+          </p>
+          <p className="text-light">
+            mpvoter.com was conceived and launched with a mission to maintain
+            the choice of the right leadership in Madhya Pradesh in the next
+            Assembly Election 2023. True and honest public opinion can serve as
+            the only guiding force that is supposed to lead the state in yet
+            another era of safety, economic development, growth, prosperity,
+            sustainability, and peace.
+          </p>
+          <p className="text-light">
+            The idea behind this particular website is quite simple; every MP
+            Voter will never stop believing in the power of people's voice and
+            the deserving political establishment. By choosing to voice their
+            opinion in favor or in opposition of the parties, they will keep the
+            state in the right track. Together, people can undertake the job of
+            choosing the right party and sustain the existing or a wholly new
+            generation of strong leaders
+          </p>
+          <p className="text-light">
+            The next <b> Madhya Pradesh Election 2023 </b> is just around the
+            corner and citizens can express their support to a party quite
+            easily. The platform can be utilized effortlessly by any person who
+            is eligible to vote. A user needs to sign up or log in. After
+            selecting the district, the user needs to vote for his/her preferred
+            party. And lastly, the user must mention the reason for selecting or
+            rejecting a particular party.
+          </p>
+        </div>
       </div>
     </>
   );
