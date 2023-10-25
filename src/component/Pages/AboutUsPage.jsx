@@ -7,7 +7,7 @@ export default function AboutUsPage() {
       <BrandExample />
 
       <div className="about-main container bottom-pd ">
-        <div>
+        <div className="box-bg">
           <p className="text-light">
             <b>
               Spread the word and show your unwavering support to the party of

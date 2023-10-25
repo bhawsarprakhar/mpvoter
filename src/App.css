@@ -313,13 +313,21 @@ button.btn.btn-primary.btn-lg.mb-4.google-login:before {
 }
 
 p.text-light.information-txt {
-  max-width: 900px;
+  /* max-width: 900px; */
   text-align: center;
   font-size: 19px;
   font-weight: 300;
   font-family: sans-serif;
   z-index: 99999999;
   margin-top: 40px
+}
+
+.homPage-details {
+  /* max-width: 900px; */
+  text-align: left;
+  /* font-size: 19px; */
+  font-weight: 300;
+  font-family: sans-serif;
 }
 
 /* animation on forms */
@@ -898,11 +906,13 @@ form.content {
 }
 
 
-.guid-video>p {
+/* .guid-video>p {
   width: 100%;
   margin: auto !IMPORTANT;
   margin-top: 45px !IMPORTANT;
-}
+} */
+
+
 
 .guid-video .container h1 {
   font-size: 21px;
@@ -935,3 +945,20 @@ form.content {
 }
 
 
+/* aboutus */
+
+.box-bg {
+  border-radius: 15px;
+  padding: 3%;
+  background: #fff;
+}
+
+p.text-light {
+  color: #000 !important;
+}
+
+@media only screen and (max-width: 767px) {
+  .box-bg {
+    padding: 4% !important;
+  }
+}
