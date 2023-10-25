@@ -1019,3 +1019,47 @@ form.col-12.m-auto.col-lg-8.register-form.demo {
     display: flex;
     justify-content: center;
   }
+
+
+  .skeleton-container {
+    width: 300px; /* Set the width of your skeleton container */
+    padding: 16px;
+  }
+  
+  .skeleton-content {
+    background-color: #f0f0f0; /* Set the background color of the skeleton */
+    border-radius: 20px;
+    padding: 39px;
+    animation: loading 1.5s infinite;
+  }
+  
+  .skeleton-header {
+    width: 80%;
+    height: 80px;
+    background-color: #e0e0e0; /* Set the background color of the header skeleton */
+    margin-bottom: 16px;
+  }
+  
+  .skeleton-text {
+    width: 100%;
+    height:  70px;;
+    background-color: #e0e0e0; /* Set the background color of text skeletons */
+    margin-bottom: 8px;
+  }
+  
+  @keyframes loading {
+    0% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.6;
+    }
+  }
+
+
+  .stop-animation{
+    animation: unset;
+  }
