@@ -163,85 +163,86 @@ const Login = () => {
         <Helmet>
           <link rel="canonical" href="https://mpvoter.com/login" />
         </Helmet>
-
-        <p className="text-light information-txt mb-4 mx-auto">
-          <b>
-            Voice your valuable opinion to unleash the immeasurable potential to
-            choose the right leader, a power that solely rests with the people!
-            Your opinion counts and it's high time we prioritize our state of
-            Madhya Pradesh once again and usher in a new era of development.
-            Join us in this unstoppable pursuit to build a brighter future of
-            our state.
-          </b>
-        </p>
-        <VoteGuid />
-        <form
-          className="col-12 m-auto col-lg-8 login-from demo"
-          onSubmit={(e) => LogIn(e)}
-        >
-          <h1 className="mb-4 text-center">Login</h1>
-          <div className="d-flex flex-row align-items-center mb-4">
-            <div className="form-outline flex-fill mb-0">
-              <input
-                type="email"
-                id="form3Example3c"
-                className="form-control"
-                required
-                name="email"
-                placeholder="Your Email"
-                onChange={handleChange}
-              />
-              {/* {errors.us_phone && (
+        <div className="sign-box sign-bg">
+          <p className="text-light information-txt mb-4 mx-auto">
+            <b>
+              Voice your valuable opinion to unleash the immeasurable potential
+              to choose the right leader, a power that solely rests with the
+              people! Your opinion counts and it's high time we prioritize our
+              state of Madhya Pradesh once again and usher in a new era of
+              development. Join us in this unstoppable pursuit to build a
+              brighter future of our state.
+            </b>
+          </p>
+          <VoteGuid />
+          <form
+            className="col-12 m-auto col-lg-8 login-from demo"
+            onSubmit={(e) => LogIn(e)}
+          >
+            <h1 className="mb-4 text-center">Login</h1>
+            <div className="d-flex flex-row align-items-center mb-4">
+              <div className="form-outline flex-fill mb-0">
+                <input
+                  type="email"
+                  id="form3Example3c"
+                  className="form-control"
+                  required
+                  name="email"
+                  placeholder="Your Email"
+                  onChange={handleChange}
+                />
+                {/* {errors.us_phone && (
               <p className="text-danger error">{errors.us_phone}</p>
             )} */}
-            </div>
-          </div>
-
-          <div className="d-flex flex-row align-items-center mb-4 hs-ps">
-            <div className="form-outline flex-fill mb-0 ">
-              <input
-                type={showPassword ? "text" : "password"}
-                id="form3Example4c"
-                className="form-control"
-                required
-                name="password"
-                placeholder="Password"
-                onChange={(e) => handleChange(e)}
-              />
+              </div>
             </div>
 
-            <div
-              className={`custom-button ${isActive ? "active" : "inactive"}`}
-              onClick={toggleClass}
-            >
-              <p className="click-pas" onClick={togglePasswordVisibility}>
-                {showPassword ? "Hide" : "Show"}
-              </p>
+            <div className="d-flex flex-row align-items-center mb-4 hs-ps">
+              <div className="form-outline flex-fill mb-0 ">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  id="form3Example4c"
+                  className="form-control"
+                  required
+                  name="password"
+                  placeholder="Password"
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
+
+              <div
+                className={`custom-button ${isActive ? "active" : "inactive"}`}
+                onClick={toggleClass}
+              >
+                <p className="click-pas" onClick={togglePasswordVisibility}>
+                  {showPassword ? "Hide" : "Show"}
+                </p>
+              </div>
             </div>
-          </div>
 
-          <button type="submit" className="btn btn-primary btn-lg mb-4">
-            LOGIN
-          </button>
+            <button type="submit" className="btn btn-primary btn-lg mb-4">
+              LOGIN
+            </button>
 
-          {/* <div onClick={handleLoginSuccess} className="btn btn-primary btn-lg mb-4">
+            {/* <div onClick={handleLoginSuccess} className="btn btn-primary btn-lg mb-4">
           Login With Gmail
         </div> */}
-          {/* <GoogleLoginButton
+            {/* <GoogleLoginButton
             onLoginSuccess={handleLoginSuccess}
             onLoginFailure={handleLoginFailure}
           /> */}
-          {/* <GoogleLoginButton onLoginSuccess={handleLoginSuccess} onLoginFailure={handleLoginFailure} /> */}
+            {/* <GoogleLoginButton onLoginSuccess={handleLoginSuccess} onLoginFailure={handleLoginFailure} /> */}
 
-          <div className="mt-2">
-            <p className="have-acc">
-              Forget <Link to="/forget-password">password !</Link>
-            </p>
-            <p className="have-acc">
-              Not have an account ? <Link to="/">Sign Up</Link>
-            </p>
-          </div>
-        </form>
+            <div className="mt-2">
+              <p className="have-acc">
+                Forget <Link to="/forget-password">password !</Link>
+              </p>
+              <p className="have-acc">
+                Not have an account ? <Link to="/">Sign Up</Link>
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
     </>
   );

@@ -1,11 +1,24 @@
 import BrandExample from "./Header/Header";
+import HomPageContent from "./LandingForm/homePageContent";
+import { Link } from "react-router-dom";
 
 const Thankyou = () => {
   return (
     <>
       <BrandExample />
-      <div>
-        <h1 className="text-center thank-you">Thank You</h1>
+      <div className="about-main container bottom-pd ">
+        <div className="box-bg">
+          <h2 className="text-center">
+            "You are Successfully give your Opinion"
+          </h2>
+
+          <HomPageContent />
+          <div>
+            <p className="have-acc">
+              Back to <Link to={"/voting-form"}>Opinion poll</Link>
+            </p>
+          </div>
+        </div>
       </div>
     </>
   );

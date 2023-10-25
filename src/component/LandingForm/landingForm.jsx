@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import BrandExample from "../Header/Header";
+import HomPageContent from "./homePageContent";
 
 const TRACKING_ID = "G-Z0G655HHZ0";
 ReactGA.initialize(TRACKING_ID);
@@ -186,7 +187,7 @@ const Signup = () => {
         </Helmet>
 
         <ToastContainer />
-        <div>
+        <div className="sign-box sign-bg">
           <p className="text-light information-txt mx-auto mb-4">
             <b>
               Voice your valuable opinion to unleash the immeasurable potential
@@ -197,141 +198,113 @@ const Signup = () => {
               brighter future of our state.
             </b>
           </p>
-        </div>
 
-        <VoteGuid />
-        <form
-          className="col-12 m-auto col-lg-8 register-form demo"
-          onSubmit={(e) => signIn(e)}
-        >
-          <h1 className="mb-4 text-center">Welcome</h1>
-          {/* <button
+          <VoteGuid />
+          <form
+            className="col-12 m-auto col-lg-8 register-form demo"
+            onSubmit={(e) => signIn(e)}
+          >
+            <h1 className="mb-4 text-center">Welcome</h1>
+            {/* <button
               type="submit"
               className="btn btn-primary btn-lg mb-4 google-login"
             >
               SignUp With Google
             </button> */}
-          {/* <p className="text-center">-OR-</p> */}
-          <div className="d-flex flex-row align-items-center mb-4">
-            <div className="form-outline flex-fill mb-0">
-              <input
-                type="text"
-                id="form3Example1c"
-                className="form-control"
-                required
-                name="name"
-                placeholder="Your Name"
-                onChange={handleChange}
-              />
-              {errors.name && (
-                <p className="text-danger error">{errors.name}</p>
-              )}
-            </div>
-          </div>
-          <div className="d-flex flex-row align-items-center mb-4">
-            <div className="form-outline flex-fill mb-0">
-              <input
-                type="email"
-                id="form3Example2c"
-                className="form-control"
-                required
-                name="email"
-                placeholder="Your Email"
-                onChange={handleChange}
-              />
-              {errors.email && (
-                <p className="text-danger error">{errors.email}</p>
-              )}
-            </div>
-          </div>
-          <div className="d-flex flex-row align-items-center mb-4">
-            <div className="form-outline flex-fill mb-0">
-              <input
-                type="text"
-                id="form3Example3c"
-                className="form-control"
-                required
-                name="phone"
-                placeholder="Your Phone"
-                onChange={handleChange}
-              />
-              {errors.phone && (
-                <p className="text-danger error">{errors.phone}</p>
-              )}
-            </div>
-          </div>
-
-          <div className="d-flex flex-row align-items-center mb-4 hs-ps">
-            <div className="form-outline flex-fill mb-0">
-              <input
-                type={showPassword ? "text" : "password"}
-                id="form3Example4c"
-                className="form-control"
-                required
-                name="password"
-                placeholder="Password"
-                onChange={handleChange}
-              />
-              {errors.password && (
-                <p className="text-danger error">{errors.password}</p>
-              )}
-            </div>
-            <div
-              className={`custom-button ${isActive ? "active" : "inactive"}`}
-              onClick={toggleClass}
-            >
-              <p className="click-pas" onClick={togglePasswordVisibility}>
-                {showPassword ? "Hide" : "Show"}
-              </p>
-            </div>
-          </div>
-          {/* {error && <div className="text-danger">{error}</div>} */}
-          <button type="submit" className="btn btn-primary btn-lg mb-3">
-            Create Account
-          </button>
-          {loading && (
-            <div className="d-flex align-items-center justify-content-center">
-              <div className="spinner-border" role="status">
-                <span className="sr-only">Loading...</span>
+            {/* <p className="text-center">-OR-</p> */}
+            <div className="d-flex flex-row align-items-center mb-4">
+              <div className="form-outline flex-fill mb-0">
+                <input
+                  type="text"
+                  id="form3Example1c"
+                  className="form-control"
+                  required
+                  name="name"
+                  placeholder="Your Name"
+                  onChange={handleChange}
+                />
+                {errors.name && (
+                  <p className="text-danger error">{errors.name}</p>
+                )}
               </div>
             </div>
-          )}
-          <div>
-            <p className="have-acc">
-              Already have an account ? <Link to="/login">Log In</Link>
-            </p>
-          </div>
-        </form>
+            <div className="d-flex flex-row align-items-center mb-4">
+              <div className="form-outline flex-fill mb-0">
+                <input
+                  type="email"
+                  id="form3Example2c"
+                  className="form-control"
+                  required
+                  name="email"
+                  placeholder="Your Email"
+                  onChange={handleChange}
+                />
+                {errors.email && (
+                  <p className="text-danger error">{errors.email}</p>
+                )}
+              </div>
+            </div>
+            <div className="d-flex flex-row align-items-center mb-4">
+              <div className="form-outline flex-fill mb-0">
+                <input
+                  type="text"
+                  id="form3Example3c"
+                  className="form-control"
+                  required
+                  name="phone"
+                  placeholder="Your Phone"
+                  onChange={handleChange}
+                />
+                {errors.phone && (
+                  <p className="text-danger error">{errors.phone}</p>
+                )}
+              </div>
+            </div>
 
-        <p className="text-light mt-4 homPage-details">
-          <b>Let your candid opinions pave the way for a strong leadership!</b>
-        </p>
-        <p className="text-light mb-4 homPage-details">
-          New ideas, strong ambitions, strengthening economy, and our relentless
-          dreams for the brilliant future of Madhya Pradesh! We are all aboard
-          in this mission. ARE YOU?
-        </p>
-        <p className="text-light mb-4 homPage-details">
-          Your opinion and your choice as a valuable MP voter counts! Through
-          the exemplary website of mpvoter.com, we strive to unite the people of
-          Madhya Pradesh through more than 10 lakh voices on the social media
-          from grassroots level to every socio-economic strata of the community
-          just to power a memorable and historic agenda in Assembly Election
-          2023. To further build on the ongoing progress of our state, we need
-          you to pitch in.
-        </p>
-        <p className="text-light mb-4 homPage-details">
-          The launched platform is solely powered by voters involving your
-          families, acquaintances, and the community as a whole. Prior to the
-          Madhya Pradesh Election 2023, the platform of mpvoter.com is going to
-          serve as a stage where MP citizens are able to put forth their
-          personal opinion for voting. The platform will let them explain the
-          reason for casting their votes for a particular political party,
-          basically why they are supporting the relevant party and not the other
-          one. We boast of a community with a large number of ever-growing
-          registered subscribers who understand their responsibility to our
-          state of Madhya Pradesh.
-        </p>
+            <div className="d-flex flex-row align-items-center mb-4 hs-ps">
+              <div className="form-outline flex-fill mb-0">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  id="form3Example4c"
+                  className="form-control"
+                  required
+                  name="password"
+                  placeholder="Password"
+                  onChange={handleChange}
+                />
+                {errors.password && (
+                  <p className="text-danger error">{errors.password}</p>
+                )}
+              </div>
+              <div
+                className={`custom-button ${isActive ? "active" : "inactive"}`}
+                onClick={toggleClass}
+              >
+                <p className="click-pas" onClick={togglePasswordVisibility}>
+                  {showPassword ? "Hide" : "Show"}
+                </p>
+              </div>
+            </div>
+            {/* {error && <div className="text-danger">{error}</div>} */}
+            <button type="submit" className="btn btn-primary btn-lg mb-3">
+              Create Account
+            </button>
+            {loading && (
+              <div className="d-flex align-items-center justify-content-center">
+                <div className="spinner-border" role="status">
+                  <span className="sr-only">Loading...</span>
+                </div>
+              </div>
+            )}
+            <div>
+              <p className="have-acc">
+                Already have an account ? <Link to="/login">Log In</Link>
+              </p>
+            </div>
+          </form>
+
+          <HomPageContent />
+        </div>
       </div>
     </>
   );

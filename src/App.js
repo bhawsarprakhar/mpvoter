@@ -76,7 +76,7 @@ function App() {
 
         </Routes>
       </Router>
-      <div><h6 className='mt-4 text-center mb-0  footer'><a href="https://jmbliss.com/">Jmbliss IT Solutions</a> | @2023 All Rights Reserved</h6></div>
+      <div><h6 className='mt-4 text-center mb-0  footer'><a target='_blank' href="https://jmbliss.com/">Jmbliss IT Solutions</a> | @2023 All Rights Reserved</h6></div>
     </div>
   );
 }

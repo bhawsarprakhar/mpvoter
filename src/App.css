@@ -326,7 +326,7 @@ p.text-light.information-txt {
   /* max-width: 900px; */
   text-align: left;
   /* font-size: 19px; */
-  font-weight: 300;
+  /* font-weight: 300; */
   font-family: sans-serif;
 }
 
@@ -962,3 +962,50 @@ p.text-black-color {
     padding: 4% !important;
   }
 }
+
+
+/* homepage white background css */
+
+
+.sign-box{
+  display: flex;
+  flex-direction: row!important;
+  flex-wrap: wrap;  
+  flex-direction: row!important;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.sign-bg {
+  background: #fff;
+  border-radius: 15px;
+  padding: 3%;
+}
+p.text-light {
+  color:#000!important;
+}
+
+h1.text-light {
+   color:#000!important;
+}
+
+ui.text-light {
+   color:#000!important;
+   list-style: none;
+}
+
+.container.demo {
+  padding-left:0px;
+}
+
+@media only screen and (max-width: 991px) {
+form.col-12.m-auto.col-lg-8.register-form.demo {
+  margin-top: 1.8rem!important;
+}
+}
+
+@media only screen and (max-width: 991px) {
+  .container.demo {
+      padding-left: 0px;
+      padding-right: 0px;
+  }
+  }
