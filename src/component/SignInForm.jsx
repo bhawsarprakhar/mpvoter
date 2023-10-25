@@ -164,7 +164,7 @@ const Login = () => {
           <link rel="canonical" href="https://mpvoter.com/login" />
         </Helmet>
         <VoteGuid />
-        <p className="text-light information-txt">
+        <p className="text-light information-txt mb-4 mx-auto">
           <b>
             Voice your valuable opinion to unleash the immeasurable potential to
             choose the right leader, a power that solely rests with the people!
