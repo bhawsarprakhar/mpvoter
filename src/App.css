@@ -1008,4 +1008,14 @@ form.col-12.m-auto.col-lg-8.register-form.demo {
       padding-left: 0px;
       padding-right: 0px;
   }
+  .video-show{
+    display: none !important;
+  }
+  }
+
+
+
+  .video-show{
+    display: flex;
+    justify-content: center;
   }

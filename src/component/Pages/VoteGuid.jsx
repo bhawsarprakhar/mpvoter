@@ -1,22 +1,17 @@
 import React from "react";
-import poster from "../../assests/images/poster.png";
-import BrandExample from "../Header/Header";
+import video from "../../assests/mobile.gif";
 export default function VoteGuid() {
   return (
     <>
       {/* <BrandExample /> */}
 
-      <div className="container demo">
-        <h1 className=" text-light mb-5">
+      <div className="container demo video-show">
+        <img src={video} alt="use" />
+        {/* <h1 className=" text-light mb-5">
           <br />
           Want to show your firm support? Express your opinion in a simplified
           manner.
         </h1>
-        {/* <video width="100%" height="auto" controls poster={poster}>
-          <source src="movie.mp4" type="video/mp4" />
-          <source src="movie.ogg" type="video/ogg" />
-          Your browser does not support the video tag.
-        </video> */}
         <p className=" text-light">
           Be a stalwart supporter of the deserving political party! The
           significance of public opinion is immense. Therefore, for the upcoming
@@ -44,7 +39,7 @@ export default function VoteGuid() {
             - Write down your remarks (Reason for selecting/not selecting the
             relevant political parties)
           </li>
-        </ui>
+        </ui> */}
       </div>
     </>
   );
