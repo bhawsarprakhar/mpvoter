@@ -10,7 +10,7 @@ import ReactGA from "react-ga";
 import VoteGuid from './component/Pages/VoteGuid';
 import AllCandidates from './component/Pages/AllCandidates';
 import ForgotPassword from './component/ForgetPasswod';
-// import ChangePassword from './component/ChangePassword';
+import ChangePassword from './component/ChangePassword';
 import VerifiedSuccess from './component/Pages/VerifiedSuccess';
 
 import AboutUsPage from './component/Pages/AboutUsPage';
@@ -62,10 +62,10 @@ function App() {
         <Routes>
           <Route path='/' element={<LandingForm />}></Route>
           <Route path='/login' element={<Login />}></Route>
-          <Route path='/login/:token/:password' element={<Login />}></Route>
+          {/* <Route path='/login/:token/:password' element={<Login />}></Route> */}
           <Route path='/voting-form' element={<VotingForm />}></Route>
           <Route path='/voting-form/:token' element={<VotingForm />}></Route>
-          {/* <Route path='/forget-form/:token' element={<ChangePassword />}></Route> */}
+          <Route path='/login/:token' element={<ChangePassword />}></Route>
           <Route path='/thank-you' element={<Thankyou />}></Route>
           <Route path='*' element={<NotFound />}></Route>
           <Route path='/VoteGuid' element={<VoteGuid/>}></Route>

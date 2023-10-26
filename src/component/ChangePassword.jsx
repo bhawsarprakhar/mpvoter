@@ -9,8 +9,6 @@ import BrandExample from "./Header/Header";
 
 function ChangePassword() {
   const { token } = useParams();
-  //const {email} = useParams()
-  //console.log(email)
   const navigate = useNavigate();
   const [formValue, setFormValue] = useState({
     //email:email,
@@ -30,19 +28,49 @@ function ChangePassword() {
     setIsActive(!isActive);
   };
 
-  const handleSubmit = async () => {
-    debugger
-    try {
-      const url = `https://backlaravel.mpvoter.com/api/password-update/${token}`;
-      const res = await axios.get(url, formValue);
-      //console.log(res)
-      toast.success(res.data);
-      setTimeout(() => {
-        navigate("/login");
-      }, 4000);
-    } catch (err) {
-      console.log(err);
-    }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // console.log(formValue)
+    await axios
+      .post(`https://backlaravel.mpvoter.com/api/password-update/${token}`, formValue, {
+        headers: { "content-type": "application/json" },
+      })
+      .then((response) => {
+        if (response.data == "Password updated successfully.") {
+          toast.success("Your Password updated successfully.");
+          setTimeout(() => {
+            navigate("/login");
+          }, 4000);
+        } else {
+          toast.error("Your token has expired.");
+          setTimeout(() => {
+            navigate("/login");
+          }, 4000);
+        }
+
+        //  console.log(response);
+      })
+      .catch((error) => {
+        toast.error("Something went wrong");
+        setTimeout(() => {
+          navigate("/login");
+        }, 4000);
+        // if (error.response) {
+        //   // The request was made, and the server responded with a status code
+        //   console.log(error.response.data);
+        //   console.log(error.response.status);
+        //   console.log(error.response.headers);
+        // } else if (error.request) {
+        //   // The request was made, but there was no response from the server
+        //   console.log(error.request);
+        // } else {
+        //   // Something happened in setting up the request
+        //   console.error("Error", error.message);
+        // }
+        // console.log(error.config);
+      });
+
   };
 
   return (

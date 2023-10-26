@@ -961,6 +961,11 @@ p.text-black-color {
   .box-bg {
     padding: 4% !important;
   }
+  .poll-form form{
+    order: -1;
+    box-shadow:unset
+  }
+
 }
 
 
@@ -998,11 +1003,7 @@ ui.text-light {
   padding-left:0px;
 }
 
-@media only screen and (max-width: 991px) {
-form.col-12.m-auto.col-lg-8.register-form.demo {
-  margin-top: 1.8rem!important;
-}
-}
+
 
 @media only screen and (max-width: 991px) {
   .container.demo {

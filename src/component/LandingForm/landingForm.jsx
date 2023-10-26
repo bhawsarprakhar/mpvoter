@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import OtpInput from "react-otp-input";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -26,42 +25,8 @@ const Signup = () => {
     password: "",
   });
 
-  const [otp, setOtp] = useState(false);
-  const [code, setCode] = useState("");
-  const [inValidCode, setInvalidCode] = useState();
-
-  const handleOtpChange = (code) => setCode(code);
-
   const navigate = useNavigate();
-  const OtpSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const verificationData = {
-        email: formValue.email,
-        code: code,
-      };
-      var resData = await axios.post(
-        `${process.env.REACT_APP_BASE_URL}/api/auth/verifyOtp`,
-        verificationData,
-        {
-          validateStatus: () => true,
-        }
-      );
 
-      if (resData && resData.status === 200) {
-        // Update user isVerified
-        setInvalidCode("");
-        navigate("/login");
-      } else if (resData && resData.status === 404) {
-        alert("Invalid verification code");
-        setInvalidCode("Invalid verification code");
-      } else if (resData && resData.status === 410) {
-        alert("Code has expired");
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const signIn = async (e) => {
@@ -138,25 +103,6 @@ const Signup = () => {
       navigate("/voting-form");
     }
   }, []);
-
-  const reSendotp = async (e) => {
-    e.preventDefault();
-    try {
-      const userData = {
-        email: formValue.email,
-      };
-      await axios.post(
-        `${process.env.REACT_APP_BASE_URL}/api/auth/resendotp`,
-        userData,
-        {
-          validateStatus: () => true,
-        }
-      );
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });

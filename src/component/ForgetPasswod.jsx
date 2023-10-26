@@ -10,7 +10,7 @@ function ForgotPassword() {
   const navigate = useNavigate();
   const [formValue, setFormValue] = useState({
     email: "",
-    password: "",
+    // password: "",
   });
   useEffect(() => {
     if (localStorage.getItem("user")) {
@@ -20,16 +20,16 @@ function ForgotPassword() {
   const handleChange = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
   };
-  const [showPassword, setShowPassword] = useState(false);
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
+  // const [showPassword, setShowPassword] = useState(false);
+  // const togglePasswordVisibility = () => {
+  //   setShowPassword(!showPassword);
+  // };
 
-  const [isActive, setIsActive] = useState(false);
+  // const [isActive, setIsActive] = useState(false);
 
-  const toggleClass = () => {
-    setIsActive(!isActive);
-  };
+  // const toggleClass = () => {
+  //   setIsActive(!isActive);
+  // };
   const [loading, setLoading] = useState(false);
   const handleSubmit = async (e) => {
     setLoading(true);
@@ -46,7 +46,7 @@ function ForgotPassword() {
           navigate("/");
         }
 
-        console.log(response);
+        // console.log(response);
       })
       .finally(() => {
         setLoading(false);
@@ -77,7 +77,7 @@ function ForgotPassword() {
             </div>
           </div>
 
-          <div className="d-flex flex-row align-items-center mb-4 hs-ps">
+          {/* <div className="d-flex flex-row align-items-center mb-4 hs-ps">
             <div className="form-outline flex-fill mb-0 ">
               <input
                 type={showPassword ? "text" : "password"}
@@ -99,7 +99,7 @@ function ForgotPassword() {
                 {showPassword ? "Hide" : "Show"}
               </p>
             </div>
-          </div>
+          </div> */}
           <button type="submit" className="btn btn-primary btn-lg mb-4">
             Send verify Password link to your Email
           </button>

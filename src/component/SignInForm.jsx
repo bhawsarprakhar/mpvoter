@@ -7,7 +7,6 @@ import VoteGuid from "./Pages/VoteGuid";
 import BrandExample from "./Header/Header";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useParams } from "react-router-dom";
 // import GoogleLoginButton from "../component/GoogleLoginButton.js";
 
 const TRACKING_ID = "G-Z0G655HHZ0";
@@ -17,8 +16,7 @@ const Login = () => {
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
-  const { token } = useParams();
-  const { password } = useParams();
+
   const [formValue, setFormValue] = useState({
     email: "",
     password: "",
@@ -28,7 +26,6 @@ const Login = () => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
   };
 
-  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
   const LogIn = async (e) => {
     e.preventDefault();
@@ -59,27 +56,11 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (token) {
-      handleverify();
-    }
     if (localStorage.getItem("user")) {
       navigate("/voting-form");
     }
   }, []);
 
-  const handleverify = async () => {
-    try {
-      const url = `https://backlaravel.mpvoter.com/api/password-update/${token}/${password}`;
-      const res = await axios.get(url);
-      console.log(res);
-      toast.success(res.data);
-      // setTimeout(() => {
-      //   navigate("/login");
-      // }, 4000);
-    } catch (err) {
-      console.log(err);
-    }
-  };
   // const handleLoginSuccess = async (response) => {
   //   // Handle successful Google login, send the token to your backend for verification
 
@@ -155,7 +136,6 @@ const Login = () => {
   const toggleClass = () => {
     setIsActive(!isActive);
   };
-
 
   return (
     <>

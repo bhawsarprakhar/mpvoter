@@ -31,7 +31,7 @@ function BrandExample() {
   },[]);
 
   const getLoggedUser = () => {
-    const user = JSON.parse(localStorage.getItem("user"));
+    const user = JSON.parse(localStorage?.getItem("user"));
     setLogInUser(user?.username);
   
   };
@@ -59,7 +59,7 @@ function BrandExample() {
       </Navbar> */}
       <header className={isDarkHeader ? "darkHeader" : ""}>
         <nav className="navbar container navbar-expand-lg navbar-light ">
-          <a className="navbar-brand" href="#">
+          {/* <a className="navbar-brand" href="/"> */}
             {
               <Navbar.Brand href="/">
                 <img
@@ -71,7 +71,7 @@ function BrandExample() {
                 />
               </Navbar.Brand>
             }
-          </a>
+          {/* </a> */}
           <button
             className="navbar-toggler"
             type="button"
