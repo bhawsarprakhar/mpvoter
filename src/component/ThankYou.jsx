@@ -9,7 +9,7 @@ const Thankyou = () => {
       <div className="about-main container bottom-pd ">
         <div className="box-bg">
           <h2 className="text-center">
-            "You are Successfully give your Opinion"
+            "You have Successfully given your Opinion"
           </h2>
 
           <HomPageContent />

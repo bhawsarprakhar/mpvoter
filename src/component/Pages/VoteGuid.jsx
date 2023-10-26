@@ -1,12 +1,20 @@
 import React from "react";
-import video from "../../assests/mobile.gif";
+import video from "../../assests/mobile.webm";
 export default function VoteGuid() {
   return (
     <>
       {/* <BrandExample /> */}
 
       <div className="container demo video-show">
-        <img src={video} alt="use" />
+        {/* <img src={video} alt="use" /> */}
+
+        <video
+          src={video}
+          autoPlay
+          loop
+        >
+          <source src={video} type="video/webm" />
+        </video>
         {/* <h1 className=" text-light mb-5">
           <br />
           Want to show your firm support? Express your opinion in a simplified

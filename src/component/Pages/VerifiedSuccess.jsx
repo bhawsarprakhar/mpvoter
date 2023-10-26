@@ -24,7 +24,7 @@ function VerifiedSuccess() {
 
       //console.log(res);
       if (res.data == "user not found or invalid token") {
-        // navigate("/login");
+         navigate("/login");
       } else {
         const user = {
           username: res?.data[0],
