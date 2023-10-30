@@ -7,6 +7,7 @@ import VoteGuid from "./Pages/VoteGuid";
 import BrandExample from "./Header/Header";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FaYoutube } from "react-icons/fa";
 // import GoogleLoginButton from "../component/GoogleLoginButton.js";
 
 const TRACKING_ID = "G-Z0G655HHZ0";
@@ -104,7 +105,7 @@ const Login = () => {
   //     const res = await axios.get(url);
 
   //     console.log(res);
-      
+
   //   } catch (err) {
   //     console.log(err);
   //   }
@@ -113,6 +114,12 @@ const Login = () => {
   // const handleLoginFailure = (error) => {
   //   console.error("Login failed:", error);
   // };
+
+  const openYouTubeChannel = () => {
+    // Replace 'your_channel_url' with the actual URL of your YouTube channel.
+    const channelUrl = "https://www.youtube.com/channel/UCpcxYVgDYLqDoigrk7VatYA";
+    window.open(channelUrl, "_blank");
+  };
 
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
@@ -134,7 +141,6 @@ const Login = () => {
           <link rel="canonical" href="https://mpvoter.com/login" />
         </Helmet>
         <div className="sign-box sign-bg">
-          
           <VoteGuid />
           <form
             className="col-12 m-auto col-lg-8 login-from demo"
@@ -206,6 +212,9 @@ const Login = () => {
               </p>
             </div>
           </form>
+          {/* <button onClick={openYouTubeChannel}>
+            <FaYoutube /> Open YouTube Channel
+          </button> */}
           <p className="text-light information-txt mb-4 mx-auto">
             <b>
               Voice your valuable opinion to unleash the immeasurable potential
