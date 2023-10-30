@@ -97,26 +97,14 @@ const Login = () => {
   //   console.error(error);
   // };
 
-  // const handleLoginSuccess = async (response) => {
+  // const handleLoginSuccess = async () => {
   //   debugger
-  //   // The 'response' object will contain user information.
-  //   // You can send this information to your Laravel API for authentication.
-  //   console.log("Login successful:", response);
   //   try {
   //     const url = `https://backlaravel.mpvoter.com/api/googlelogin`;
   //     const res = await axios.get(url);
 
   //     console.log(res);
-  //     if (res.data == "user not found or invalid token") {
-  //       navigate("/login");
-  //     } else {
-  //       const user = {
-  //         username: res?.data[0],
-  //         email: res?.data[1],
-  //       };
-  //       localStorage.setItem("user", JSON.stringify(user));
-
-  //     }
+      
   //   } catch (err) {
   //     console.log(err);
   //   }
@@ -206,9 +194,12 @@ const Login = () => {
               LOGIN
             </button>
 
-            {/* <div onClick={handleLoginSuccess} className="btn btn-primary btn-lg mb-4">
-          Login With Gmail
-        </div> */}
+            {/* <div
+              onClick={handleLoginSuccess}
+              className="btn btn-primary btn-lg mb-4"
+            >
+              Login With Gmail
+            </div> */}
             {/* <GoogleLoginButton
             onLoginSuccess={handleLoginSuccess}
             onLoginFailure={handleLoginFailure}

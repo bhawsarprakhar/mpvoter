@@ -27,11 +27,16 @@ function ChangePassword() {
   const toggleClass = () => {
     setIsActive(!isActive);
   };
-
+  const [errors, setErrors] = useState({});
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    const newErrors = {};
     // console.log(formValue)
+    if (!formValue.password || formValue.password.length < 4 || formValue.password.length > 8) {
+      newErrors.password = "Password must be between 4 and 8 characters";
+    }
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length === 0) {
     await axios
       .post(`https://backlaravel.mpvoter.com/api/password-update/${token}`, formValue, {
         headers: { "content-type": "application/json" },
@@ -70,6 +75,7 @@ function ChangePassword() {
         // }
         // console.log(error.config);
       });
+    }
 
   };
 
@@ -96,6 +102,9 @@ function ChangePassword() {
                 placeholder="Create new Password"
                 onChange={(e) => handleChange(e)}
               />
+              {errors.password && (
+                  <p className="position-absolute text-danger error">{errors.password}</p>
+                )}
             </div>
 
             <div
@@ -107,7 +116,7 @@ function ChangePassword() {
               </p>
             </div>
           </div>
-          <button type="submit" className="btn btn-primary btn-lg mb-4">
+          <button type="submit" className="btn btn-primary btn-lg mt-4 mb-4">
             Reset Password
           </button>
         </form>

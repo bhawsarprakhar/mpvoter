@@ -44,9 +44,9 @@ const Signup = () => {
       newErrors.email = "Invalid email format";
     }
 
-    // if (!formValue.us_password || formValue.us_password.length < 8) {
-    //   newErrors.us_password = "Password must be at least 8 characters";
-    // }
+     if (!formValue.password || formValue.password.length < 4 || formValue.password.length > 8) {
+       newErrors.password = "Password must be between 4 and 8 characters";
+     }
 
     if (!formValue.phone || !/^\d{10}$/.test(formValue.phone)) {
       newErrors.phone = "Phone number should be numerical and 10 digit";
@@ -107,6 +107,30 @@ const Signup = () => {
   const handleChange = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
   };
+  // const handleName = (e) => {
+  //   const newErrors = {};
+  //   if (!e.target.value || !/^[A-Za-z-' ]+$/.test(e.target.value)) {
+  //     newErrors.name = "Name should be alphabetical only";
+  //   }
+  //   setFormValue({ ...formValue, [e.target.name]: e.target.value });
+  //   setErrors(newErrors);
+  // };
+  // const handleEmail = (e) => {
+  //   const newErrors = {};
+  //   if (!e.target.value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value)) {
+  //     newErrors.email = "Invalid email format";
+  //   }
+  //   setFormValue({ ...formValue, [e.target.name]: e.target.value });
+  //   setErrors(newErrors);
+  // };
+  // const handleNumber = (e) => {
+  //   const newErrors = {};
+  //   if (!e.target.value || !/^\d{10}$/.test(e.target.value)) {
+  //     newErrors.phone = "Phone number should be numerical and 10 digit";
+  //   }
+  //   setFormValue({ ...formValue, [e.target.name]: e.target.value });
+  //   setErrors(newErrors);
+  // };
 
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
@@ -219,7 +243,7 @@ const Signup = () => {
                   onChange={handleChange}
                 />
                 {errors.password && (
-                  <p className="text-danger error">{errors.password}</p>
+                  <p className="position-absolute text-danger error">{errors.password}</p>
                 )}
               </div>
               <div
@@ -232,7 +256,7 @@ const Signup = () => {
               </div>
             </div>
             {/* {error && <div className="text-danger">{error}</div>} */}
-            <button type="submit" className="btn btn-primary btn-lg mb-3">
+            <button type="submit" className="btn btn-primary btn-lg mt-4 mb-3">
               Create Account
             </button>
             {loading && (

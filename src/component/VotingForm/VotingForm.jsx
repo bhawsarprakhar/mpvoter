@@ -115,7 +115,7 @@ const Drop = () => {
             setMailMsg(user);
             if (user.status == "pending") {
               toast.error(
-                "Please verify your email by clicking on the link in your Gmail."
+                "Please verify your email by clicking on the link in your mail box."
               );
             }
           }
@@ -300,7 +300,7 @@ const Drop = () => {
             {filteredItems?.length > 0 ? (
               <div className="poll-form">
                 <form className="content col-12 m-auto col-lg-8 voting-form stop-animation">
-                  <h2 className="m-4">Thanks for the voting {loginuser}</h2>
+                  <h2 className="m-4">You have already submitted your opinion {loginuser}</h2>
                   <h5 className="m-4">
                     Your District / ज़िला:-
                     <span className="text-primary">
