@@ -134,16 +134,7 @@ const Login = () => {
           <link rel="canonical" href="https://mpvoter.com/login" />
         </Helmet>
         <div className="sign-box sign-bg">
-          <p className="text-light information-txt mb-4 mx-auto">
-            <b>
-              Voice your valuable opinion to unleash the immeasurable potential
-              to choose the right leader, a power that solely rests with the
-              people! Your opinion counts and it's high time we prioritize our
-              state of Madhya Pradesh once again and usher in a new era of
-              development. Join us in this unstoppable pursuit to build a
-              brighter future of our state.
-            </b>
-          </p>
+          
           <VoteGuid />
           <form
             className="col-12 m-auto col-lg-8 login-from demo"
@@ -215,6 +206,16 @@ const Login = () => {
               </p>
             </div>
           </form>
+          <p className="text-light information-txt mb-4 mx-auto">
+            <b>
+              Voice your valuable opinion to unleash the immeasurable potential
+              to choose the right leader, a power that solely rests with the
+              people! Your opinion counts and it's high time we prioritize our
+              state of Madhya Pradesh once again and usher in a new era of
+              development. Join us in this unstoppable pursuit to build a
+              brighter future of our state.
+            </b>
+          </p>
         </div>
       </div>
     </>

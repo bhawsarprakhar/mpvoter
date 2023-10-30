@@ -158,16 +158,7 @@ const Signup = () => {
 
         <ToastContainer />
         <div className="sign-box sign-bg">
-          <p className="text-light information-txt mx-auto mb-4">
-            <b>
-              Voice your valuable opinion to unleash the immeasurable potential
-              to choose the right leader, a power that solely rests with the
-              people! Your opinion counts and it's high time we prioritize our
-              state of Madhya Pradesh once again and usher in a new era of
-              development. Join us in this unstoppable pursuit to build a
-              brighter future of our state.
-            </b>
-          </p>
+          
 
           <VoteGuid />
           <form
@@ -272,7 +263,16 @@ const Signup = () => {
               </p>
             </div>
           </form>
-
+          <p className="text-light information-txt mx-auto mb-4">
+            <b>
+              Voice your valuable opinion to unleash the immeasurable potential
+              to choose the right leader, a power that solely rests with the
+              people! Your opinion counts and it's high time we prioritize our
+              state of Madhya Pradesh once again and usher in a new era of
+              development. Join us in this unstoppable pursuit to build a
+              brighter future of our state.
+            </b>
+          </p>
           <HomPageContent />
         </div>
       </div>
