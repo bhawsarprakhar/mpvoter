@@ -32,7 +32,6 @@ const Signup = () => {
   const signIn = async (e) => {
     //debugger;
     e.preventDefault();
-
     const newErrors = {};
     if (!formValue.name || !/^[A-Za-z-' ]+$/.test(formValue.name)) {
       newErrors.name = "Name should be alphabetical only";
@@ -44,9 +43,13 @@ const Signup = () => {
       newErrors.email = "Invalid email format";
     }
 
-     if (!formValue.password || formValue.password.length < 4 || formValue.password.length > 8) {
-       newErrors.password = "Password must be between 4 and 8 characters";
-     }
+    if (
+      !formValue.password ||
+      formValue.password.length < 4 ||
+      formValue.password.length > 8
+    ) {
+      newErrors.password = "Password must be between 4 and 8 characters";
+    }
 
     if (!formValue.phone || !/^\d{10}$/.test(formValue.phone)) {
       newErrors.phone = "Phone number should be numerical and 10 digit";
@@ -104,6 +107,15 @@ const Signup = () => {
     }
   }, []);
 
+  const handleName = (e) => {
+    const allowedCharsRegex = /^[A-Za-z\s]+$/; // Regular expression to allow only letters and spaces
+
+    if ( !allowedCharsRegex.test(e.key)) {
+      e.preventDefault(); // Prevent the keypress if the character is not allowed
+    } else {
+      setFormValue({ ...formValue, [e.target.name]: e.target.value });
+    }
+  };
   const handleChange = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
   };
@@ -158,14 +170,12 @@ const Signup = () => {
 
         <ToastContainer />
         <div className="sign-box sign-bg">
-          
-
           <VoteGuid />
           <form
             className="col-12 m-auto col-lg-8 register-form demo"
             onSubmit={(e) => signIn(e)}
           >
-            <h1 className="mb-4 text-center">Welcome</h1>
+            <h1 className="mb-4 text-center gradient-heading">Welcome</h1>
             {/* <button
               type="submit"
               className="btn btn-primary btn-lg mb-4 google-login"
@@ -182,7 +192,8 @@ const Signup = () => {
                   required
                   name="name"
                   placeholder="Your Name"
-                  onChange={handleChange}
+                  onKeyPress={handleName}
+                  onChange={handleName}
                 />
                 {errors.name && (
                   <p className="text-danger error">{errors.name}</p>
@@ -234,7 +245,9 @@ const Signup = () => {
                   onChange={handleChange}
                 />
                 {errors.password && (
-                  <p className="position-absolute text-danger error">{errors.password}</p>
+                  <p className="position-absolute text-danger error">
+                    {errors.password}
+                  </p>
                 )}
               </div>
               <div
@@ -247,7 +260,7 @@ const Signup = () => {
               </div>
             </div>
             {/* {error && <div className="text-danger">{error}</div>} */}
-            <button type="submit" className="btn btn-primary btn-lg mt-4 mb-3">
+            <button type="submit" className="btn btn-primary btn-lg mt-4 mb-3 botton-shadow">
               Create Account
             </button>
             {loading && (

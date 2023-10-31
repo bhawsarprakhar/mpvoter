@@ -62,7 +62,7 @@ function ForgotPassword() {
           className="col-12 m-auto col-lg-8 login-from"
           onSubmit={(e) => handleSubmit(e)}
         >
-          <h1 className="mb-4 text-center">Forget Password</h1>
+          <h1 className="mb-4 text-center gradient-heading">Forget Password</h1>
           <div className="d-flex flex-row align-items-center mb-4">
             <div className="form-outline flex-fill mb-0">
               <input
@@ -100,7 +100,7 @@ function ForgotPassword() {
               </p>
             </div>
           </div> */}
-          <button type="submit" className="btn btn-primary btn-lg mb-4">
+          <button type="submit" className="btn btn-primary btn-lg mb-4 botton-shadow">
             Send verify Password link to your Email
           </button>
           {loading && (

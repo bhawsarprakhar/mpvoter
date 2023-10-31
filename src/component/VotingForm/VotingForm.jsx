@@ -300,7 +300,7 @@ const Drop = () => {
             {filteredItems?.length > 0 ? (
               <div className="poll-form">
                 <form className="content col-12 m-auto col-lg-8 voting-form stop-animation">
-                  <h2 className="m-4">You have already submitted your opinion {loginuser}</h2>
+                  <h2 className="m-4 gradient-heading">You have already submitted your opinion {loginuser}</h2>
                   <h5 className="m-4">
                     Your District / ज़िला:-
                     <span className="text-primary">
@@ -336,7 +336,7 @@ const Drop = () => {
                     className="col-12 m-auto col-lg-8 voting-form stop-animation"
                     onSubmit={(e) => submitData(e)}
                   >
-                    <h1 className="mb-4">Welcome {loginuser} </h1>
+                    <h1 className="mb-4 gradient-heading">Welcome {loginuser} </h1>
 
                     <div
                       className={`select ${isActive ? "active" : "inactive"}`}
@@ -618,7 +618,7 @@ const Drop = () => {
                     <button
                       disabled={showSubmitBtn}
                       type="submit"
-                      className="btn btn-primary mt-4"
+                      className="btn btn-primary mt-4 botton-shadow"
                     >
                       Submit
                     </button>

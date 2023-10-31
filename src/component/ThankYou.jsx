@@ -1,8 +1,12 @@
+import { useEffect } from "react";
 import BrandExample from "./Header/Header";
 import HomPageContent from "./LandingForm/homePageContent";
 import { Link } from "react-router-dom";
 
 const Thankyou = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <BrandExample />

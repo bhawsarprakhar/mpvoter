@@ -88,7 +88,7 @@ function ChangePassword() {
           className="col-12 m-auto col-lg-8 login-from"
           onSubmit={(e) => handleSubmit(e)}
         >
-          <h1 className="mb-4 text-center">Create New Password</h1>
+          <h1 className="mb-4 text-center gradient-heading">Create New Password</h1>
 
           <div className="d-flex flex-row align-items-center mb-4 hs-ps">
             <div className="form-outline flex-fill mb-0 ">
@@ -116,7 +116,7 @@ function ChangePassword() {
               </p>
             </div>
           </div>
-          <button type="submit" className="btn btn-primary btn-lg mt-4 mb-4">
+          <button type="submit" className="btn btn-primary btn-lg mt-4 mb-4 botton-shadow">
             Reset Password
           </button>
         </form>

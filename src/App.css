@@ -109,7 +109,7 @@ h6.footer a {
 
 header+div {
 
-  padding-top: 160px;
+  padding-top: 130px;
 }
 
 .poll-form .select {
@@ -159,7 +159,7 @@ header+div {
 
 .poll-form button[type=submit] {
   width: 100%;
-  background: #35CCED;
+  /* background: #35CCED; */
   border: 1px solid #35cced;
 
 }
@@ -170,7 +170,7 @@ header+div {
 }
 
 .poll-form button[type=submit]:hover {
-  background: transparent;
+  /* background: transparent; */
   color: #3f0c01;
 }
 
@@ -225,7 +225,7 @@ p.click-pas:before {
   content: "\f06e";
   font-family: "FontAwesome";
   font-size: 20px;
-  color: #35cced;
+  color: #090979;
 }
 
 p.click-pas {
@@ -246,7 +246,7 @@ p.click-pas {
 .active .click-pas:after {
   content: '/';
   position: absolute;
-  color: #35cced;
+  color: #090979;
   font-size: 23px;
   right: 5px;
   top: -4px;
@@ -316,7 +316,7 @@ p.text-light.information-txt {
   /* max-width: 900px; */
   text-align: center;
   font-size: 19px;
-  font-weight: 300;
+  font-weight: 400;
   font-family: sans-serif;
   z-index: 99999999;
   margin-top: 40px
@@ -584,6 +584,37 @@ p.text-light.information-txt {
   }
 }
 
+a.nav-link.padding-unset.dropdown-item {
+  padding: 0px 0 0 10px !important;
+  color: #000 !important;
+}
+
+/* a.nav-link.padding-unset.dropdown-item::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 1px;
+  background: #000;
+  transition: width .2s ease-in;
+} */
+
+.nav-link.dropdown {
+  color: #fff !important;
+  font-size: 20px !important;
+}
+
+.nav-link.dropdown:before {
+  content: "\f107";
+  font-family: "FontAwesome";
+  font-size: 23px;
+  color: #fff;
+  z-index: 11111;
+  position: absolute;
+  right: -12px;
+  z-index: 0;
+  transition: 0.3s;
+}
+
 @media(min-width:992px) {
 
   header li a {
@@ -591,6 +622,11 @@ p.text-light.information-txt {
     padding-left: 45px !important;
   }
 
+
+
+  .nav-link.dropdown {
+    padding-left: 45px !important;
+  }
 }
 
 @media(max-width:481px) {
@@ -598,6 +634,19 @@ p.text-light.information-txt {
   header a.navbar-brand img {
     max-width: 209px;
     object-fit: contain;
+  }
+
+  .nav-link.dropdown {
+
+    max-width: 271px;
+    overflow-x: scroll;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-link.dropdown:before {
+    top: 0;
+    right: 0;
   }
 
 }
@@ -900,6 +949,7 @@ form.content {
   width: 48%;
   margin: 0 !IMPORTANT;
 }
+
 /* .guid-video .demo {
   display: none;
 
@@ -961,9 +1011,10 @@ p.text-black-color {
   .box-bg {
     padding: 4% !important;
   }
-  .poll-form form{
+
+  .poll-form form {
     order: -1;
-    box-shadow:unset
+    box-shadow: unset
   }
 
 }
@@ -972,96 +1023,139 @@ p.text-black-color {
 /* homepage white background css */
 
 
-.sign-box{
+.sign-box {
   display: flex;
-  flex-direction: row!important;
-  flex-wrap: wrap;  
-  flex-direction: row!important;
+  flex-direction: row !important;
+  flex-wrap: wrap;
+  flex-direction: row !important;
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
 .sign-bg {
   background: #fff;
   border-radius: 15px;
   padding: 3%;
   z-index: 0;
 }
+
 p.text-light {
-  color:#000!important;
+  color: #000 !important;
 }
 
 h1.text-light {
-   color:#000!important;
+  color: #000 !important;
 }
 
 ui.text-light {
-   color:#000!important;
-   list-style: none;
+  color: #000 !important;
+  list-style: none;
 }
 
 .container.demo {
-  padding-left:0px;
+  padding-left: 0px;
 }
 
 
 
 @media only screen and (max-width: 991px) {
   .container.demo {
-      padding-left: 0px;
-      padding-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
-  .video-show{
+
+  .video-show {
     display: none !important;
   }
-  }
+}
 
 
 
-  .video-show{
-    display: flex;
-    justify-content: center;
-  }
+.video-show {
+  display: flex;
+  justify-content: center;
+}
 
 
-  .skeleton-container {
-    width: 300px; /* Set the width of your skeleton container */
-    padding: 16px;
-  }
-  
-  .skeleton-content {
-    background-color: #f0f0f0; /* Set the background color of the skeleton */
-    border-radius: 20px;
-    padding: 39px;
-    animation: loading 1.5s infinite;
-  }
-  
-  .skeleton-header {
-    width: 80%;
-    height: 80px;
-    background-color: #e0e0e0; /* Set the background color of the header skeleton */
-    margin-bottom: 16px;
-  }
-  
-  .skeleton-text {
-    width: 100%;
-    height:  70px;;
-    background-color: #e0e0e0; /* Set the background color of text skeletons */
-    margin-bottom: 8px;
-  }
-  
-  @keyframes loading {
-    0% {
-      opacity: 0.6;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0.6;
-    }
+.skeleton-container {
+  width: 300px;
+  /* Set the width of your skeleton container */
+  padding: 16px;
+}
+
+.skeleton-content {
+  background-color: #f0f0f0;
+  /* Set the background color of the skeleton */
+  border-radius: 20px;
+  padding: 39px;
+  animation: loading 1.5s infinite;
+}
+
+.skeleton-header {
+  width: 80%;
+  height: 80px;
+  background-color: #e0e0e0;
+  /* Set the background color of the header skeleton */
+  margin-bottom: 16px;
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 70px;
+  ;
+  background-color: #e0e0e0;
+  /* Set the background color of text skeletons */
+  margin-bottom: 8px;
+}
+
+@keyframes loading {
+  0% {
+    opacity: 0.6;
   }
 
-
-  .stop-animation{
-    animation: unset;
+  50% {
+    opacity: 1;
   }
+
+  100% {
+    opacity: 0.6;
+  }
+}
+
+
+.stop-animation {
+  animation: unset;
+}
+
+
+/* header dropdown */
+
+
+/* a.nav-link.padding-unset.dropdown-item:hover {
+  background-color: unset;
+} */
+
+.dropdown-menu.show {
+  background-color: #fff;
+}
+
+
+/* Gradient color */
+.gradient-heading {
+  /* background: linear-gradient(90deg, rgba(79, 78, 223, 1) 14%, rgba(9, 9, 121, 1) 61%, rgba(2, 0, 36, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  color: #090979 !important;
+}
+
+
+.botton-shadow {
+  background: linear-gradient(90deg, rgba(79, 78, 223, 1) 14%, rgba(9, 9, 121, 1) 61%, rgba(2, 0, 36, 1) 100%);
+  box-shadow: 0px 0px 7px 2px rgb(47 90 223 / 63%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.botton-shadow:hover {
+  box-shadow: 0px 0px 7px 2px rgb(0 0 0 / 63%);
+}

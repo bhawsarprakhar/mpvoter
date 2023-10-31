@@ -1,7 +1,10 @@
 import Container from "react-bootstrap/Container";
-import Navbar from "react-bootstrap/Navbar";
+import  Navbar from "react-bootstrap/Navbar";
+import Dropdown from 'react-bootstrap/Dropdown';
 import logo from "../../assests/Mp-LOGO.webp";
 import React, { useState, useEffect } from "react";
+import { FaUserCircle } from "react-icons/fa";
+
 
 function BrandExample() {
   const [isDarkHeader, setDarkHeader] = useState(false);
@@ -28,49 +31,42 @@ function BrandExample() {
 
   useEffect(() => {
     getLoggedUser();
-  },[]);
+  }, []);
 
   const getLoggedUser = () => {
     const user = JSON.parse(localStorage?.getItem("user"));
     setLogInUser(user?.username);
-  
   };
 
   const logOut = () => {
     localStorage.removeItem("user");
   };
+  const [showDropdown, setShowDropdown] = useState(false);
 
+  const handleMouseEnter = () => {
+    setShowDropdown(true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowDropdown(false);
+  };
   return (
+    
     <>
-      {/* <Navbar className="bg-body-tertiary">
-        <Container>
-          { <Navbar.Brand href="/">
-            <img
-              src={logo}
-              width="80"
-              height="80"
-              className="d-inline-block align-top"
-              alt="React Bootstrap logo"
-            />
-          </Navbar.Brand> }
-
-          
-        </Container>
-      </Navbar> */}
       <header className={isDarkHeader ? "darkHeader" : ""}>
         <nav className="navbar container navbar-expand-lg navbar-light ">
           {/* <a className="navbar-brand" href="/"> */}
-            {
-              <Navbar.Brand href="/">
-                <img
-                  src={logo}
-                  width="80"
-                  height="80"
-                  className="d-inline-block align-top width-style"
-                  alt="mpvoter"
-                />
-              </Navbar.Brand>
-            }
+          {
+            <Navbar.Brand href="/">
+              <img
+                src={logo}
+                width="80"
+                height="80"
+                className="d-inline-block align-top width-style"
+                alt="mpvoter"
+              />
+            </Navbar.Brand>
+          }
           {/* </a> */}
           <button
             className="navbar-toggler"
@@ -95,16 +91,15 @@ function BrandExample() {
           >
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
-              {logInUser ? (
-                   <a className="nav-link" href="/voting-form">
-                   Opinion Poll
-                 </a>
+                {logInUser ? (
+                  <a className="nav-link" href="/voting-form">
+                    Opinion Poll
+                  </a>
                 ) : (
                   <a className="nav-link" href="/">
-                  Home
-                </a>
+                    Home
+                  </a>
                 )}
-                
               </li>
               {/* <li className="nav-item active">
         <a className="nav-link" href="/VoteGuid">How To Vote <span className="sr-only">(current)</span></a>
@@ -120,9 +115,20 @@ function BrandExample() {
 
               <li className="nav-item">
                 {logInUser ? (
-                  <a className="nav-link" onClick={logOut} href="/login">
-                    Sign Out
-                  </a>
+                  // <a className="nav-link" onClick={logOut} href="/login">
+                  //   Sign Out
+                  // </a>
+                  <Dropdown className="nav-link" show={showDropdown} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                    {/* <Dropdown.Toggle variant="primary" id="profile-dropdown"> */}
+                    <FaUserCircle /> {logInUser}
+                    {/* </Dropdown.Toggle> */}
+                    <Dropdown.Menu>
+                      <Dropdown.Item className="nav-link padding-unset" href="#">My Profile</Dropdown.Item>
+                      <Dropdown.Item className="nav-link padding-unset" onClick={logOut} href="/login">Sign Out</Dropdown.Item>
+                      
+                    
+                    </Dropdown.Menu>
+                  </Dropdown>
                 ) : (
                   <a className="nav-link" href="/login">
                     Sign In

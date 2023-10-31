@@ -8,7 +8,7 @@ export default function AboutUsPage() {
 
       <div className="about-main container bottom-pd ">
         <div className="box-bg">
-          <p className="text-black">
+          <p className="gradient-heading">
             <b>
               Spread the word and show your unwavering support to the party of
               your choice!
@@ -32,7 +32,7 @@ export default function AboutUsPage() {
             generation of strong leaders
           </p>
           <p className="text-black-color">
-            The next <b> Madhya Pradesh Election 2023 </b> is just around the
+            The next <b className="gradient-heading"> Madhya Pradesh Election 2023 </b> is just around the
             corner and citizens can express their support to a party quite
             easily. The platform can be utilized effortlessly by any person who
             is eligible to vote. A user needs to sign up or log in. After
