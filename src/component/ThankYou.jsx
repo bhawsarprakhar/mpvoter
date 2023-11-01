@@ -12,7 +12,7 @@ const Thankyou = () => {
       <BrandExample />
       <div className="about-main container bottom-pd ">
         <div className="box-bg">
-          <h2 className="text-center">
+          <h2 className="text-center gradient-heading">
             "You have Successfully given your Opinion"
           </h2>
 

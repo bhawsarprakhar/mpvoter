@@ -123,7 +123,7 @@ function BrandExample() {
                     <FaUserCircle /> {logInUser}
                     {/* </Dropdown.Toggle> */}
                     <Dropdown.Menu>
-                      <Dropdown.Item className="nav-link padding-unset" href="#">My Profile</Dropdown.Item>
+                      {/* <Dropdown.Item className="nav-link padding-unset" href="#">My Profile</Dropdown.Item> */}
                       <Dropdown.Item className="nav-link padding-unset" onClick={logOut} href="/login">Sign Out</Dropdown.Item>
                       
                     

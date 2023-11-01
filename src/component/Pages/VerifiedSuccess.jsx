@@ -45,7 +45,7 @@ function VerifiedSuccess() {
       
       <div className="about-main container bottom-pd ">
         <div className="box-bg">
-          <h2 className="text-center">
+          <h2 className="text-center gradient-heading">
             "Your account is Successfully Verified {clientName}"
           </h2>
 
