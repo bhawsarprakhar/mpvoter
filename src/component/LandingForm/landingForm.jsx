@@ -110,21 +110,21 @@ const Signup = () => {
   const handleName = (e) => {
     const allowedCharsRegex = /^[A-Za-z\s]+$/; // Regular expression to allow only letters and spaces
 
-    if (!allowedCharsRegex.test(e.key)) {
+    if (!allowedCharsRegex.test(e.key || e.input)) {
       e.preventDefault(); // Prevent the keypress if the character is not allowed
     } else {
       setFormValue({ ...formValue, [e.target.name]: e.target.value });
     }
   };
-  const handleInputChange = (e) => {
-    const allowedCharsRegex = /^[A-Za-z\s]+$/; // Regular expression to allow only letters and spaces
+  // const handleInputChange = (e) => {
+  //   const allowedCharsRegex = /^[A-Za-z\s]+$/; // Regular expression to allow only letters and spaces
 
-    if (!allowedCharsRegex.test(e.input)) {
-      e.preventDefault(); // Prevent the keypress if the character is not allowed
-    } else {
-      setFormValue({ ...formValue, [e.target.name]: e.target.value });
-    }
-  };
+  //   if (!allowedCharsRegex.test(e.input)) {
+  //     e.preventDefault(); // Prevent the keypress if the character is not allowed
+  //   } else {
+  //     setFormValue({ ...formValue, [e.target.name]: e.target.value });
+  //   }
+  // };
   // const handleInputChange = (e) => {
   //   const sanitizedValue = e.target.value.replace(/[^A-Za-z\s]/g, ""); // Remove special characters and numbers
 
@@ -207,7 +207,7 @@ const Signup = () => {
                   name="name"
                   placeholder="Your Name"
                   onKeyPress={handleName}
-                  onInput={handleInputChange}
+                  onInput={handleName}
                   onChange={handleName}
                 />
                 {errors.name && (
