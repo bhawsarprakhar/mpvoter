@@ -109,8 +109,8 @@ const Signup = () => {
 
   const handleName = (e) => {
     const allowedCharsRegex = /^[A-Za-z\s]+$/; // Regular expression to allow only letters and spaces
-
-    if (!allowedCharsRegex.test(e.key)) {
+    const inputValue = e.key;
+    if (!allowedCharsRegex.test(inputValue)) {
       e.preventDefault(); // Prevent the keypress if the character is not allowed
     } else {
       setFormValue({ ...formValue, [e.target.name]: e.target.value });
@@ -198,7 +198,7 @@ const Signup = () => {
                   name="name"
                   placeholder="Your Name"
                   onKeyPress={handleName}
-                  onInput={handleName}
+                  
                   onChange={handleName}
                 />
                 {errors.name && (
