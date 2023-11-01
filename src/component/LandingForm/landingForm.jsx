@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -106,15 +106,21 @@ const Signup = () => {
       navigate("/voting-form");
     }
   }, []);
-  const inputRef = useRef(null);
+
   const handleName = (e) => {
     const allowedCharsRegex = /^[A-Za-z\s]+$/; // Regular expression to allow only letters and spaces
 
     if (!allowedCharsRegex.test(e.key)) {
       e.preventDefault(); // Prevent the keypress if the character is not allowed
-    } else if (!allowedCharsRegex.test(e.target.value)) {
+    } else {
+      setFormValue({ ...formValue, [e.target.name]: e.target.value });
+    }
+  };
+  const handleInputChange = (e) => {
+    const allowedCharsRegex = /^[A-Za-z\s]+$/; // Regular expression to allow only letters and spaces
+
+    if (!allowedCharsRegex.test(e.input)) {
       e.preventDefault(); // Prevent the keypress if the character is not allowed
-      inputRef.current.value = "";
     } else {
       setFormValue({ ...formValue, [e.target.name]: e.target.value });
     }
@@ -201,9 +207,8 @@ const Signup = () => {
                   name="name"
                   placeholder="Your Name"
                   onKeyPress={handleName}
-                  // onInput={handleName}
+                  onInput={handleInputChange}
                   onChange={handleName}
-                  ref={inputRef}
                 />
                 {errors.name && (
                   <p className="text-danger error">{errors.name}</p>
