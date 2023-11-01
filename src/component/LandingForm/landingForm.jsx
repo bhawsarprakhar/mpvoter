@@ -206,8 +206,9 @@ const Signup = () => {
                   required
                   name="name"
                   placeholder="Your Name"
-                  onKeyDown={handleName}
+                  onKeyPress={handleName}
                   onChange={handleName}
+                  onInput={handleName}
                 />
                 {errors.name && (
                   <p className="text-danger error">{errors.name}</p>
