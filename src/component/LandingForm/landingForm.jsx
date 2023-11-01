@@ -48,7 +48,7 @@ const Signup = () => {
       formValue.password.length < 4 ||
       formValue.password.length > 8
     ) {
-      newErrors.password = "Password must be between 4 and 8 characters";
+      newErrors.password = "Password must be between 4 to 8 characters";
     }
 
     if (!formValue.phone || !/^\d{10}$/.test(formValue.phone)) {
@@ -208,7 +208,6 @@ const Signup = () => {
                   placeholder="Your Name"
                   onKeyPress={handleName}
                   onChange={handleName}
-                  onInput={handleName}
                 />
                 {errors.name && (
                   <p className="text-danger error">{errors.name}</p>
