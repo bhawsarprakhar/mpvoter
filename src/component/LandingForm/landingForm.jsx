@@ -116,11 +116,11 @@ const Signup = () => {
       setFormValue({ ...formValue, [e.target.name]: e.target.value });
     }
   };
-  const handleInputChange = (e) => {
-    const sanitizedValue = e.target.value.replace(/[^A-Za-z\s]/g, ""); // Remove special characters and numbers
+  // const handleInputChange = (e) => {
+  //   const sanitizedValue = e.target.value.replace(/[^A-Za-z\s]/g, ""); // Remove special characters and numbers
 
-    setFormValue({ ...formValue, [e.target.name]: sanitizedValue });
-  };
+  //   setFormValue({ ...formValue, [e.target.name]: sanitizedValue });
+  // };
   const handleChange = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
   };
@@ -198,7 +198,7 @@ const Signup = () => {
                   name="name"
                   placeholder="Your Name"
                   onKeyPress={handleName}
-                  onInput={handleInputChange}
+                  onInput={handleName}
                   onChange={handleName}
                 />
                 {errors.name && (
