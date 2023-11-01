@@ -175,8 +175,7 @@ const Signup = () => {
         <Helmet>
           <meta charSet="utf-8" />
           <title>
-            Best Assembly Election Opinion website | Mp Voter Polls Opinion-
-            2023
+            Assembly Election Opinion website | Mp Voter Polls Opinion-2023
           </title>
 
           <link rel="canonical" href="https://mpvoter.com" />
@@ -199,7 +198,7 @@ const Signup = () => {
             {/* <p className="text-center">-OR-</p> */}
             <div className="d-flex flex-row align-items-center mb-4">
               <div className="form-outline flex-fill mb-0">
-                <input 
+                <input
                   type="text"
                   id="form3Example1c"
                   className="form-control"
