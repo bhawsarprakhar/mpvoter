@@ -1156,8 +1156,29 @@ ui.text-light {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .botton-shadow:hover {
   box-shadow: 0px 0px 7px 2px rgb(0 0 0 / 63%);
 }
 
 
+li.you-t img {
+  width: 40px !important;
+}
+
+li.you-t a:after {
+  display: none !important;
+}
+
+li.nav-item,
+li.you-t {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.voting-detail {
+  width: fit-content;
+  margin: auto;
+}

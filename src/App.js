@@ -12,8 +12,14 @@ import AllCandidates from './component/Pages/AllCandidates';
 import ForgotPassword from './component/ForgetPasswod';
 import ChangePassword from './component/ChangePassword';
 import VerifiedSuccess from './component/Pages/VerifiedSuccess';
+import AdminLogin from './component/AdminPages/AdminLogin';
 
 import AboutUsPage from './component/Pages/AboutUsPage';
+import RegisteredUser from './component/AdminPages/RegisteredUser';
+import SingleUserVoteData from './component/AdminPages/SingleUserVoteData';
+
+
+
 const TRACKING_ID = 'G-Z0G655HHZ0';
 ReactGA.initialize(TRACKING_ID);
 
@@ -71,12 +77,16 @@ function App() {
           <Route path='/VoteGuid' element={<VoteGuid/>}></Route>
           <Route path='/AllCandidates' element={<AllCandidates/>}></Route>
           <Route path='/forget-password' element={<ForgotPassword />}></Route>
-          <Route path='/AboutUsPage' element={<AboutUsPage/>}></Route>
-          <Route path='/verified-success/:token' element={<VerifiedSuccess/>}></Route>
+          <Route path='/AboutUsPage' element={<AboutUsPage />}></Route>
+          <Route path='/verified-success/:token' element={<VerifiedSuccess />}></Route>
+          <Route path='/auth/admin' element={<AdminLogin />}></Route>
+          <Route path='/auth/admin/registered-user' element={<RegisteredUser />}></Route>
+          <Route path='/auth/admin/voting-detail/:email' element={<SingleUserVoteData />}></Route>
+          
 
         </Routes>
       </Router>
-      <div><h6 className='mt-4 text-center mb-0  footer'><a target='_blank' href="https://jmbliss.com/">Jmbliss IT Solutions</a> | @2023 All Rights Reserved</h6></div>
+      <div><h6 className='mt-4 text-center mb-0  footer'><a target='blank' href="https://jmbliss.com/">Jmbliss IT Solutions</a> | @2023 All Rights Reserved</h6></div>
     </div>
   );
 }

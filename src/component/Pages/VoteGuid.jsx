@@ -10,6 +10,7 @@ export default function VoteGuid() {
 
         <video
           src={video}
+          muted
           autoPlay
           loop
         >

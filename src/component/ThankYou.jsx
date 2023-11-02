@@ -31,16 +31,17 @@ const Thankyou = () => {
           </div>
           <FacebookShareButton
           url={shareUrl}
-          quote={'Title or jo bhi aapko likhna ho'}
-          hashtag={'#portfolio...'}
+          quote={'Share on Facebook'}
+          // hashtag={'#portfolio...'}
         >
           <FacebookIcon size={40} round={true} />
         </FacebookShareButton>
 
         <WhatsappShareButton
           url={shareUrl}
-          quote={'Title or jo bhi aapko likhna ho'}
-          hashtag={'#portfolio...'}
+          // title={'Share on Whatsapp'}
+          // quote={'Share on Whatsapp'}
+          // hashtag={'#portfolio...'}
         >
           <WhatsappIcon size={40} round={true} />
         </WhatsappShareButton>

@@ -291,6 +291,7 @@ const Signup = () => {
                 Already have an account ? <Link to="/login">Log In</Link>
               </p>
             </div>
+            
           </form>
           <p className="text-light information-txt mx-auto mb-4">
             <b>

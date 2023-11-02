@@ -1,10 +1,10 @@
 import Container from "react-bootstrap/Container";
-import  Navbar from "react-bootstrap/Navbar";
-import Dropdown from 'react-bootstrap/Dropdown';
+import Navbar from "react-bootstrap/Navbar";
+import Dropdown from "react-bootstrap/Dropdown";
 import logo from "../../assests/Mp-LOGO.webp";
 import React, { useState, useEffect } from "react";
 import { FaUserCircle } from "react-icons/fa";
-
+import YouTube from "../../assests/images/logo-youtube.svg";
 
 function BrandExample() {
   const [isDarkHeader, setDarkHeader] = useState(false);
@@ -51,7 +51,6 @@ function BrandExample() {
     setShowDropdown(false);
   };
   return (
-    
     <>
       <header className={isDarkHeader ? "darkHeader" : ""}>
         <nav className="navbar container navbar-expand-lg navbar-light ">
@@ -118,15 +117,24 @@ function BrandExample() {
                   // <a className="nav-link" onClick={logOut} href="/login">
                   //   Sign Out
                   // </a>
-                  <Dropdown className="nav-link" show={showDropdown} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                  <Dropdown
+                    className="nav-link"
+                    show={showDropdown}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
                     {/* <Dropdown.Toggle variant="primary" id="profile-dropdown"> */}
                     <FaUserCircle /> {logInUser}
                     {/* </Dropdown.Toggle> */}
                     <Dropdown.Menu>
                       {/* <Dropdown.Item className="nav-link padding-unset" href="#">My Profile</Dropdown.Item> */}
-                      <Dropdown.Item className="nav-link padding-unset" onClick={logOut} href="/login">Sign Out</Dropdown.Item>
-                      
-                    
+                      <Dropdown.Item
+                        className="nav-link padding-unset"
+                        onClick={logOut}
+                        href="/login"
+                      >
+                        Sign Out
+                      </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
                 ) : (
@@ -136,9 +144,17 @@ function BrandExample() {
                 )}
               </li>
 
-              {/* <li className="nav-item">
-        <a className="nav-link " href="/">Contact</a>
-      </li> */}
+              <li className="you-t">
+                <a
+                  target="blank"
+                  href="https://www.youtube.com/channel/UCpcxYVgDYLqDoigrk7VatYA"
+                >
+                  <img src={YouTube} 
+                  alt="Youtube"
+                  width="40"
+                  height="40"/>
+                </a>
+              </li>
             </ul>
           </div>
         </nav>
