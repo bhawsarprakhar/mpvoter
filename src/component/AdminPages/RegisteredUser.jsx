@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AdminHeader from "./AdminHeader";
 
 const RegisteredUser = () => {
@@ -43,8 +43,8 @@ const RegisteredUser = () => {
           </div>
         </div>
       ) : (
-        <div className="container">
-          <table className="table sign-bg">
+        <div className="container overflow-auto">
+          <table className="table box-bg">
             <thead className="thead-dark">
               <tr>
                 <th scope="col">#</th>
@@ -79,30 +79,6 @@ const RegisteredUser = () => {
               ))}
             </tbody>
           </table>
-          {/* <table className="table sign-bg">
-          <thead className="thead-dark">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Email</th>
-              <th scope="col">District</th>
-              <th scope="col">Assembly</th>
-              <th scope="col">Party</th>
-              <th scope="col">Feedback</th>
-            </tr>
-          </thead>
-          <tbody>
-            {userVotingData?.map((votingData, n) => (
-              <tr key={votingData?.id}>
-                <th scope="row">{n + 1}</th>
-                <td>{votingData?.voter_name}</td>
-                <td>{votingData?.voter_district}</td>
-                <td>{votingData?.voter_assembly}</td>
-                <td>{votingData?.voter_partie_support}</td>
-                <td>{votingData?.voter_content}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table> */}
         </div>
       )}
     </>

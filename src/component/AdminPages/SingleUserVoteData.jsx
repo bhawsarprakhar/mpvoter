@@ -2,7 +2,7 @@ import BrandExample from "../Header/Header";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import AdminHeader from "./AdminHeader";
 
 const SingleUserVoteData = () => {
@@ -54,39 +54,70 @@ const SingleUserVoteData = () => {
           </div>
         </div>
       ) : (
-        <div className="container">
-          <table className="table sign-bg voting-detail">
-            {filteredItems?.map((votingData, n) => (
-              <div key={votingData?.id}>
-                <tr>
-                  <th>Email</th>
-                  <td>{votingData?.voter_name}</td>
-                </tr>
-                <tr>
-                  <th>District</th>
-                  <td>{votingData?.voter_district}</td>
-                </tr>
-                <tr>
-                  <th>Assembly</th>
-                  <td>{votingData?.voter_assembly}</td>
-                </tr>
-                <tr>
-                  <th>Party</th>
-                  <td>{votingData?.voter_partie_support}</td>
-                </tr>
-                <tr>
-                  <th>Feedback</th>
-                  <td>{votingData?.voter_content}</td>
-                </tr>
-                <tr>
-                  <th>Time</th>
-                  <td>
-                    <td>{new Date(votingData?.created_at).toLocaleString()}</td>
-                  </td>
-                </tr>
+        <div>
+          {filteredItems?.length > 0 ? (
+            <div className="container">
+              <div className="box-bg">
+                <table className="table">
+                  {filteredItems?.map((votingData, n) => (
+                    <div key={votingData?.id}>
+                      <tr className="d-flex">
+                        <th className="w-30">Email</th>
+                        <td className="w-70">{votingData?.voter_name}</td>
+                      </tr>
+                      <tr className="d-flex">
+                        <th className="w-30">District</th>
+                        <td className="w-70">{votingData?.voter_district}</td>
+                      </tr>
+                      <tr className="d-flex">
+                        <th className="w-30">Assembly</th>
+                        <td className="w-70">{votingData?.voter_assembly}</td>
+                      </tr>
+                      <tr className="d-flex">
+                        <th className="w-30">Party</th>
+                        <td className="w-70">
+                          {votingData?.voter_partie_support}
+                        </td>
+                      </tr>
+                      <tr className="d-flex">
+                        <th className="w-30">Feedback</th>
+                        <td className="w-70">{votingData?.voter_content}</td>
+                      </tr>
+                      <tr className="d-flex">
+                        <th className="w-30">Voting Time</th>
+
+                        <td className="w-70">
+                          {new Date(votingData?.created_at).toLocaleString()}
+                        </td>
+                      </tr>
+                    </div>
+                  ))}
+                </table>
+                <div>
+                  <p className="have-acc">
+                    Back to{" "}
+                    <Link to={"/auth/admin/registered-user"}>
+                      Registered Users
+                    </Link>
+                  </p>
+                </div>
               </div>
-            ))}
-          </table>
+            </div>
+          ) : (
+            <div className="container">
+              <div className="box-bg">
+                <h2>The user hasn't voted yet.</h2>
+                <div>
+                  <p className="have-acc">
+                    Back to{" "}
+                    <Link to={"/auth/admin/registered-user"}>
+                      Registered Users
+                    </Link>
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </>

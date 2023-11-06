@@ -1182,3 +1182,10 @@ li.you-t {
   width: fit-content;
   margin: auto;
 }
+ 
+.w-30{
+  width: 20%;
+}
+.w-70{
+  width: 80%;
+}

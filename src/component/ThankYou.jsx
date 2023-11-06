@@ -29,6 +29,9 @@ const Thankyou = () => {
               Back to <Link to={"/voting-form"}>Opinion poll</Link>
             </p>
           </div>
+          <div>
+            <p>Share our Website with your friends and family</p>
+          </div>
           <FacebookShareButton
           url={shareUrl}
           quote={'Share on Facebook'}
